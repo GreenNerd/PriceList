@@ -3,6 +3,9 @@
   <div class="row">
     <div class="col-xs-8">
       <h4><%= product.name %></small></h4>
+      <td>
+        <%= image_tag(product.image_url, class: 'list_image') %>
+      </td>
     </div>
     <div class="col-xs-4">
       <%= form_for order_item, remote: true do |f| %>
