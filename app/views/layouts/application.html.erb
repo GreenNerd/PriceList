@@ -12,22 +12,24 @@
       <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
     <% end %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= render 'layouts/shim' %>
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
+    <hr>
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
-          <h1><%= link_to "Store Shopping", root_path %></h1>
+        <div>
+          <%= yield %>
         </div>
-        <div class="col-xs-6 text-right">
+        <div class="col-xs-6 text-righoo>
           <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-        </div>
+        <div>
       </div>
-      <hr>
-      <%= yield %>
     </div>
-
+    <hr>
+    <%= render 'layouts/footer' %>
   </body>
 
 </html>
