@@ -15,3 +15,8 @@ OrderStatus.create! id: 1, name: "In Progress"
 OrderStatus.create! id: 2, name: "Placed"
 OrderStatus.create! id: 3, name: "Shipped"
 OrderStatus.create! id: 4, name: "Cancelled"
+
+User.delete_all
+User.create! id: 1, name: "normal", password: "123456", level: "NORMAL"
+User.create! id: 2, name: "vip", password: "wdxxdw", level: "VIP"
+User.create! id: 3, name: "admin", password: "administrator", level: "ADMIN"
