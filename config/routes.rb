@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'signup',      to: 'users#new'
   post 'signup',     to: 'user#create'
+
+  get 'login',       to: 'sessions#new'
+  post 'login',      to: 'sessions#create'
+  delete 'logout',   to: 'sessions#destroy'
 
   #get 'order_items/create'
   #get 'order_items/update'
