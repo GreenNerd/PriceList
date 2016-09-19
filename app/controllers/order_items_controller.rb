@@ -1,22 +1,30 @@
 class OrderItemsController < ApplicationController
   def create
-    # byebug
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
-    @order.save
+    @product_id = @order_item.product_id
+    # byebug
+    if !OrderItem.find_by(product_id: @product_id).nil?
+      @order_item.destroy
+      @order_item = OrderItem.find_by(product_id: @product_id)
+      @order_item.update_attributes(order_item_params)
+      @order_items = @order.order_items
+    else
+      @order.save
+    end
     session[:order_id] = @order.id
   end
 
   def update
     @order = current_order
-    @order_item = @order.order_items.find[params[:id]]
+    @order_item = @order.order_items.find(params[:id])
     @order_item.update_attributes(order_item_params)
     @order_items = @order.order_items
   end
 
   def destroy
     @order = current_order
-    @order_item = @order.order_items.find[params[:id]]
+    @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = @order.order_items
   end
