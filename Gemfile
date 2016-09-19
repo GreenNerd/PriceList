@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.0'
+gem 'bundler', '1.13.0'
 gem 'omniauth-wechat-oauth2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
