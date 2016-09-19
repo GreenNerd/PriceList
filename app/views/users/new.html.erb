@@ -15,7 +15,7 @@
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
 
-      <%= f.select :level, User.all.collect { |u| [ u.level ] }, include_blank: true %>
+      <%= f.select :level, User.all.collect { |u| [ u.level ] }.uniq, include_blank: true %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>

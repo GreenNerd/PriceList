@@ -18,5 +18,5 @@ OrderStatus.create! id: 4, name: "Cancelled"
 
 User.delete_all
 User.create! id: 1, name: "normal", password: "123456", level: "NORMAL"
-User.create! id: 2, name: "vip", password: "wdxxdw", level: "VIP"
-User.create! id: 3, name: "admin", password: "administrator", level: "ADMIN"
+User.create! id: 2, name: "vip", password: "123456", level: "VIP"
+User.create! id: 3, name: "admin", password: "123456", level: "ADMIN"
