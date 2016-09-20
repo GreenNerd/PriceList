@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/get'
+
   get 'sessions/new'
 
   get 'signup',      to: 'users#new'
@@ -7,6 +9,8 @@ Rails.application.routes.draw do
   get 'login',       to: 'sessions#new'
   post 'login',      to: 'sessions#create'
   delete 'logout',   to: 'sessions#destroy'
+
+  get 'search',      to: 'search#get'
 
   #get 'order_items/create'
   #get 'order_items/update'
