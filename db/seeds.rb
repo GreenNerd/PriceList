@@ -10,12 +10,6 @@ Product.create! id: 1, name: "Banana", image_url: "1.png", price: 1.11, active: 
 Product.create! id: 2, name: "Alalaa", image_url: "2.png", price: 2.22, active: true
 Product.create! id: 3, name: "Cxcxcx", image_url: "3.png", price: 3.33, active: true
 
-OrderStatus.delete_all
-OrderStatus.create! id: 1, name: "In Progress"
-OrderStatus.create! id: 2, name: "Placed"
-OrderStatus.create! id: 3, name: "Shipped"
-OrderStatus.create! id: 4, name: "Cancelled"
-
 User.delete_all
 User.create! id: 1, name: "normal", password: "123456", level: "NORMAL"
 User.create! id: 2, name: "vip", password: "123456", level: "VIP"
