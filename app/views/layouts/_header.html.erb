@@ -2,14 +2,16 @@
   <div class="container">
     <%= link_to "Shopping", root_path, id: "logo" %>
 
-    <div>
-      <%= form_tag("/search", method: "get", id: "search-form") do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search products" %>
-        <%= submit_tag("Search") %>
-    ``<% end %>
-    </div>
-
     <nav>
+      <div>
+        <%= form_tag("/search", method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], 
+              class: "form-control input-sm search-form", placeholder: "Search products" %>
+          </div>
+        <% end %>
+      </div>
+
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
