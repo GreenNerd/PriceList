@@ -12,6 +12,7 @@ default: &default
   password: 123456
   pool: 5
   timeout: 5000
+  schema_search_path: "public, hstore"
 
 development:
   adapter: postgresql
@@ -21,6 +22,7 @@ development:
   password: 123456
   pool: 5
   timeout: 5000
+  schema_search_path: "public, hstore"
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -33,6 +35,7 @@ test:
   password: 123456
   pool: 5
   timeout: 5000
+  schema_search_path: "public, hstore"
 
 production:
   adapter: postgresql
@@ -42,3 +45,4 @@ production:
   password: 123456
   pool: 5
   timeout: 5000
+  schema_search_path: "public, hstore"

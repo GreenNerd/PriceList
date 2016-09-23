@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* CREATE EXTENSION hstore WITH SCHEMA pg_catalog;
+  psql -U dbuser -d shop_app
+  # add hstore type extension support
