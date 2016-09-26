@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913091550) do
+ActiveRecord::Schema.define(version: 20160922075920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -37,12 +38,25 @@ ActiveRecord::Schema.define(version: 20160913091550) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.string   "image_url"
-    t.decimal  "price",      precision: 12, scale: 3
-    t.boolean  "active"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.string  "image_url"
+    t.decimal "price",       precision: 12, scale: 3
+    t.boolean "active"
+    t.string  "name"
+    t.string  "thumb",                                array: true
+    t.string  "pictures",                             array: true
+    t.string  "description"
+    t.string  "category",                             array: true
+  end
+
+  create_table "stock_keeping_units", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "inventory_count"
+    t.string   "product_type"
+    t.hstore   "prices"
+    t.hstore   "dimensions"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["product_id"], name: "index_stock_keeping_units_on_product_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +70,5 @@ ActiveRecord::Schema.define(version: 20160913091550) do
 
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "stock_keeping_units", "products"
 end
