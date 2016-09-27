@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160922075920) do
+ActiveRecord::Schema.define(version: 20160927023852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "parent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "product_id"
@@ -44,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160922075920) do
     t.string  "name"
     t.string  "thumb",                                array: true
     t.string  "pictures",                             array: true
-    t.string  "description"
-    t.string  "category",                             array: true
+    t.text "description"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id", using: :btree
   end
 
   create_table "stock_keeping_units", force: :cascade do |t|
@@ -68,7 +76,8 @@ ActiveRecord::Schema.define(version: 20160922075920) do
     t.string   "password_digest"
   end
 
+  add_foreign_key "products", "categories"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "stock_keeping_units", "products"
+  add_foreign_key "stock_keeping_units", "products", on_delete: :cascade
 end
