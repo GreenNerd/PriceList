@@ -28,6 +28,9 @@ Product.create! id: 7, category_id: 9, name: "Alalad", image_url: "2.png", price
 Product.create! id: 8, category_id: 7, name: "劳斯劳斯", image_url: "1.png", price: 423432.22, active: true, thumb: ["1.png"], pictures: ["1.png", "2.png", "3.png"], description: "haha"
 Product.create! id: 9, category_id: 6, name: "Dsfads", image_url: "2.png", price: 123123.2, active: true, thumb: ["1.png"], pictures: ["1.png", "2.png", "3.png"], description: "haha"
 Product.create! id: 10, category_id: 5, name: "Balalala", image_url: "2.png", price: 8989.22, active: true, thumb: ["1.png"], pictures: ["1.png", "2.png", "3.png"], description: "haha"
+(1..100).each do |i|
+  Product.create! id: 10+i, category_id: i%9+1, name: "特拉斯", image_url: "3.png", price: 9.22+i, active: true, thumb: ["1.png"], pictures: ["1.png", "2.png", "3.png"], description: "haha"
+end
 
 User.destroy_all
 User.create! id: 1, name: "normal", password: "123456", level: "NORMAL"
