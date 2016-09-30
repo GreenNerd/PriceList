@@ -1,13 +1,20 @@
 <h3 class="text-center">搜索结果</h3>
 
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <% if !@products.empty? %>
-      <% @products.each do |product| %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px">
+      <% @products.reject { |e| e.id % 2 == 0 }.each do |product| %>
         <%= render "product_row", product: product, order_item: @order_item %>
       <% end %>
-    <% else %>
-      <% render "no_results" %>
-    <% end %>
+    </div>
+    <div class="col-xs-4">
+      <% @products.select { |e| e.id % 2 == 0 }.each do |product| %>
+        <%= render "product_row", product: product, order_item: @order_item %>
+      <% end %>
+    </div>
+  </div>
+  <div style="text-align:center">
+    <%= paginate @products %>
+    <%= page_entries_info @products %>
   </div>
 </div>

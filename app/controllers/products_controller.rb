@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.page(params[:page]).per(12)
+    @products = Product.page(params[:page])
     if params[:search]
       @products = Product.find_by(name: params[:search])
     else
