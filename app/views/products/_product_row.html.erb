@@ -1,21 +1,22 @@
 <div class="well well-sm">
 
   <div class="row">
-    <div style="position:relative; top:-20px; left:50px;">
-      <h4><%= product.name %></small></h4>
+    <div style="position:relative; top: 5px; left:20px;">
       <td>
         <%= image_tag(product.image_url, class: 'list_image', size: "100x140") %>
       </td>
+      <h4><%= product.name %></small></h4>
     </div>
-    <div style="position:relative; top:-20px; left:50px;">
-      <%= form_for order_item, remote: true do |f| %>
-        <div display:inline>
-          <h4 class="text-left">￥ <span style="color: green"><%= number_to_currency product.price %></span></h4>
-        </div>
-        <div class="input-group-btn" display:inline>
-          <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-        </div>
-      <% end %>
+
+    <div style="position:relative; left:20px;">
+      <div display:inline class="col-xs-1">
+        <h4 class="text-left"> <span style-"color: green"><%= number_to_currency product.price %></span></h4>
+      </div>
+      <div class="col-xs-9" display:inline style="text-align:right">
+        <button type="submit" class="btn btn-primary">
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+        </button>
+      </div>
     </div>
 
   </div>
