@@ -1,7 +1,8 @@
 class SearchController < ApplicationController
   def get
     if !params[:search].nil?
-      @QUERY_SQL = "SELECT * FROM products WHERE name ~ '#{ params[:search] }'"
+      @SQL_MATCH = params[:search].split(/ /).join("|")
+      @QUERY_SQL = "SELECT * FROM products WHERE name ~ '(@SQL_MATCH)'"
       #@QUERY_SQL = "SELECT products.id,             products.image_url,
       #                     products.price,          products.active,
       #                     products.name,           products.thumb,
