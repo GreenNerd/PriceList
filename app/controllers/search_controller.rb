@@ -1,7 +1,14 @@
 class SearchController < ApplicationController
   def get
+    @products = Product.page(params[:page])
     if !params[:search].nil?
-      @QUERY_SQL = "SELECT * FROM products WHERE name ~ '#{ params[:search] }'"
+      if params[:search].include? " "
+        @SQL_MATCH = params[:search].split(/ /).join("|")
+        @QUERY_SQL = "SELECT * FROM products WHERE name ~ '#@SQL_MATCH'"
+        #@QUERY_SQL = "SELECT * FROM products WHERE name ~ '(#@SQL_MATCH)'"
+      else
+        @QUERY_SQL = "SELECT * FROM products WHERE name ~ '#{ params[:search] }'"
+      end
       #@QUERY_SQL = "SELECT products.id,             products.image_url,
       #                     products.price,          products.active,
       #                     products.name,           products.thumb,
@@ -9,8 +16,7 @@ class SearchController < ApplicationController
       #                     products.category_id
       #              FROM products 
       #              INNER JOIN categories
-      #              ON products.category_id = categories.id
-      #              WHERE categories.name ~ '{ params[:search] }'
+      #              ON products.category_id = categories.id #              WHERE categories.name ~ '{ params[:search] }'
       #              UNION
       #              SELECT * FROM products WHERE name ~ '{ params[:seatch] }'"
       @products = Product.find_by_sql(@QUERY_SQL)
