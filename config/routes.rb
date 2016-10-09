@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #get 'order_items/destroy'
   #get 'carts/show'
   #get 'products/index'
-  resources :products, only: [:index]
+  resources :products, only: [:index, :show]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
   resources :users

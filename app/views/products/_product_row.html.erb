@@ -13,9 +13,9 @@
         <h4 class="text-left"> <span style-"color: green"><%= number_to_currency product.price %></span></h4>
       </div>
       <div class="col-xs-9" display:inline style="text-align:right">
-        <button type="submit" class="btn btn-primary">
+        <%= button_to product_path(product.id), :class => 'btn btn-large btn-primary', :method => :get do %>
           <span class="glyphicon glyphicon-shopping-cart"></span>
-        </button>
+        <% end %>
       </div>
     </div>
 
