@@ -4,7 +4,7 @@ module CarouselHelper
     Carousel.new(self, images).html
   end
 
-  def Carousel
+  class Carousel
     def initialize(view, images)
       @view, @images = view, images
       @uid = SecureRandom.hex(6)
@@ -44,7 +44,7 @@ module CarouselHelper
 
     def slide_tag(image, is_active)
       options = {
-        class: (is_active ? 'item active' : 'item'),
+        class: (is_active ? 'item active' : 'item') + " helperCarouselImg",
       }
 
       content_tag(:div, image_tag(image), options)
