@@ -22,11 +22,107 @@
       </div>
       <div>
         <span class="label label-default">
-          <%= @product.price %>
+          <%= number_to_currency @product.price %>
         </span>
       </div>
       <div>
+        <div>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#countModal">
+            选择数量
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="countModal" tabindex="-1" role="dialog" aria-labelledby="countModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="countModalLabel">选择商品数量</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="container" display:inline-block>
+                    <div style="width:100px;height:150px;float:left;">
+                      <%= image_tag("1.png", size: "100x150")%>
+                    </div>
+                    <div class="row" style="width:400px;height:150px;float:left;">
+                      <div style="width:150px;height:75px;float:right">
+                        <%= @product.name %>
+                      </div>
+                      <div style="width:150px;height:75px;float:right">
+                        <%= number_to_currency @product.price %>
+                      </div>
+                    </div>
+                  </div>
+                  </br>
+                  <div class="alert alert-success" role="alert">
+                    <div>
+                      <h4><span style="color:green">选择型号:</span></h4>
+                    </div>
+                    <div>
+                      <%= button_to "型号一", :class => 'btn btn-info' %>
+                    </div>
+                    <div>
+                      <%= button_to "型号二", :class => 'btn btn-info' %>
+                    </div>
+                  </div>
+                  <!-- product count -->
+                  <div class="alert alert-info" role="alert">
+                    <table>
+                      <tr>
+                        <td>
+                          <input value="-" type="button" onclick="Sub(this)" />
+                          <input type="text" value="1" name="t1" width="40px" />
+                          <input value="+" type="button" onclick="Add(this)" />
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                  <button type="button" class-"btn btn-warning">加入购物车</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <%= button_to "加入购物车", :class => 'btn btn-primary' %>
+        </div>
       </div>
+      <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#detail" aria-controls="detail" role="tab" data-toggle="tab">商品详情</a>
+          </li>
+          <li role="presentation">
+            <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">商品规格</a>
+          </li>
+          <li role="presentation">
+            <a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">商品图片</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="detail">
+            商品详情: V3000 Rack Shipment Bracket
+            供应商: 上海祺冠系统集成有限公司
+          </div>
+          <div role="tabpanel" class="tab-pane" id="specification">
+            处理器: 因特尔R 至强R 处理器E5-2609 v4
+                    1.7GHz
+            Cache: 20MB
+            网卡: 板载双口千兆网络适配器，可选PCI-e双口
+                  10Gb网络适配器或双口16Gb光纤通道卡
+          </div>
+          <div role="tabpanel" class="tab-pane" id="pictures">...</div>
+        </div>
+      </div>
+
     </div>
   </div>
 
