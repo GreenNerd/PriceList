@@ -58,12 +58,15 @@
                   </br>
                   <div class="alert alert-success" role="alert">
                     <div>
-                      <h4><span style="color:green">选择型号:</span></h4>
+                      <h4><span class="label label-default">选择型号:</span></h4>
                     </div>
-                    <div>
+                    <% @skus.each do |sku| %>
+                      <%= button_to sku.product_type, :class => 'btn btn-info' %>
+                    <% end %>
+                    <div class="div-inline">
                       <%= button_to "型号一", :class => 'btn btn-info' %>
                     </div>
-                    <div>
+                    <div class="div-inline">
                       <%= button_to "型号二", :class => 'btn btn-info' %>
                     </div>
                   </div>

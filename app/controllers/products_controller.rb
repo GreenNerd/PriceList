@@ -11,5 +11,6 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @skus = StockKeepingUnit.where(product_id: params[:id])
   end
 end
