@@ -14,21 +14,35 @@
       <%= carousel_for(@product.pictures)%>
     </div>
 
+    <div class="VerticalSpace"></div>
     <div>
-      <%= @product.name %>
-      <div display:inline>
-        <span class="label label-default">库存:</span>
-        <%= @product.description %>
-      </div>
+      <p style="text-align:center;"><%= @product.name %></p>
+      <div class="VerticalSpace"></div>
+
       <div>
-        <span class="label label-default">
-          <%= number_to_currency @product.price %>
-        </span>
+        <div style="width:50%;float:left;">
+          <p style="text-align:center;">
+            <span class="label label-info">库存:</span>
+            <%= @product.description %>
+          </p>
+        </div>
+        <div style="width:50%;float:right;">
+          <p style="text-align:center;">
+            <span class="label label-info">价格:</span>
+            <%= number_to_currency @product.price %>
+          </p>
+        </div>
       </div>
-      <div>
-        <div>
+
+      <div class="VerticalSpace"></div>
+      <div style="height:60px;">
+        <div style="width:20%;height:20px;float:right;">
+          <%= button_to "加入购物车", class:'btn btn-default' %>
+        </div>
+
+        <div style="width:20%;height:20px;float:right;">
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#countModal">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#countModal" style="width:100px;height:30px;">
             选择数量
           </button>
           <!-- Modal -->
@@ -42,16 +56,22 @@
                   <h4 class="modal-title" id="countModalLabel">选择商品数量</h4>
                 </div>
                 <div class="modal-body">
-                  <div class="container" display:inline-block>
-                    <div style="width:100px;height:150px;float:left;">
+                  <div class="container">
+                    <div style="width:40%;height:150px;float:left;">
                       <%= image_tag("1.png", size: "100x150")%>
                     </div>
-                    <div class="row" style="width:400px;height:150px;float:left;">
-                      <div style="width:150px;height:75px;float:right">
-                        <%= @product.name %>
+                    <div class="row" style="width:60%;height:150px;float:right;">
+                      <div style="width:75%;height:50%;">
+                        <h4>
+                          <span class="label label-info">商品名称:</span>
+                          <%= @product.name %>
+                        </h4>
                       </div>
-                      <div style="width:150px;height:75px;float:right">
-                        <%= number_to_currency @product.price %>
+                      <div style="width:75%;height:50%;">
+                        <h4>
+                          <span class="label label-info">商品价格:</span>
+                          <%= number_to_currency @product.price %>
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -91,10 +111,10 @@
             </div>
           </div>
         </div>
-        <div>
-          <%= button_to "加入购物车", :class => 'btn btn-primary' %>
-        </div>
+
       </div>
+
+      <div class="VerticalSpace"></div>
       <div>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
