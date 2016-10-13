@@ -76,31 +76,37 @@
                     </div>
                   </div>
                   </br>
-                  <div class="alert alert-success" role="alert">
-                    <div>
+                  <div class="container-fluid alert alert-success" role="alert">
+                    <div style="width:20%;float:left;">
                       <h4><span class="label label-default">选择型号:</span></h4>
                     </div>
-                    <% @skus.each do |sku| %>
-                      <%= button_to sku.product_type, :class => 'btn btn-info' %>
-                    <% end %>
-                    <div class="div-inline">
-                      <%= button_to "型号一", :class => 'btn btn-info' %>
-                    </div>
-                    <div class="div-inline">
-                      <%= button_to "型号二", :class => 'btn btn-info' %>
+                    <div class="btn-group" data-toggle="buttons" style="width:80%;float:left;">
+                      <% @skus.each do |sku| %>
+                        <label class="btn btn-primary">
+                          <input type="checkbox" autocomplete="off">
+                            <%= sku.product_type %>
+                          </input>
+                        </label>
+                        <div class="HorizontalSpace"></div>
+                      <% end %>
                     </div>
                   </div>
                   <!-- product count -->
-                  <div class="alert alert-info" role="alert">
-                    <table>
-                      <tr>
-                        <td>
-                          <input id="min" name="" type="button" value="-" />
-                          <input id="text_box" name="" type="text" value="1" style="width:30px;" />
-                          <input id="add" name="" type="button" value="+" />
-                        </td>
-                      </tr>
-                    </table>
+                  <div class="container-fluid alert alert-info" role="alert">
+                    <div style="width:20%;float:left;">
+                      <h4><span class="label label-default">选择数量:</span></h4>
+                    </div>
+                    <div style="widht:40%;float:left;">
+                      <table style="text-align:center;">
+                        <tr>
+                          <td>
+                            <input id="min" name="" type="button" value="-" />
+                            <input id="text_box" name="" type="text" value="1" style="width:30px;" />
+                            <input id="add" name="" type="button" value="+" />
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
                   </div>
                 </div>
                 <div class="modal-footer">
