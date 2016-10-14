@@ -1,4 +1,6 @@
 class OrderItemsController < ApplicationController
+  before_action :set_order_item, only: [:create]
+
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
@@ -12,6 +14,19 @@ class OrderItemsController < ApplicationController
     # else
     #  @order.save
     # end
+    respond_to do |format|
+      if @order.save
+        flash.now[:notice]="加入购物车成功"
+        format.json { head :no_content }
+        format.js
+      else
+        flash.now[:notice]="加入购物车失败"
+        format.json { render json: @order_item.errors.full_messages,
+                            status: :unprocessable_entity }
+      end
+
+    end
+
     @order.save
     session[:order_id] = @order.id
   end
@@ -31,7 +46,11 @@ class OrderItemsController < ApplicationController
   end
 
 private
+  def set_order_item
+    @order_item = OrderItem.find(params[:id])
+  end
+
   def order_item_params
-    params.require(:order_item).permit(:quantity, :product_id)
+    params.require(:order_item).permit(:quantity, :stock_keeping_unit_id)
   end
 end

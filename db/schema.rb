@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160927023852) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer  "product_id"
+    t.integer  "stock_keeping_unit_id"
     t.integer  "order_id"
     t.decimal  "unit_price",  precision: 12, scale: 3
     t.integer  "quantity"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160927023852) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
-    t.index ["product_id"], name: "index_order_items_on_product_id", using: :btree
+    t.index ["stock_keeping_unit_id"], name: "index_order_items_on_stock_keeping_unit_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|
@@ -78,6 +78,6 @@ ActiveRecord::Schema.define(version: 20160927023852) do
 
   add_foreign_key "products", "categories"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_items", "products"
+  add_foreign_key "order_items", "stock_keeping_units"
   add_foreign_key "stock_keeping_units", "products", on_delete: :cascade
 end
