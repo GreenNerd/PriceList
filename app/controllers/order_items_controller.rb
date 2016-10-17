@@ -1,7 +1,14 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:create]
 
+  def new
+    @order_item = OrderItem.new
+    @product = Product.find(session[:product_id])
+    @skus = StockKeepingUnit.where(product_id: params[:id])
+  end
+
   def create
+    @current_product = Product.find(session[:product_id])
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
     # @product_id = @order_item.product_id

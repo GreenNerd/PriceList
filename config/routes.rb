@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get 'search',      to: 'search#get'
   get'products/addtocart', to: 'products#addtocart'
 
-  resources :products, only: [:index, :show, :addtocart]
+  resources :products, only: [:index, :show]
   resource :cart, only: [:show]
-  resources :order_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
+  resources :order_items, only: [:create, :update, :destroy, :new], defaults: { format: 'js' }
   resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
