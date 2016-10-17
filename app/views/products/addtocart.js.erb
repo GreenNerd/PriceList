@@ -1,0 +1,33 @@
+// Add the dialog title
+#('#dialog h3').html("<i class='glyphicon glyphicon-plus'></i> 选择商品数量);
+
+// Render the new form
+$('.modal-body').html('<%= j render("detailSel") %>');
+// $('.modal-body').html('<h1>this is a test</h1>');
+
+// Show the dynamic dialog
+$('#dialog').modal("show");
+
+// Set focus to the first element
+$('#dialog').on('shown.bs.modal', function() {
+    $('.first_input').focus()
+  });
+
+// Ajax send data
+$("#sign_submit").click(function(){
+  email_id = $("#user_id").val()
+  password = $("#user_password").val()
+
+  data = {email: email_id, password: password};
+  url = user/sign_in;
+
+  $.ajax({
+    url: url,
+    data: data,
+    cache: false,
+    type: "post",
+    success: function(data){
+      console.log(data);
+    }
+  });
+});

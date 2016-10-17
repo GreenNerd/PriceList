@@ -6,18 +6,21 @@
     <div style="width:75%;height:50%;">
       <h4>
         <span class="label label-info">商品名称:</span>
+        <p id="product_name"></p>
         <%= @product.name %>
       </h4>
     </div>
     <div style="width:75%;height:50%;">
       <h4>
         <span class="label label-info">商品价格:</span>
+        <p id="product_price"></p>
         <%= number_to_currency @product.price %>
       </h4>
     </div>
   </div>
 </div>
-</br>
+
+<!-- product type select -->
 <div class="container-fluid alert alert-success" role="alert">
   <div style="width:20%;float:left;">
     <h4><span class="label label-default">选择型号:</span></h4>
@@ -33,6 +36,7 @@
     <% end %>
   </div>
 </div>
+
 <!-- product count -->
 <div class="container-fluid alert alert-info" role="alert">
   <div style="width:20%;float:left;">
