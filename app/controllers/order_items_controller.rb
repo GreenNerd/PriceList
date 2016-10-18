@@ -4,7 +4,7 @@ class OrderItemsController < ApplicationController
   def new
     @order_item = OrderItem.new
     @product = Product.find(session[:product_id])
-    @skus = StockKeepingUnit.where(product_id: params[:id])
+    @skus = StockKeepingUnit.where(product_id: @product.id)
   end
 
   def create
