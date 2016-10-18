@@ -1,31 +1,10 @@
-<% if @order.errors.any? || @order_item.errors.any? %>
-  alert("<%= @order.errors.full_messages.to_s %>")
-<% else %>
-  $(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
-<% end %>
-
-// Add the dialog title
-#('#dialog h3').html("<i class='glyphicon glyphicon-plus'></i> 选择商品数量);
-
-// Render the new form
-$('.modal-body').html('<%= j render("detailSel") %>');
-// $('.modal-body').html('<h1>this is a test</h1>');
-
-// Show the dynamic dialog
-$('#dialog').modal("show");
-
-// Set focus to the first element
-$('#dialog').on('shown.bs.modal', function() {
-    $('.first_input').focus()
-  });
-
 // Ajax send data
-$("#sign_submit").click(function(){
-  email_id = $("#user_id").val()
-  password = $("#user_password").val()
+$("#addtocart").click(function(){
+  sku = $("#selected_type").val()
+  qua = $("#text_box").val()
 
-  data = {email: email_id, password: password};
-  url = user/sign_in;
+  data = {sku_id: sku, quantity: qua};
+  url = order_item;
 
   $.ajax({
     url: url,

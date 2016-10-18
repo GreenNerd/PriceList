@@ -1,5 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:create]
+  protect_from_forgery except: :create
 
   def new
     @order_item = OrderItem.new
@@ -8,6 +9,14 @@ class OrderItemsController < ApplicationController
   end
 
   def create
+    @order = current_order
+    @product = Product.find(session[:product_id])
+    @order_item = @order.order_items.new(order_item_params)
+    @order.save
+    session[:order_id] = @order.id
+  end
+
+  def test
     @current_product = Product.find(session[:product_id])
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
@@ -58,6 +67,6 @@ private
   end
 
   def order_item_params
-    params.require(:order_item).permit(:quantity, :stock_keeping_unit_id)
+    params.require(:order_item).permit(:quantity, :sku_id)
   end
 end

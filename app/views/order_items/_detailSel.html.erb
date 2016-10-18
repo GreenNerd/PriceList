@@ -7,14 +7,12 @@
       <h4>
         <span class="label label-info">商品名称:</span>
         <p id="product_name"></p>
-        <%= @product.name %>
       </h4>
     </div>
     <div style="width:75%;height:50%;">
       <h4>
         <span class="label label-info">商品价格:</span>
         <p id="product_price"></p>
-        <%= number_to_currency @product.price %>
       </h4>
     </div>
   </div>
@@ -28,7 +26,7 @@
   <div class="btn-group" data-toggle="buttons" style="width:80%;float:left;">
     <% @skus.each do |sku| %>
       <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off">
+        <input type="checkbox" autocomplete="off" name="selected_type">
           <%= sku.product_type %>
         </input>
       </label>
@@ -53,4 +51,9 @@
       </tr>
     </table>
   </div>
+</div>
+
+<!-- add to cart -->
+<div class="container-fluid alert alert-warning" role="alert">
+  <%= link_to "加入购物车", name: "addtocart", class: "btn btn-info" %>
 </div>
