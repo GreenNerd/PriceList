@@ -12,7 +12,7 @@ class OrderItem < ApplicationRecord
     if persisted?
       self[:unit_price]
     else
-      stock_keeping_unit.prices[1]
+      stock_keeping_unit.prices["VIP"].to_f
     end
   end
 

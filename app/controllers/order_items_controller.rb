@@ -22,6 +22,7 @@ class OrderItemsController < ApplicationController
     else
       p "failed"
     end
+    session[:order_id] = @order.id
 
   end
 
