@@ -1,14 +1,16 @@
 // Ajax send data
-$("#addtocart").click(function(){
+$("#addtocart").click(function(e){
+  e.preventDefault();
   sku = $("#selected_type").val()
   qua = $("#text_box").val()
 
-  data = {sku_id: sku, quantity: qua};
-  url = order_item;
+  data = {sku_id => sku, quantity => qua};
+  url = order_items/create;
 
   $.ajax({
     url: url,
     data: data,
+    dataType: "json",
     cache: false,
     type: "post",
     success: function(data){

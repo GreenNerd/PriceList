@@ -3,7 +3,7 @@ $('#dialog h3').html("<i class='glyphicon glyphicon-plus'></i> 选择商品数�
 $('#dialog').modal('toggle');
 
 // Render the new form
-$('.modal-body').html('<%= j render("detailSel") %>');
+$('.modal-body').html('<%= j render("detailSelAno") %>');
 
 $("#product_name").html('<%= @product.name %>')
 $("#product_price").html('<%= number_to_currency @product.price %>')

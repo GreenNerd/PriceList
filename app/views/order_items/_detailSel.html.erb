@@ -55,5 +55,5 @@
 
 <!-- add to cart -->
 <div class="container-fluid alert alert-warning" role="alert">
-  <%= link_to "加入购物车", name: "addtocart", class: "btn btn-info" %>
+  <%= button_to "加入购物车", order_items_path(@order_item), class: "btn btn-info" %>
 </div>

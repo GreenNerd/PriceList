@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   delete 'logout',   to: 'sessions#destroy'
   get 'search',      to: 'search#get'
   get'products/addtocart', to: 'products#addtocart'
+  post 'order_items/create', to: 'order_items#create'
+  get 'order_items/create', to: 'order_items#create'
 
   resources :products, only: [:index, :show]
   resource :cart, only: [:show]
