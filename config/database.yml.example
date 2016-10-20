@@ -1,0 +1,26 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: username
+  password: password
+  pool: 5
+  timeout: 5000
+  schema_search_path: "public, hstore"
+
+development:
+  <<: *default
+  database: shop_app_development
+
+test:
+  <<: *default
+  database: shop_app_test
+
+production:
+  <<: *default
+  database: shop_app_production
