@@ -1,7 +1,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "material";
-@import "material-icons";
+/*
+ *= require material_icons
+ */
 
   .form-search {
     font-size: 14px;
