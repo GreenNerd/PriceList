@@ -33,6 +33,8 @@ gem 'pg', '0.18.4'
 # paginator
 gem 'kaminari'
 
+gem 'material_design_lite-rails', '~> 1.2'
+gem 'material_icons'
 
 #group :production do
 #  gem 'pg', '0.18.4'
