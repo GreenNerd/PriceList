@@ -14,12 +14,10 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
-          <!-- Title -->
           <span class="mdl-layout-title">存储互联</span>
-          <!-- Add spacer, to align navigation to the right -->
           <div class="mdl-layout-spacer"></div>
           <%= link_to '#user', class: 'mdl-button mdl-js-button mdl-button--icon' do %>
-            <i class="material-icons">search</i>
+            <i class="material-icons">account_circle</i>
           <% end %>
         </div>
       </header>
@@ -33,6 +31,12 @@
       </div>
       <main class="mdl-layout__content">
       <div class="page-content">
+        <%= form_tag "/search", method: "get", class: "search-form" do %>
+          <div class="mdl-textfield mdl-js-textfield">
+            <%= text_field_tag :search, params[:search], class: "mdl-textfield__input", id: 'search_input' %>
+            <label class="mdl-textfield__label" for="search_input">输入搜索关键字 …</label>
+          </div>
+        <% end %>
       </div>
       </main>
     </div>
