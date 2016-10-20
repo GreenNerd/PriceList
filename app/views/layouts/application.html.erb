@@ -11,20 +11,31 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <hr>
-    <div class="container">
-      <div class="row">
-        <div>
-          <%= yield %>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Title -->
+          <span class="mdl-layout-title">存储互联</span>
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <%= link_to '#user', class: 'mdl-button mdl-js-button mdl-button--icon' do %>
+            <i class="material-icons">search</i>
+          <% end %>
         </div>
-        <div class="col-xs-6 text-righoo>
-          <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-        <div>
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">联想存储优品汇</span>
+        <nav class="mdl-navigation">
+          <% Category.find_each do |category| %>
+            <%= link_to category.name, '#', class: 'mdl-navigation__link' %>
+          <% end %>
+        </nav>
       </div>
+      <main class="mdl-layout__content">
+      <div class="page-content">
+      </div>
+      </main>
     </div>
-    <hr>
-    <%= render 'layouts/footer' %>
   </body>
 
 </html>
