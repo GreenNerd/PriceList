@@ -1,24 +1,32 @@
-<div class="well well-sm">
+<!-- quare card -->
+<style>
+  .card-square.mdl-card {
+    width: 320px;
+    height: 470px;
+  }
+  .card-square > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+  }
+</style>
 
-  <div class="row">
-    <div style="position:relative; top: 5px; left:20px;">
-      <td>
-        <%= image_tag(product.image_url, class: 'list_image', size: "100x140") %>
-      </td>
-      <h4><%= product.name %></small></h4>
+<div class="card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__meida">
+    <%= image_tag(product.image_url, size: "320x320", alt: "Edit Entry") %>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <h2 class="mdl-card__title-text"><%= product.name %></h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <h4 class="mdl-card__title-text">
+      <%= number_to_currency product.price, local: :zh %>
+    </h4>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <div style="float:right">
+    <%= button_to product_path(product.id), :class => 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', :method => :get do %>
+      <span class="glyphicon glyphicon-shopping-cart"></span>
+    <% end %>
     </div>
-
-    <div style="position:relative; left:20px;">
-      <div display:inline class="col-xs-1">
-        <h4 class="text-left"> <span style-"color: green"><%= number_to_currency product.price %></span></h4>
-      </div>
-      <div class="col-xs-9" display:inline style="text-align:right">
-        <%= button_to product_path(product.id), :class => 'btn btn-large btn-primary', :method => :get do %>
-          <span class="glyphicon glyphicon-shopping-cart"></span>
-        <% end %>
-      </div>
-    </div>
-
-  </div><!-- /.div-row -->
-
-</div><!-- /.well -->
+  </div>
+</div>

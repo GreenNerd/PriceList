@@ -2,7 +2,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px">
+    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px,border: 10px">
       <% @products.reject { |e| e.id % 2 == 0 }.each do |product| %>
         <%= render "product_row", product: product, order_item: @order_item %>
       <% end %>
