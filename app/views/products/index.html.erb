@@ -1,20 +1,10 @@
-<h3 class="text-center">商品列表</h3>
+<%= form_tag "/search", method: "get", class: "search-form" do %>
+  <div class="mdl-textfield mdl-js-textfield">
+    <%= text_field_tag :search, params[:search], class: "mdl-textfield__input", id: 'search_input' %>
+    <label class="mdl-textfield__label" for="search_input">输入搜索关键字 …</label>
+  </div>
+<% end %>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px,border: 10px">
-      <% @products.reject { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
-    </div>
-    <div class="col-xs-4">
-      <% @products.select { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
-    </div>
-  </div>
-  <div style="text-align:center">
-    <%= paginate @products %>
-    <%= page_entries_info @products %>
-  </div>
+<div class="mdl-grid">
+  <%= render partial: 'products/product_cell', collection: @products, as: :product %>
 </div>

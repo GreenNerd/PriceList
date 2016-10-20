@@ -30,13 +30,8 @@
         </nav>
       </div>
       <main class="mdl-layout__content">
-      <div class="page-content">
-        <%= form_tag "/search", method: "get", class: "search-form" do %>
-          <div class="mdl-textfield mdl-js-textfield">
-            <%= text_field_tag :search, params[:search], class: "mdl-textfield__input", id: 'search_input' %>
-            <label class="mdl-textfield__label" for="search_input">输入搜索关键字 …</label>
-          </div>
-        <% end %>
+      <div class="page-content price-list-max-width">
+        <%= yield %>
       </div>
       </main>
     </div>
