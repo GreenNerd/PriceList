@@ -1,5 +1,10 @@
-<footer class="footer">
-  <small>
-    The shopping cart.
-  </small>
+<footer class="mdl-mini-footer price-list-shopping-cart-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div>购物车里面有 1 件商品，共计 300.00</div>
+  </div>
+  <div class="mdl-mini-footer__right-section">
+    <%= link_to '#cart', class: 'mdl-button mdl-js-button mdl-button--icon' do %>
+      <i class="material-icons">shopping_cart</i>
+    <% end %>
+  </div>
 </footer>

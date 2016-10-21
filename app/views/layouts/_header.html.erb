@@ -1,52 +1,9 @@
-<div class="header" role="banner">
-  <nav class="navbar navbar-fixed-top navbar-inverse navbar-default" role="navigation">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header" data-turbolinks-permanent>
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-          data-target="#collapse-t-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand text-light" href="/">报价单</a>
-      </div>
-
-      <div class="navbar-form navbar-center">
-        <%= form_tag("/search", method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
-          <div class="form-group">
-            <%= text_field_tag :search, params[:search],
-              class: "form-control input-sm search-form", placeholder: "搜索商品" %>
-          </div>
-          <i class="fa btn-search fa-search"></i>
-        <% end %>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="collapse-t-1">
-        <ul class="nav navbar-nav navbar-left">
-          <% if logged_in? %>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                aria-haspopup="true" aria-expanded="false">
-                Account<span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", "#" %></li>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <%= link_to "Log out", logout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Login",   login_path %></li>
-          <% end %>
-        </ul>
-      </div>
-
-    </div>
-  </nav>
-</div>
+<header class="mdl-layout__header">
+  <div class="mdl-layout__header-row">
+    <span class="mdl-layout-title">存储互联</span>
+    <div class="mdl-layout-spacer"></div>
+    <%= link_to '#user', class: 'mdl-button mdl-js-button mdl-button--icon' do %>
+      <i class="material-icons">account_circle</i>
+    <% end %>
+  </div>
+</header>
