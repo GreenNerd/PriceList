@@ -8,3 +8,7 @@
 <div class="mdl-grid">
   <%= render partial: 'products/product_cell', collection: @products, as: :product %>
 </div>
+
+<div style="text-align: center">
+  <%= paginate @products, :window => 2 %>
+</div>

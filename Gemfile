@@ -17,6 +17,8 @@ gem 'kaminari'
 
 gem 'material_design_lite-rails', '~> 1.2'
 gem 'material_icons'
+gem "rails-i18n"
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   gem 'byebug', platform: :mri
