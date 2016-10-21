@@ -7,3 +7,12 @@
     <% end %>
   </div>
 </header>
+
+<div class="mdl-layout__drawer">
+	<span class="mdl-layout-title">联想存储优品汇</span>
+		<nav class="mdl-navigation">
+		  <% Category.find_each do |category| %>
+		   	<%= link_to category.name, '#', class: 'mdl-navigation__link' %>
+		  <% end %>
+		</nav>
+</div>

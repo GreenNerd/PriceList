@@ -26,3 +26,56 @@
     }
   }
 }
+
+.product {
+  border: 1px solid #777;
+  display: inline-block;
+  font-size: 12px;
+  margin: 15px;
+  padding: 10px;
+  position: relative;
+  width: 300px;
+
+  .name {
+    .title {
+      color: dogerblue;
+      font-size: 18px;
+    }
+    .detail {
+      color: #bbb;
+      font-size: 10px;
+      line-height: 10px;
+      margin: 0;
+    }
+  }
+
+  .pricing {
+    margin-top: 15px;
+    .price {
+      font-size: 10px;
+      font-weight: normal;
+      line-height: 10px;
+      b {
+        display: block;
+        font-size: 24px;
+        line-height: 24px;
+      }
+      &.member {
+        color: mix(tomato, orange)
+      }
+      &.msrp {
+        color: #777;
+        display: none;
+      }
+    }
+  }
+}
+
+#preview {
+  .product {
+    border: none;
+    margin: 0 -15px;
+    width: auto;
+    position: relative;
+  }
+}

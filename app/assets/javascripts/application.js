@@ -16,5 +16,5 @@
 //= require material
 
 //= require jquery.addreduce
-
 //= require bootstrap-sprockets
+//= require products

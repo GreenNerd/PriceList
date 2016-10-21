@@ -1,21 +1,22 @@
-<h1>Product Detail Page</h1>
-<div class="panel panel-danger">
-  <div class="panel-heading">
-    Product detail page
+<div class="product">
+  <div>
+    <%= carousel_for(@product.pictures)%>
   </div>
-  <div class="panel-body">
-    <%= @product.name %>
+  <div class="name">
+    <p class="preview name">库存:</p>
+    <p class="detail">109</p>
   </div>
-</div>
-
-<div class="well">
+  <div class="pricing">
+    <label class="price member" itemprop="price">价格: <b>$33.50</b></label>
+    <label class="price msrp" itemprop="price">MSRP: <b>$45.50</b></label>
+  </div>
   <div class="row">
-    <div>
-      <%= carousel_for(@product.pictures)%>
-    </div>
-
     <div class="VerticalSpace"></div>
     <div>
+      <span class="mdl-chip mdl-chip--contact">
+        <span class="mdl-chio__contact mdl-color--teal mdl-color-text--green">P</span>
+        <span class="mdl-chip__text"><%= @product.name %></span>
+      </span>
       <p style="text-align:center;"><%= @product.name %></p>
       <div class="VerticalSpace"></div>
 
@@ -76,6 +77,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="pictures">...</div>
         </div>
+
       </div>
 
       <%= render 'dialog' %>
@@ -83,3 +85,8 @@
     </div>
   </div>
 </div><!-- /well -->
+
+<span class="mdl-chip mdl-chip--contact">
+  <span class="mdl-chio__contact mdl-color--teal mdl-color-text--green">P</span>
+  <span class="mdl-chip__text"><%= @product.name %></span>
+</span>
