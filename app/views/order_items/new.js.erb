@@ -1,0 +1,12 @@
+// Add the dialog title
+$('#dialog h3').html("<i class='glyphicon glyphicon-plus'></i> 选择商品数量");
+$('#dialog').modal('toggle');
+
+// Render the new form
+$('.modal-body').html('<%= j render("detailSelAno") %>');
+
+$("#product_name").html('<%= @product.name %>')
+$("#product_price").html('<%= number_to_currency @product.price %>')
+
+// Show the dynamic dialog
+$('#dialog').modal("show");

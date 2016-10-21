@@ -1,9 +1,9 @@
 class OrderItem < ApplicationRecord
-  belongs_to :product
+  belongs_to :stock_keeping_unit
   belongs_to :order
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validate :product_present
+  validate :stock_keeping_unit_present
   validate :order_present
 
   before_save :finalize
@@ -12,7 +12,7 @@ class OrderItem < ApplicationRecord
     if persisted?
       self[:unit_price]
     else
-      product.price
+      stock_keeping_unit.prices["VIP"].to_f
     end
   end
 
@@ -21,9 +21,9 @@ class OrderItem < ApplicationRecord
   end
 
 private
-  def product_present
-    if product.nil?
-      errors.add(:product, "is not valid or is not active.")
+  def stock_keeping_unit_present
+    if stock_keeping_unit.nil?
+      errors.add(:stock_keeping_unit, "is not valid or is not active.")
     end
   end
 
@@ -34,7 +34,7 @@ private
   end
 
   def finalize
-    self[:unit_price] = unit_price
+    self[:unit_price] = unit_price.to_f
     self[:total_price] = quantity * self[:unit_price]
   end
 end

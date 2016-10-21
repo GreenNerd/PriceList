@@ -1,13 +1,5 @@
 <h3 class="text-center">搜索结果</h3>
 
-<div class="row">
-  <div class="col-xs-6 col-xs-offset-3">
-    <% if !@products.empty? %>
-      <% @products.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
-    <% else %>
-      <% render "no_results" %>
-    <% end %>
-  </div>
+<div class="mdl-grid">
+  <%= render partial: 'products/product_cell', collection: @products, as: :product %>
 </div>

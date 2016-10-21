@@ -1,0 +1,6 @@
+<%= form_for @order_item, url: {action: "create"},
+  html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :stock_keeping_unit_id %>
+  <%= f.text_field :quantity %>
+  <%= f.submit "addtocart" %>
+<% end %>

@@ -1,3 +1,28 @@
-// Place all the styles related to the Products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.search-form {
+  margin: 0 1rem;
+
+  .mdl-textfield {
+    width: 100%;
+  }
+}
+
+.product-card {
+  &.mdl-card {
+    width: 100%;
+  }
+
+  >.mdl-card__title {
+    color: #fff;
+    height: 176px;
+  }
+
+  >.mdl-card__actions {
+    display: flex;
+    box-sizing:border-box;
+    align-items: center;
+
+    .material-icons {
+      padding-right: 10px;
+    }
+  }
+}

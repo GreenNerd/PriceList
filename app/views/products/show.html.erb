@@ -1,0 +1,85 @@
+<h1>Product Detail Page</h1>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    Product detail page
+  </div>
+  <div class="panel-body">
+    <%= @product.name %>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row">
+    <div>
+      <%= carousel_for(@product.pictures)%>
+    </div>
+
+    <div class="VerticalSpace"></div>
+    <div>
+      <p style="text-align:center;"><%= @product.name %></p>
+      <div class="VerticalSpace"></div>
+
+      <div>
+        <div style="width:50%;float:left;">
+          <p style="text-align:center;">
+            <span class="label label-info">库存:</span>
+            <%= @product.description %>
+          </p>
+        </div>
+        <div style="width:50%;float:right;">
+          <p style="text-align:center;">
+            <span class="label label-info">价格:</span>
+            <%= number_to_currency @product.price %>
+          </p>
+        </div>
+      </div>
+
+      <div class="VerticalSpace"></div>
+      <div style="height:60px;">
+        <div style="width:20%;height:20px;float:right;">
+          <%= button_to "加入购物车", class:'btn btn-default' %>
+        </div>
+
+        <div style="width:20%;height:20px;float:right;">
+          <%= link_to "选择数量", new_order_item_path, remote: true, class: "btn btn-primary" %>
+        </div>
+
+      </div>
+
+      <div class="VerticalSpace"></div>
+      <div>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#detail" aria-controls="detail" role="tab" data-toggle="tab">商品详情</a>
+          </li>
+          <li role="presentation">
+            <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">商品规格</a>
+          </li>
+          <li role="presentation">
+            <a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">商品图片</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="detail">
+            商品详情: V3000 Rack Shipment Bracket
+            供应商: 上海祺冠系统集成有限公司
+          </div>
+          <div role="tabpanel" class="tab-pane" id="specification">
+            处理器: 因特尔R 至强R 处理器E5-2609 v4
+                    1.7GHz
+            Cache: 20MB
+            网卡: 板载双口千兆网络适配器，可选PCI-e双口
+                  10Gb网络适配器或双口16Gb光纤通道卡
+          </div>
+          <div role="tabpanel" class="tab-pane" id="pictures">...</div>
+        </div>
+      </div>
+
+      <%= render 'dialog' %>
+
+    </div>
+  </div>
+</div><!-- /well -->
