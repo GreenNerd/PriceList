@@ -3,90 +3,54 @@
     <%= carousel_for(@product.pictures)%>
   </div>
   <div class="name">
-    <p class="preview name">库存:</p>
-    <p class="detail">109</p>
+    <p class="title"><%= @product.name %></p>
   </div>
-  <div class="pricing">
-    <label class="price member" itemprop="price">价格: <b>$33.50</b></label>
-    <label class="price msrp" itemprop="price">MSRP: <b>$45.50</b></label>
+  <div class="pricing col-xs-6">
+    <label class="price member" itemprop="price">库存: <b>99</b></label>
   </div>
-  <div class="row">
-    <div class="VerticalSpace"></div>
-    <div>
-      <span class="mdl-chip mdl-chip--contact">
-        <span class="mdl-chio__contact mdl-color--teal mdl-color-text--green">P</span>
-        <span class="mdl-chip__text"><%= @product.name %></span>
-      </span>
-      <p style="text-align:center;"><%= @product.name %></p>
-      <div class="VerticalSpace"></div>
+  <div class="pricing col-xs-6">
+    <label class="price member" itemprop="price">
+      价格: <b><%= number_to_currency @product.price %></b>
+    </label>
+  </div>
+  <div class="container-fluid">
+    <div class="pbutton add col-xs-6">
+    <%= button_to "加入购物车", new_order_item_path, remote: true, :class => 'pbutton add' %>
+    <%= button_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel' %>
+  </div>
 
-      <div>
-        <div style="width:50%;float:left;">
-          <p style="text-align:center;">
-            <span class="label label-info">库存:</span>
-            <%= @product.description %>
-          </p>
-        </div>
-        <div style="width:50%;float:right;">
-          <p style="text-align:center;">
-            <span class="label label-info">价格:</span>
-            <%= number_to_currency @product.price %>
-          </p>
-        </div>
-      </div>
-
-      <div class="VerticalSpace"></div>
-      <div style="height:60px;">
-        <div style="width:20%;height:20px;float:right;">
-          <%= button_to "加入购物车", class:'btn btn-default' %>
-        </div>
-
-        <div style="width:20%;height:20px;float:right;">
-          <%= link_to "选择数量", new_order_item_path, remote: true, class: "btn btn-primary" %>
-        </div>
-
-      </div>
-
-      <div class="VerticalSpace"></div>
-      <div>
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#detail" aria-controls="detail" role="tab" data-toggle="tab">商品详情</a>
-          </li>
-          <li role="presentation">
-            <a href="#specification" aria-controls="specification" role="tab" data-toggle="tab">商品规格</a>
-          </li>
-          <li role="presentation">
-            <a href="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">商品图片</a>
-          </li>
-        </ul>
-
-        <!-- Tab panes -->
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="detail">
-            商品详情: V3000 Rack Shipment Bracket
-            供应商: 上海祺冠系统集成有限公司
-          </div>
-          <div role="tabpanel" class="tab-pane" id="specification">
-            处理器: 因特尔R 至强R 处理器E5-2609 v4
-                    1.7GHz
-            Cache: 20MB
-            网卡: 板载双口千兆网络适配器，可选PCI-e双口
-                  10Gb网络适配器或双口16Gb光纤通道卡
-          </div>
-          <div role="tabpanel" class="tab-pane" id="pictures">...</div>
-        </div>
-
-      </div>
-
-      <%= render 'dialog' %>
-
+  <div class="tabs">
+    <div class="tabs-header">
+      <div class="border"></div>
+      <ul>
+        <li class="active"><a href="#tab-1" tab-id="1" ripple="ripple" ripple-color="#FFF">
+            商品详情</a></li>
+        <li><a href="#tab-2" tab-id="2" ripple="ripple" ripple-color="#FFF">
+            商品规格</a></li>
+        <li><a href="#tab-3" tab-id="3" ripple="ripple" ripple-color="#FFF">
+            商品图片</a></li>
+      </ul>
+      <nav class="tabs-nav"><i id="prev" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE314;</i><i id="next" ripple="ripple" ripple-color="#FFF" class="material-icons">&#xE315;</i></nav>
     </div>
-  </div>
-</div><!-- /well -->
+    <div class="tabs-content">
+      <div tab-id="1" class="tab active">
+        商品详情: V3000 Rack Shipment Bracket
+        供应商: 上海祺冠系统集成有限公司
+      </div>
+      <div tab-id="2" class="tab">
+        处理器: 因特尔R 至强R 处理器E5-2609 v4
+                1.7GHz
+        Cache: 20MB
+        网卡: 板载双口千兆网络适配器，可选PCI-e双口
+              10Gb网络适配器或双口16Gb光纤通道卡
+      </div>
+      <div tab-id="3" class="tab">
+        ...
+      </div>
+    </div>
 
-<span class="mdl-chip mdl-chip--contact">
-  <span class="mdl-chio__contact mdl-color--teal mdl-color-text--green">P</span>
-  <span class="mdl-chip__text"><%= @product.name %></span>
-</span>
+    <%= render 'dialog' %>
+  </div>
+
+
+</div><!-- /product -->
