@@ -14,7 +14,6 @@
     </div>
   </div>
   <div style="text-align:center">
-    <%= paginate @products %>
-    <%= page_entries_info @products %>
+    <%= paginate @products, :window => 2 %>
   </div>
 </div>
