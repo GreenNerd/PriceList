@@ -2,18 +2,6 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px">
-      <% @products.reject { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
-    </div>
-    <div class="col-xs-4">
-      <% @products.select { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
-    </div>
-  </div>
-  <div style="text-align:center">
-    <%= paginate @products, :window => 2 %>
+    <%= render partial: 'product_row', collection: @products, as: :product %>
   </div>
 </div>

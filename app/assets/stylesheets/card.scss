@@ -1,0 +1,54 @@
+.card {
+  max-wdith: 350px;
+  height: 350px;
+  background: #ffffff;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+
+  .image-wrapper {
+    height: 60%;
+    width: 100%;
+    overflow: hidden;
+    transition: height 100ms ease-out;
+  }
+
+  .name {
+    margin: 4%;
+    padding-left: 10px;
+    font-weight: 300;
+    font-size: 13;
+    height: 10%;
+    width: 100%;
+  }
+  .price {
+    margin: 4%;
+    padding-left: 10px;
+    font-weight: 300;
+    font-size: 18;
+    height: 10%;
+    width: 100%;
+  }
+}
+
+.cbutton {
+  margin: 0 10px 20px 0;
+  border: solid 2px #95AB63;
+  color: #fff;
+  background: #95AB63;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+p {
+  .prices {
+    font-size: 18;
+  }
+}

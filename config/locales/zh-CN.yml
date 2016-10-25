@@ -15,3 +15,11 @@ zh-CN:
           other: "显示 <b>全部 %{count}</b> 个 %{entry_name}"
       more_pages:
         display_entries: "显示 <b>%{total}</b> 个 %{entry_name} 中的第 <b>%{first}&nbsp;-&nbsp;%{last}</b> 个"
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "¥"
+        separator: "."
+        delimiter: ","
+        precision: 2
