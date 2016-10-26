@@ -1,5 +1,9 @@
 <footer class="footer">
-  <small>
-    The shopping cart.
-  </small>
+  <div class="footer info">
+    购物车里面共有 <%= current_order.order_items.size %> 件商品, 共计 <%= number_to_currency current_order.subtotal %>&nbsp;
+    <a href="#">
+      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+      <span class="badge"><%= current_order.order_items.size %></span>
+    </a>
+  </div>
 </footer>

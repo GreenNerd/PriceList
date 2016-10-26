@@ -31,7 +31,7 @@
        <% end %>
   </div>
           </li>
-          <% @products.each do |p| %>
+          <%= Product.all.each do |p| %>
             <li><a href="/"><%= p.name %></a></li>
           <% end %>
 
@@ -52,14 +52,11 @@
   <!-- Page Content -->
   <main id="page-wrapper6">
     <div class="container-fluid">  
-    <div class="row">
-      <div>
-        <%= yield %>
+      <div class="row">
+        <div>
+          <%= yield %>
+        </div>
       </div>
-      <div class="col-xs-6 text-righoo>
-        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-      <div>
-    </div>
     </div> 
   </main>
   <hr>

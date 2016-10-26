@@ -1,11 +1,1 @@
 <%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal } )", cart_path, class: "btn btn-link" %>
-<div class="row">
-  <h4 class="text-right">
-    <%= current_order.order_items.size %> 
-    <span class="label label-default"> Items in Cart.</span>
-    <span class="label label-default"> Total: </span>
-    <%= number_to_currency current_order.subtotal %>
-    <%= link_to "Cart", cart_path, class: "btn btn-link" %>
-  </h4>
-  <%= link_to "Cart", cart_path, class: "btn btn-link" %>
-</div>
