@@ -1,5 +1,4 @@
 .card {
-  max-wdith: 350px;
   height: 350px;
   background: #ffffff;
   margin: 50px auto;
@@ -39,6 +38,8 @@
 }
 
 .footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   color: #9e9e9e;
   display: flex;
@@ -54,4 +55,9 @@
     margin: 2px;
   }
 
+}
+
+.kaminari {
+  text-align:center;
+  padding-bottom: 40px;
 }

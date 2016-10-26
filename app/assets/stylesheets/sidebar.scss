@@ -98,24 +98,24 @@ body{
 }
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 250px;
-    }
-    #wrapper.toggled {
         padding-left: 0;
     }
-    #page-wrapper6 {
-        padding: 20px;
-        position: relative;
+    #wrapper.toggled {
+        padding-left: 250px;
     }
-    #wrapper.toggled #page-wrapper6 {
-        position: relative;
-        margin-right: 0;
+    #sidebar-wrapper {
+      width: 0;
     }
-	.slidebar-nav {
-		width: 250px;;
-	}
-	#wrapper.toggled .slidebar-nav {
-		width: 0;
+    #wrapper.toggled #sidebar-wrapper {
+      width: 250px;
+    }
+    #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+    }
+    #wrapper.toggled #page-content-wrapper {
+      position: relative;
+      margin-right: -250px;
     }
 }
 	

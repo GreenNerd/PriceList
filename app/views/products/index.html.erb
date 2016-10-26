@@ -5,3 +5,7 @@
     <%= render partial: 'product_row', collection: @products, as: :product %>
   </div>
 </div>
+
+<div class="kaminari">
+  <%= paginate @products, :window => 2 %>
+</div>
