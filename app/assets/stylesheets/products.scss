@@ -1,108 +1,248 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.thumb .number .price
-{
-  border: 4px solid;
-}
 
-.VerticalSpace .HorizontalSpace
-{
-  border: 0px;
-  float: left;
-}
 
-.thumb
-{
-  width: 35%;
-  height: 150px;
-  float: left
-}
+// product detail
+// Font Family
+$body-font: "Roboto";
 
-.number
-{
-  height: 70px;
-  width: 35%;
-  float: right;
-}
+// Font Weights
+$thin: 100;
+$light: 300;
+$regular: 400;
+$semibold: 500;
+$bold: 700;
+$ultra: 800;
 
-.price
-{
-  height: 70px;
-  width: 35%;
-  float: right;
-}
+// Base Font
+$base-font-family: $body-font, sans-serif;
+$base-font-size: 10px;
+$base-font-weight: $regular;
+$base-line-height: 1.6em;
 
-.VerticalSpace
-{
-  width: 35%;
-  height: 10px;
-}
+// Colors
+$black: #000000;
+$dark-gray: rgba($black, 0.8);
+$gray: rgba($black, 0.6);
+$light-gray: rgba($black, 0.4);
+$lighter-gray: rgba($black, 0.2);
+$white: #FFFFFF;
+$accent: #4285F4;
+$primary: #2F313A;
+$secondary: #F4B142;
 
-.HorizontalSpace
-{
-  height: 150px;
-  width: 4%;
-}
+// Form Settings
+$max-width: 100%;
+$max-height: 100%;
+$gutters: 24px;
 
-// search form
-.form-search {
-  font-size: 14px;
+// Ripple
+[ripple] {
+  z-index: 1;
   position: relative;
-  margin-top: 13px;
-  margin-right: 10px;
+  overflow: hidden;
 
-  .fa {
-    color: #333;
-    &:hover { color: #666; }
+  .ripple {
+    position: absolute;
+    background: $white;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    animation: ripple 1.6s;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
   }
 
-  .fa-search{
-    cursor: pointer;
-    position: absolute;
-    top: 6px;
-    right: 0;
-    transition: all .3s;
+  100% {
+    transform: scale(40);
+    opacity: 0;
   }
-  .btn-close {
-    position: absolute;
-    top: 6px;
-    right: 0px;
-    /*display: none;*/
-    cursor: pointer;
-    -webkit-transform: scale(0,0);
-    -moz-transform: scale(0,0);
-    transform: scale(0,0);
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
+}
+
+// product
+.product {
+  border: 1px solid #777;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px;
+  padding: 1px;
+  position: relative;
+  width: 100%;
+
+  .title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
   }
-  .form-control {
-    font-size: 12px;
-    border:none;
-    width: 0px;
-    height: 100%;
-    padding:6px 1px 4px 1px;
-    margin-left: 4px;
-    background: transparent;
-    transition: all .3s;
+
+  .name {
+    display: inline-block;
+    text-align: center;
+    .title {
+      color: dogerblue;
+      font-size: 14px;
+      text-align: center;
+      padding-top: 10px;
+      line-height: 10px;
+    }
+    .detail {
+      padding: 5px;
+      color: mix(tomato, orange);
+      font-size: 18px;
+      line-height: 10px;
+      margin: 0;
+    }
+  }
+
+  .tabs {
+    z-index: 15px;
+    position: relative;
+    background: $white;
+    width: $max-width;
+    border-radius: 4px;
     box-sizing: border-box;
-    color: #333;
-    &::-webkit-input-placeholder {
-      color: #ddd;
-    }
-  }
-  &.active {
-    .form-control {
-      width: 150px !important;
-      cursor: text;
-    }
-    .fa-search { left: 0; right: auto; }
-    .btn-close {
-      -webkit-transform: scale(1,1);
-      -moz-transform: scale(1,1);
-      transform: scale(1,1);
-    }
-  }
+    margin: 40px auto 40px 0;
+    overflow: hidden;
+    font-size: 12px;
 
+    // Tabs Header
+    &-header {
+      position: relative;
+      background: $accent;
+      overflow: hidden;
+
+      // Border
+      .border {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: $secondary;
+        width: auto;
+        height: 2px;
+        transition: 0.3s ease;
+      }
+
+      // List
+      ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: calc(100% - 68px);
+      }
+
+      // List Item
+      li {
+        transition: 0.3s ease;
+      }
+
+      // Anchor
+      a {
+        z-index: 1;
+        display: block;
+        box-sizing: border-box;
+        padding: 15px 20px;
+        color: $white;
+        font-weight: $semibold;
+        font-size: 12px;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+    }
+
+    // Tabs Nav
+    &-nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: $accent;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 10px;
+      color: $white;
+      user-select: none;
+
+      // Fade
+      &:before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+
+      // Arrows
+      i {
+        border-radius: 100%;
+        cursor: pointer;
+      }
+    }
+
+    // Tabs Content
+    &-content {
+      position: relative;
+      transition: 0.3s ease;
+      overflow: hidden;
+
+      // Blurred Text Effect
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+      }
+
+      // Tab
+      .tab {
+        display: none;
+        font-size: 16px;
+
+        // Active
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+#preview {
+  .product {
+    border: none;
+    margin: 0 -15px;
+    width: auto;
+    position: relative;
+  }
+}
+
+.pbutton {
+  border: none;
+  border-radius: 5px;
+  bottom: 0;
+  color: white;
+  display: inline-block;
+  font-size: 10px;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 0 10px 5px;
+  padding: 0 15px;
+  position: relative;
+  text-align: cnter;
+  float: right;
+  .sel {
+    background: #151515;
+  }
+  .add {
+    background: #827ae1;
+  }
 }

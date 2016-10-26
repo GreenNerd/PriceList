@@ -7,8 +7,8 @@
     <div class="card name">
       <h4><%= number_to_currency product.price %></h4>
     </div>
-    <button class="btn btn-info cbutton">
+    <%= button_to product_path(product.id), :class => "btn btn-info cbutton", :method => "get" do %>
       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-    </button>
+    <% end %>
   </div>
 </div>

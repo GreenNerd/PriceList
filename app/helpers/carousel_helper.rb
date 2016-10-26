@@ -47,7 +47,7 @@ module CarouselHelper
         class: (is_active ? 'item active' : 'item') + " helperCarouselImg",
       }
 
-      content_tag(:div, image_tag(image, size: "100x150"), options)
+      content_tag(:div, image_tag(image, size: "200x150", class: "center-block"), options)
     end
 
     def controls
