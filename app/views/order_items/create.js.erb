@@ -1,10 +1,10 @@
 // Ajax send data
 $("#addtocart").click(function(e){
   e.preventDefault();
-  sku = $("#selected_type").val()
-  qua = $("#text_box").val()
+  typ = $("#selected_type").val()
+  qua = $("#count_text_box").val()
 
-  data = {sku_id => sku, quantity => qua};
+  data = {product_type => typ, quantity => qua};
   url = order_items/create;
 
   $.ajax({

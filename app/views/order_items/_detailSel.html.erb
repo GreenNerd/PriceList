@@ -1,59 +1,108 @@
-<div class="container">
-  <div style="width:40%;height:150px;float:left;">
-    <%= image_tag("1.png", size: "100x150")%>
+<div class="container-fluid">
+  <div class="col-md-6 col-xs-6 col-lg-6">
+    <a href="#" class="sel-info thumbnail">
+      <div class="col-md-12">
+        <%= image_tag("1.png", size: "200x150") %>
+      </div>
+    </a>
   </div>
-  <div class="row" style="width:60%;height:150px;float:right;">
-    <div style="width:75%;height:50%;">
-      <h4>
-        <span class="label label-info">商品名称:</span>
-        <p id="product_name"></p>
-      </h4>
-    </div>
-    <div style="width:75%;height:50%;">
-      <h4>
-        <span class="label label-info">商品价格:</span>
-        <p id="product_price"></p>
-      </h4>
-    </div>
+  <div class="col-md-6 col-xs-6 col-lg-6">
+      <div class="col-md-12 sel-msg">
+        <div class="key">
+          <span id="product_name" class="label label-info"></span>
+        </div>
+        <div class="value">
+          <span id="product_price" class="label label-info"></span>
+        </div>
+      </div>
   </div>
 </div>
 
 <!-- product type select -->
 <div class="container-fluid alert alert-success" role="alert">
-  <div style="width:20%;float:left;">
-    <h4><span class="label label-default">选择型号:</span></h4>
+  <div class="mylabel label-secondary">
+    选择型号
   </div>
-  <div class="btn-group" data-toggle="buttons" style="width:80%;float:left;">
+
+  <div class="btn-group" data-toggle="buttons">
     <% @skus.each do |sku| %>
       <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" name="selected_type">
+        <input type="radio" name="options" id="selected_type" autocomplete="off"> 
           <%= sku.product_type %>
-        </input>
       </label>
-      <div class="HorizontalSpace"></div>
     <% end %>
   </div>
-</div>
+
 
 <!-- product count -->
-<div class="container-fluid alert alert-info" role="alert">
-  <div style="width:20%;float:left;">
-    <h4><span class="label label-default">选择数量:</span></h4>
+<div>
+  <div class="mylabel label-secondary">
+    选择数量
   </div>
-  <div style="widht:40%;float:left;">
-    <table style="text-align:center;">
+  <div style="widht:40%;display:inline-block;">
+    <table>
       <tr>
         <td>
-          <input id="min" name="" type="button" value="-" />
-          <input id="text_box" name="" type="text" value="1" style="width:30px;" />
-          <input id="add" name="" type="button" value="+" />
+          <input id="count_min" name="" type="button" value="-" />
+          <input id="count_text_box" name="" type="text" value="1" style="width:30px;" />
+          <input id="count_add" name="" type="button" value="+" />
         </td>
       </tr>
     </table>
   </div>
+
 </div>
 
 <!-- add to cart -->
-<div class="container-fluid alert alert-warning" role="alert">
-  <%= button_to "加入购物车", order_items_path(@order_item), class: "btn btn-info" %>
+<div>
+  <button id="addtocart2" class="btn btn-info">addtocart</button>
+  <%= button_to "加入购物车", order_items_path(@order_item), id: "addtocart", class: "btn btn-info", style: "float:right;" %>
+</div>
+
+<script>
+$(document).ready(function() {
+  var t = $("#count_text_box");
+  $('#count_min').attr('disabled', true);
+  $('#count_add').click(function(){
+    t.val(parseInt(t.val()) + 1);
+    if (parseInt(t.val()) != 1){
+      $('#count_min').attr('disabled', false);
+    }
+  });
+  $('#count_min').click(function(){
+    t.val(parseInt(t.val()) - 1);
+    if (parseInt(t.val()) == 1){
+      $('#count_min').attr('disabled', true);
+    }
+  });
+});
+</script>
+
+<script>
+// Ajax send data
+$(document).on("turbolinks:load", function(){
+// Ajax send data
+$("#addtocart").click(function(e){
+  alert("haha");
+  e.preventDefault();
+  typ = $("#selected_type").val()
+  qua = $("#count_text_box").val()
+
+  data = {product_type => typ, quantity => qua};
+  url = order_items/create;
+
+  $.ajax({
+    url: url,
+    data: data,
+    dataType: "json",
+    cache: false,
+    type: "post",
+    success: function(data){
+      console.log(data);
+    }
+  });
+});
+});
+</script>
+
 </div>

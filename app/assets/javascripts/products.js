@@ -148,4 +148,11 @@ $(document).ready(function () {
       rippleDiv.remove();
     }, 1500);
   });
-});
+
+  // collapse for sidebar
+  $("#menu-toggle").click(function(e){
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+    });
+
+  });

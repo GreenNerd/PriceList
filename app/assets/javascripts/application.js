@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.addreduce
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 
 //= require products
+//= require detailSel
+//= require sidebar

@@ -1,0 +1,43 @@
+.sel-info {
+  height: 150px;
+}
+
+.sel-msg {
+  width: 100px;
+  height: 150px;
+  float: right;
+  .key {
+    height: 50%;
+    text-align: center;
+  }
+  .value {
+    height: 50%;
+    text-align: center;
+  }
+}
+
+#thumb .thumbnail {
+  display: inline-flex;
+}
+
+.mylabel {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  padding: 4px 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #FFF
+}
+
+.mylabel.label-primary {
+  background-color: #2196F3;
+}
+
+.mylabel.label-secondary {
+  background-color: #323a45;
+  color: #FFF;
+}

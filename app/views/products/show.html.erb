@@ -9,7 +9,7 @@
     <div class="name col-xs-6">
       <div class="title">库存:</div>
       <div class="detail">
-        99
+        <%= @mount %>
       </div>
     </div>
     <div class="name col-xs-6">
@@ -41,18 +41,20 @@
     </div>
     <div class="tabs-content">
       <div tab-id="1" class="tab active">
-        商品详情: V3000 Rack Shipment Bracket
-        供应商: 上海祺冠系统集成有限公司
+        <%= @product.description %>
       </div>
       <div tab-id="2" class="tab">
-        处理器: 因特尔R 至强R 处理器E5-2609 v4
-                1.7GHz
-        Cache: 20MB
-        网卡: 板载双口千兆网络适配器，可选PCI-e双口
-              10Gb网络适配器或双口16Gb光纤通道卡
+        <% @skus.each do |sku| %>
+          <h3><%= @product.name %>  <%= sku.product_type %></h3>
+          <% sku.dimensions.each do |k, v| %>
+            <p><%= k %>: <%= v %></p>
+          <% end %>
+        <% end %>
       </div>
       <div tab-id="3" class="tab">
-        ...
+        <% @product.pictures.each do |img| %>
+          <p><%= image_tag(img, size: "200x150") %></p>
+        <% end %>
       </div>
     </div>
 
