@@ -24,14 +24,17 @@
     选择型号
   </div>
 
-  <div class="btn-group" data-toggle="buttons">
+  <div>
     <% @skus.each do |sku| %>
-      <label class="radio-inline">
-        <input type="radio" name="options" id="selected_type" value=<%= sku.product_type %> >
-          <%= sku.product_type %>
-      </label>
+        <input type="radio" name="radio" data-labelauty=<%= sku.product_type %> value=<%= sku.product_type %> >
     <% end %>
   </div>
+
+  <script>
+    $(document).ready(function(){
+      $(":radio").labelauty();
+    });
+  </script>
 
 
 <!-- product count -->

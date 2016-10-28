@@ -20,9 +20,9 @@
     </div>
   </div>
   <div class="container-fluid">
-    <div class="pbutton col-xs-6">
-      <%= button_to "加入购物车", new_order_item_path, remote: true, :class => 'pbutton add' %>
-      <%= button_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel' %>
+    <div class="pbutton">
+      <%= link_to "加入购物车", new_order_item_path, remote: true, :class => 'pbutton add' %>
+      <%= link_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel' %>
     </div>
   </div>
 

@@ -18,3 +18,4 @@
 //= require products
 //= require detailSel
 //= require sidebar
+//= require jquery-labelauty
