@@ -12,57 +12,56 @@
 
   <body>
 
-  <%= render 'layouts/header' %>
+    <%= render 'layouts/header' %>
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="slidebar-white" class="slidebar-nav">
+        <nav id="navbar-white" class="navbar navbar-default" role="navigation">
+          <ul class="nav navbar-nav">
+            <li class="hidden-xs"><a class="navbar-brand" href="/">存储互联</a></li>
+            <li class="sidebar-form">
+              <div class="navbar-form navbar-center">
+                   <%= form_tag("/search", method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
+                     <div class="form-group">
+                       <%= text_field_tag :search, params[:search],
+                         class: "form-control input-sm search-form", placeholder: "搜索商品" %>
+                     </div>
+                     <i class="fa btn-search fa-search"></i>
+                   <% end %>
+              </div>
+            </li>
+            <%= Product.all.each do |p| %>
+              <li><a href="/"><%= p.name %></a></li>
+            <% end %>
 
-  <div id="wrapper">
-    <!-- Sidebar -->
-	  <div id="slidebar-white" class="slidebar-nav">
-      <nav id="navbar-white" class="navbar navbar-default" role="navigation">
-        <ul class="nav navbar-nav">
-          <li class="hidden-xs"><a class="navbar-brand" href="/">存储互联</a></li>
-          <li class="sidebar-form">
-  <div class="navbar-form navbar-center">
-       <%= form_tag("/search", method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
-         <div class="form-group">
-           <%= text_field_tag :search, params[:search],
-             class: "form-control input-sm search-form", placeholder: "搜索商品" %>
-         </div>
-         <i class="fa btn-search fa-search"></i>
-       <% end %>
-  </div>
-          </li>
-          <%= Product.all.each do |p| %>
-            <li><a href="/"><%= p.name %></a></li>
-          <% end %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Profile <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+                <li><a href="/"><i class="glyphicon glyphicon-plus"></i> Account</a></li>
+                <li><a href="/"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
+                <li><a href="/"><i class="glyphicon glyphicon-comment"></i> Notifications</a></li>           
+              </ul>
+            </li>
 
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Profile <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="/"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
-              <li><a href="/"><i class="glyphicon glyphicon-plus"></i> Account</a></li>
-              <li><a href="/"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
-              <li><a href="/"><i class="glyphicon glyphicon-comment"></i> Notifications</a></li>           
-            </ul>
-          </li>
+          </ul>
+        </nav><!--/.navbar -->
+      </div><!--/.sidebar-nav --> 
 
-        </ul>
-      </nav><!--/.navbar -->
-    </div><!--/.sidebar-nav --> 
-
-  <!-- Page Content -->
-  <main id="page-wrapper6">
-    <div class="container-fluid">  
-      <div class="row">
-        <div>
-          <%= yield %>
+    <!-- Page Content -->
+    <main id="page-wrapper6">
+      <div class="container-fluid">  
+        <div class="row">
+          <div>
+            <%= yield %>
+          </div>
         </div>
-      </div>
-    </div> 
-  </main>
-  <hr>
-  <%= render 'layouts/footer' %>
+      </div> 
+    </main>
+    <hr>
+    <%= render 'layouts/footer' %>
 
-  </div><!-- /#wrapper -->
+    </div><!-- /#wrapper -->
 
   </body>
 
