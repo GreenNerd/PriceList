@@ -1,20 +1,2 @@
-// Ajax send data
-$("#addtocart").click(function(e){
-  e.preventDefault();
-  typ = $("#selected_type").val()
-  qua = $("#count_text_box").val()
-
-  data = {product_type => typ, quantity => qua};
-  url = order_items/create;
-
-  $.ajax({
-    url: url,
-    data: data,
-    dataType: "json",
-    cache: false,
-    type: "post",
-    success: function(data){
-      console.log(data);
-    }
-  });
+$('#dialog').on('hidden', function() {
 });

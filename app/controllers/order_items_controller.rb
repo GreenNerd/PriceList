@@ -13,14 +13,14 @@ class OrderItemsController < ApplicationController
     @product = Product.find(session[:product_id])
     @sku = StockKeepingUnit.find_by(product_type: params[:product_type])
     @order_item = @order.order_items.new
-    val1 = params[:product_type]
-    val2 = params[:quantity]
     @order_item.stock_keeping_unit_id = @sku.id
     @order_item.quantity = params[:quantity]
     @order_item.order_id = @order.id.to_i
     @order_item.unit_price = @sku.prices["VIP"].to_f
     if @order.save
-      p "success"
+      respond_to do |format|
+        format.js { render status: 200 }
+      end
     else
       p "failed"
     end

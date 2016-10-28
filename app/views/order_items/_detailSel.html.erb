@@ -26,8 +26,8 @@
 
   <div class="btn-group" data-toggle="buttons">
     <% @skus.each do |sku| %>
-      <label class="btn btn-primary">
-        <input type="radio" name="options" id="selected_type" autocomplete="off"> 
+      <label class="radio-inline">
+        <input type="radio" name="options" id="selected_type" value=<%= sku.product_type %> >
           <%= sku.product_type %>
       </label>
     <% end %>
@@ -55,55 +55,5 @@
 
 <!-- add to cart -->
 <div>
-  <button id="addtocart2" class="btn btn-info">addtocart</button>
-  <%= button_to "加入购物车", order_items_path(@order_item), id: "addtocart", class: "btn btn-info", style: "float:right;" %>
+  <button id="addtocart2" class="btn btn-info" style="float:right">加入购物车</button>
 </div>
-
-<script>
-// Ajax send data
-$(document).on("turbolinks:load", function(){
-// Ajax send data
-$("#addtocart").click(function(e){
-  alert("haha");
-  e.preventDefault();
-  typ = $("#selected_type").val()
-  qua = $("#count_text_box").val()
-
-  data = {product_type => typ, quantity => qua};
-  url = order_items/create;
-
-  $.ajax({
-    url: url,
-    data: data,
-    dataType: "json",
-    cache: false,
-    type: "post",
-    success: function(data){
-      console.log(data);
-    }
-  });
-});
-});
-</script>
-
-</div>
-
-<script>
-  $('#numberSel').on("click", "#count_add", function(){
-    alert("haha")
-    var t = $("#count_text_box");
-    $('#count_min').attr('disabled', true);
-    t.val(parseInt(t.val()) + 1);
-    if (parseInt(t.val()) != 1){
-      $('#count_min').attr('disabled', false);
-    }
-  });
-  $('#numberSel').on("click", "#count_min", function(){
-    var t = $("#count_text_box");
-    $('#count_min').attr('disabled', true);
-    t.val(parseInt(t.val()) - 1);
-    if (parseInt(t.val()) == 1){
-      $('#count_min').attr('disabled', true);
-    }
-  });
-</script>
