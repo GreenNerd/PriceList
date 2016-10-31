@@ -1,0 +1,27 @@
+.pl-header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  wdith: 100%;
+  height: 5rem;
+  color: white;
+  background: #222;
+  line-height: 6rem;
+  display: inline-block;
+}
+
+.pl-header pl-menu {
+  float: left;
+}
+
+.pl-header p {
+  left: 50%;
+  top: 50%;
+  font-size: 1.8rem;
+  margin: 0 0 0 2rem;
+}
+
+.pl-header pl-user {
+  float: right;
+}
