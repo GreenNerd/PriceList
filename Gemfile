@@ -12,7 +12,7 @@ gem 'bcrypt', '3.1.11'
 gem 'pg', '0.18.4'
 gem 'kaminari'
 gem 'rails-i18n'
-gem 'material_icons'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri

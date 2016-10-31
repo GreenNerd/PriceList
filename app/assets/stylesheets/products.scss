@@ -2,227 +2,98 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-// product detail
-// Font Family
-$body-font: "Roboto";
-
-// Font Weights
-$thin: 100;
-$light: 300;
-$regular: 400;
-$semibold: 500;
-$bold: 700;
-$ultra: 800;
-
-// Base Font
-$base-font-family: $body-font, sans-serif;
-$base-font-size: 10px;
-$base-font-weight: $regular;
-$base-line-height: 1.6em;
-
-// Colors
-$black: #000000;
-$dark-gray: rgba($black, 0.8);
-$gray: rgba($black, 0.6);
-$light-gray: rgba($black, 0.4);
-$lighter-gray: rgba($black, 0.2);
-$white: #FFFFFF;
-$accent: #4285F4;
-$primary: #2F313A;
-$secondary: #F4B142;
-
-// Form Settings
-$max-width: 100%;
-$max-height: 100%;
-$gutters: 24px;
-
-// Ripple
-[ripple] {
-  z-index: 1;
-  position: relative;
-  overflow: hidden;
-
-  .ripple {
-    position: absolute;
-    background: $white;
-    width: 12px;
-    height: 12px;
-    border-radius: 100%;
-    animation: ripple 1.6s;
-  }
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(1);
-    opacity: 0.2;
-  }
-
-  100% {
-    transform: scale(40);
-    opacity: 0;
-  }
-}
-
 // product
 .product {
-  border: 1px solid #777;
-  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(178, 178, 178);
+  border-image: initial;
+  border-radius: 5px;
   font-size: 12px;
-  margin: 2px;
-  padding: 1px;
+  margin: 16px auto 24px;
   position: relative;
   width: 100%;
+  max-wdith: 356px;
+  text-align: left;
 
-  .title {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-  }
+  .badges {
+    position: absolute;
+    top: -17px;
+    left: -3px;
 
-  .name {
-    display: inline-block;
-    text-align: center;
-    .title {
-      color: dogerblue;
-      font-size: 14px;
-      text-align: center;
-      padding-top: 10px;
-      line-height: 10px;
-    }
-    .detail {
-      padding: 5px;
-      color: mix(tomato, orange);
-      font-size: 18px;
-      line-height: 10px;
-      margin: 0;
+    .sale {
+      display: block;
+      float: left;
+      margin-right: 2px;
+      width: 55px;
+      height: 55px;
+      background: url(badges.png) no-repeat;
+      background-position: 0px 0px;
     }
   }
 
-  .tabs {
-    z-index: 15px;
-    position: relative;
-    background: $white;
-    width: $max-width;
-    border-radius: 4px;
+  .price-label {
+    position: absolute;
+    height: 47px;
+    top: 0px;
+    right: 0px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    padding: 11px 10px 11px 12px;
+    background: rgb(163, 199, 86);
+    border-radius: 0px 3px 0px 0px;
     box-sizing: border-box;
-    margin: 40px auto 40px 0;
-    overflow: hidden;
-    font-size: 12px;
+  }
 
-    // Tabs Header
-    &-header {
+  .items {
+    width: 100%;
+    border-top: 1px solid rgb(178, 178, 178);
+    padding: 24px 12px 12px;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 5px 5px;
+
+    .tools {
       position: relative;
-      background: $accent;
-      overflow: hidden;
+      margin-top: 10px;
+      height: 48px;
 
-      // Border
-      .border {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        background: $secondary;
-        width: auto;
-        height: 2px;
-        transition: 0.3s ease;
-      }
-
-      // List
-      ul {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: calc(100% - 68px);
-      }
-
-      // List Item
-      li {
-        transition: 0.3s ease;
-      }
-
-      // Anchor
-      a {
-        z-index: 1;
+      .add-cart-btn {
+        float: right;
         display: block;
-        box-sizing: border-box;
-        padding: 15px 20px;
-        color: $white;
-        font-weight: $semibold;
-        font-size: 12px;
+        width: 48px;
+        height: 48px;
+        right: 0px;
+        top: 0px;
         text-decoration: none;
-        text-transform: uppercase;
-      }
-    }
-
-    // Tabs Nav
-    &-nav {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: $accent;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      padding: 0 10px;
-      color: $white;
-      user-select: none;
-
-      // Fade
-      &:before {
-        content: '';
+        padding-top: 9px;
         z-index: 1;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-      }
-
-      // Arrows
-      i {
-        border-radius: 100%;
-        cursor: pointer;
+        color: rgb(255, 255, 255);
+        font-weight: 300;
+        white-space: nowrap;
+        font-size: 1.25em;
+        overflow: hidden;
+        background: rgb(43, 168, 219);
+        border-radius: 24px;
+        transition: width 0.25s ease;
       }
     }
 
-    // Tabs Content
-    &-content {
-      position: relative;
-      transition: 0.3s ease;
-      overflow: hidden;
+    a .title {
+      color: rgb(47, 52, 59);
+      font-size: 1.125em;
+      font-weight: 300;
+    }
 
-      // Blurred Text Effect
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        display: block;
-        width: 100%;
-        height: 1px;
-      }
-
-      // Tab
-      .tab {
-        display: none;
-        font-size: 16px;
-
-        // Active
-        &.active {
-          display: block;
-        }
-      }
+    span {
+      display: block;
+      font-size: 0.875em;
+      color: rgb(178, 178, 178);
+      font-weight: 300;
+      margin-top: 5px;
     }
   }
-}
 
-#preview {
-  .product {
-    border: none;
-    margin: 0 -15px;
-    width: auto;
-    position: relative;
-  }
 }
 
 .pbutton {
@@ -247,7 +118,13 @@ $gutters: 24px;
   }
 }
 
-.tabs .tabs-content .tab h3 {
-  font-size: 22px;
-  font-weight: bold;
+//
+.product .items .tools .add-cart-btn i {
+  font-size: 1.1em;
+  vertical-align: center;
+}
+
+.product .thumb {
+  width: 100%;
+  height: auto;
 }

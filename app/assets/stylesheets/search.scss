@@ -2,50 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.thumb .number .price
-{
-  border: 4px solid;
-}
-
-.VerticalSpace .HorizontalSpace
-{
-  border: 0px;
-  float: left;
-}
-
-.thumb
-{
-  width: 35%;
-  height: 150px;
-  float: left
-}
-
-.number
-{
-  height: 70px;
-  width: 35%;
-  float: right;
-}
-
-.price
-{
-  height: 70px;
-  width: 35%;
-  float: right;
-}
-
-.VerticalSpace
-{
-  width: 35%;
-  height: 10px;
-}
-
-.HorizontalSpace
-{
-  height: 150px;
-  width: 4%;
-}
-
 // search form
 .form-search {
   font-size: 14px;
@@ -106,4 +62,8 @@
     }
   }
 
+}
+
+.pl-search {
+  width: 80%;
 }
