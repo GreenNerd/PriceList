@@ -19,17 +19,6 @@
         <nav id="navbar-white" class="navbar navbar-default" role="navigation">
           <ul class="nav navbar-nav">
             <li class="hidden-xs"><a class="navbar-brand" href="/">存储互联</a></li>
-            <li class="sidebar-form">
-              <div class="navbar-form navbar-center">
-                   <%= form_tag("/search", method: "get", id: "search-form", class: "navbar-form navbar-left") do %>
-                     <div class="form-group">
-                       <%= text_field_tag :search, params[:search],
-                         class: "form-control input-sm search-form", placeholder: "搜索商品" %>
-                     </div>
-                     <i class="fa btn-search fa-search"></i>
-                   <% end %>
-              </div>
-            </li>
             <%= Product.all.each do |p| %>
               <li><a href="/"><%= p.name %></a></li>
             <% end %>
@@ -50,13 +39,8 @@
 
     <!-- Page Content -->
     <main id="page-wrapper6">
-      <div class="container-fluid">  
-        <div class="row">
-          <div>
-            <%= yield %>
-          </div>
-        </div>
-      </div> 
+      <%= render 'layouts/search' %>
+      <%= yield %>
     </main>
     <hr>
     <%= render 'layouts/footer' %>

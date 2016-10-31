@@ -1,0 +1,10 @@
+<!-- search form -->
+<div>
+     <%= form_tag("/search", method: "get", id: "search-form") do %>
+       <div class="form-group">
+         <%= text_field_tag :search, params[:search],
+           class: "form-control input-sm search-form", placeholder: "搜索商品" %>
+       </div>
+       <i class="fa btn-search fa-search"></i>
+     <% end %>
+</div>
