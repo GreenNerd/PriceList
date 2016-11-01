@@ -12,40 +12,62 @@
 
   <body>
 
+    <div canvas="container">
+      <!-- Page Content -->
+      <section class="catalog-grid">
+        <%= yield %>
+      </section>
+    </div>
+    <!-- /canvas -->
     <%= render 'layouts/header' %>
-    <div id="wrapper">
-      <!-- Sidebar -->
-      <div id="slidebar-white" class="slidebar-nav">
-        <nav id="navbar-white" class="navbar navbar-default" role="navigation">
-          <ul class="nav navbar-nav">
-            <li class="hidden-xs"><a class="navbar-brand" href="/">存储互联</a></li>
-            <%= Product.all.each do |p| %>
-              <li><a href="/"><%= p.name %></a></li>
-            <% end %>
+    <div off-canvas="main-menu left shift" style="margin-left: -255px;">
+      <%= image_tag("slidebars-logo-white.png", id: "logo-menu", alt: "存储互联") %>
+      <ul class="menu small">
+        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
+        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
+        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
+        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
+      </ul>
+    </div>
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i> Profile <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="/"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
-                <li><a href="/"><i class="glyphicon glyphicon-plus"></i> Account</a></li>
-                <li><a href="/"><i class="glyphicon glyphicon-cog"></i> Settings</a></li>
-                <li><a href="/"><i class="glyphicon glyphicon-comment"></i> Notifications</a></li>           
-              </ul>
-            </li>
-
-          </ul>
-        </nav><!--/.navbar -->
-      </div><!--/.sidebar-nav --> 
-
-    <!-- Page Content -->
-    <section class="catalog-grid">
-      <%= yield %>
-    </section>
-    <hr>
-    <%= render 'layouts/footer' %>
-
-    </div><!-- /#wrapper -->
+    <div id="fixed-position" canvas="">
+      <%= render 'layouts/footer' %>
+    </div>
 
   </body>
+
+  <script>
+    ( function ($) {
+      // Initialize slidebars
+      var controller = new slidebars();
+      controller.init();
+
+      // Toggle main menu
+      $( '.js-toggle-main-menu' ).on( 'click', function(event){
+        event.preventDefault();
+        event.stopPropagation();
+        controller.toggle('main-menu');
+      });
+
+      // Add close class to canvas container when Slidebar is open
+      $(controller.events).on('opening', function(event){
+        $('[canvas]').addClass('js-close-any');
+      });
+
+      // Add class class to canvas container when Slidebar is open
+      $(controller.events).on('closing', function(event){
+        $('[canvas]').removeClass('js-close-any');
+      });
+
+      // Close any
+      $(document).on('click', '.js-close-any', function(event){
+        if (controller.getActiveSlidebar()) {
+          event.preventDefault();
+          event.stopPropagation();
+          controller.close();
+        }
+      });
+    }) (jQuery);
+  </script>
 
 </html>
