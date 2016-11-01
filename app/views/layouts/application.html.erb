@@ -22,12 +22,7 @@
     <%= render 'layouts/header' %>
     <div off-canvas="main-menu left shift" style="margin-left: -255px;">
       <%= image_tag("slidebars-logo-white.png", id: "logo-menu", alt: "存储互联") %>
-      <ul class="menu small">
-        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
-        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
-        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
-        <li><a href="#"><span class="fa fa-home"></span>" Home"</a></li>
-      </ul>
+      <%= render 'layouts/submenus' %>
     </div>
 
     <div id="fixed-position" canvas="">
@@ -35,6 +30,35 @@
     </div>
 
   </body>
+
+  <script>
+$(function() {
+	var Accordion = function(el, multiple) {
+		this.el = el || {};
+		this.multiple = multiple || false;
+
+		// Variables privadas
+		var links = this.el.find('.link');
+		// Evento
+		links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+	}
+
+	Accordion.prototype.dropdown = function(e) {
+		var $el = e.data.el;
+			$this = $(this),
+			$next = $this.next();
+
+		$next.slideToggle();
+		$this.parent().toggleClass('open');
+
+		if (!e.data.multiple) {
+			$el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+		};
+	}	
+
+	var accordion = new Accordion($('#accordion'), false);
+});
+  </script>
 
   <script>
     ( function ($) {
