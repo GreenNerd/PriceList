@@ -18,3 +18,4 @@
 //= require detailSel
 //= require sidebar
 //= require jquery-labelauty
+//= require slidebars
