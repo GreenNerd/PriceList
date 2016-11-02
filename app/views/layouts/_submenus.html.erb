@@ -1,34 +1,57 @@
-<ul id="accordion" class="menu small accordion">
-  <li>
-    <div class="link"><i class="fa fa-database"></i>Web Design<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Photoshop</a></li>
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-code"></i>Coding<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Javascript</a></li>
-      <li><a href="#">jQuery</a></li>
-      <li><a href="#">Ruby</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-mobile"></i>Devices<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Tablet</a></li>
-      <li><a href="#">Mobile</a></li>
-      <li><a href="#">Desktop</a></li>
-    </ul>
-  </li>
-  <li>
-    <div class="link"><i class="fa fa-globe"></i>Global<i class="fa fa-chevron-down"></i></div>
-    <ul class="submenu">
-      <li><a href="#">Google</a></li>
-      <li><a href="#">Bing</a></li>
-      <li><a href="#">Yahoo</a></li>
-    </ul>
-  </li>
-</ul>
+<div class="sb-slidebar sb-left">
+  <ul class="sb-menu">
+    <li><a href="#">Menu Item 1</a></li>
+    <li><a href="#">Menu Item 2</a></li>
+    <li><a href="#">Menu Item 3</a></li>
+    <li>
+      <a class="sb-toggle-submenu" href="#">
+        Second Level Submenu
+        <span class="sb-caret"></span>
+      </a>
+      <ul class="sb-submenu" style="display: none">
+        <li><a href="#">2 Menu Item 1</a></li>
+        <li><a href="#">2 Menu Item 2</a></li>
+        <li>
+          <a class="sb-toggle-submenu" href="#">
+            Third Level Submenu
+            <span class="sb-caret"></span>
+          </a>
+          <ul class="sb-submenu" style="display: none">
+            <li><a href="#">3 Menu Item 1</a></li>
+            <li><a href="#">3 Menu Item 2</a></li>
+            <li><a href="#">3 Menu Item 3</a></li>
+            <li><a href="#">3 Menu Item 4</a></li>
+            <li><a href="#">3 Menu Item 5</a></li>
+          </ul>
+        </li>
+        <li><a href="#">2 Menu Item 3</a></li>
+        <li><a href="#">2 Menu Item 4</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Menu Item 5</a></li>
+    <li><a href="#">Menu Item 6</a></li>
+  </ul>
+</div>
+
+<script>
+;(function($) {
+	$(document).ready(function() {
+		
+		// ------------------
+		// Slidebars Submenus
+		
+		$('.sb-toggle-submenu').off('click') // Stop submenu toggle from closing Slidebars.
+		.on('click', function() {
+			$submenu = $(this).parent().children('.sb-submenu');
+			$(this).add($submenu).toggleClass('sb-submenu-active'); // Toggle active class.
+			
+			if ($submenu.hasClass('sb-submenu-active')) {
+				$submenu.slideDown(200);
+			} else {
+				$submenu.slideUp(200);
+			}
+		});
+		
+	});
+}) (jQuery);
+</script>
