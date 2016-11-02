@@ -6,16 +6,27 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.destroy_all
-Category.create! id: 1, name: "电子产品", parent: 0
-Category.create! id: 2, name: "电视",     parent: 1
-Category.create! id: 3, name: "TUBE",     parent: 2
-Category.create! id: 4, name: "LCD",      parent: 2
-Category.create! id: 5, name: "PLASMA",      parent: 2
-Category.create! id: 6, name: "PORTABLE ELECTRONICS",      parent: 1
-Category.create! id: 7, name: "MP3 PLAYERS",      parent: 6
-Category.create! id: 8, name: "FLASH",      parent: 7
-Category.create! id: 9, name: "CD PLAYERS",      parent: 6
-Category.create! id: 10, name: "2 WAY RADIOS",      parent: 6
+Category.create! id: 1, name: "热门手机", parent: 0
+Category.create! id: 2, name: "小米",     parent: 1
+Category.create! id: 3, name: "iPhone",     parent: 1
+Category.create! id: 4, name: "魅族",      parent: 1
+Category.create! id: 5, name: "荣耀",      parent: 1
+Category.create! id: 6, name: "OPPO",      parent: 1
+Category.create! id: 7, name: "NOKIA",      parent: 1
+Category.create! id: 8, name: "华为",      parent: 1
+Category.create! id: 9, name: "电脑整机",      parent: 0
+Category.create! id: 10, name: "笔记本",      parent: 9
+Category.create! id: 11, name: "台式机",      parent: 9
+Category.create! id: 12, name: "平板电脑",      parent: 9
+Category.create! id: 13, name: "一体机",      parent: 9
+Category.create! id: 14, name: "DIY",      parent: 9
+Category.create! id: 15, name: "智能设备",      parent: 0
+Category.create! id: 16, name: "智能手表",      parent: 15
+Category.create! id: 17, name: "智能眼睛",      parent: 15
+Category.create! id: 18, name: "智能机器人",      parent: 15
+Category.create! id: 19, name: "VR眼镜",      parent: 15
+Category.create! id: 20, name: "Nikon",      parent: 0
+Category.create! id: 21, name: "服务器",      parent: 0
 
 Product.destroy_all
 Product.create! id: 1, category_id: 4, name: "Nikon D5300", image_url: "1.jpg", price: 661.11, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is a shopping cart"
@@ -23,12 +34,12 @@ Product.create! id: 2, category_id: 5, name: "Nikon Coolpix", image_url: "2.jpg"
 Product.create! id: 3, category_id: 6, name: "Nikon WP-N3", image_url: "3.jpg", price: 663.33, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "Just a camera"
 Product.create! id: 4, category_id: 7, name: "Nikkor 10-30 VR", image_url: "4.jpg", price: 623.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "haha"
 Product.create! id: 5, category_id: 8, name: "Nikon WU 1b", image_url: "5.jpg", price: 664.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is a Nikon WU 1b camera"
-Product.create! id: 6, category_id: 9, name: "Nikon V3", image_url: "6.jpg", price: 665.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is V3 camera"
-Product.create! id: 7, category_id: 9, name: "Nikon J4", image_url: "7.jpg", price: 666.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is J4 camera"
-Product.create! id: 8, category_id: 7, name: "Nikkor AF-S", image_url: "8.jpg", price: 423.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AF-5"
+Product.create! id: 6, category_id: 3, name: "Nikon V3", image_url: "6.jpg", price: 665.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is V3 camera"
+Product.create! id: 7, category_id: 2, name: "Nikon J4", image_url: "7.jpg", price: 666.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is J4 camera"
+Product.create! id: 8, category_id: 3, name: "Nikkor AF-S", image_url: "8.jpg", price: 423.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AF-5"
 Product.create! id: 9, category_id: 6, name: "Nikon AW1", image_url: "9.jpg", price: 123.2, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
 (1..100).each do |i|
-  Product.create! id: 9+i, category_id: i%9+1, name: "尼康 RMB #{ i }", image_url: "#{ i%9+1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
+  Product.create! id: 9+i, category_id: i%8+1, name: "尼康 RMB #{ i }", image_url: "#{ i%9+1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
 end
 
 User.destroy_all
