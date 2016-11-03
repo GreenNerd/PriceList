@@ -39,7 +39,7 @@ Product.create! id: 7, category_id: 2, name: "Nikon J4", image_url: "7.jpg", pri
 Product.create! id: 8, category_id: 3, name: "Nikkor AF-S", image_url: "8.jpg", price: 423.22, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AF-5"
 Product.create! id: 9, category_id: 6, name: "Nikon AW1", image_url: "9.jpg", price: 123.2, active: true, thumb: ["1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
 (1..100).each do |i|
-  Product.create! id: 9+i, category_id: i%8+1, name: "尼康 RMB #{ i }", image_url: "#{ i%9+1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
+  Product.create! id: 9+i, category_id: i%18+1, name: "尼康 RMB #{ i }", image_url: "#{ i%9+1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
 end
 
 User.destroy_all

@@ -45,3 +45,19 @@ $("*").on("click", "#addtocart2", function(e){
     }
   });
 });
+
+
+// sumenu toggle
+$("*").on("click", ".sb-toggle-submenu", function(){
+  // Stop submenu toggle
+  $('.sb-toggle-submenu').off('click');
+
+	$submenu = $(this).parent().children('.sb-submenu');
+	$(this).add($submenu).toggleClass('sb-submenu-active'); // Toggle active class.
+	
+	if ($submenu.hasClass('sb-submenu-active')) {
+		$submenu.slideDown(200);
+	} else {
+		$submenu.slideUp(200);
+	}
+});

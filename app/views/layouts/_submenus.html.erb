@@ -1,5 +1,29 @@
 <div class="sb-slidebar sb-left">
   <ul class="sb-menu">
+    <% Category.where("parent='0'").each do |cg| %>
+      <li>
+        <a class="sb-toggle-submenu" href="#">
+          <%= cg.name %>
+          <span class="sb-caret"></span>
+        </a>
+        <ul class="sb-submenu" style="display: none">
+          <% Category.where("parent=#{cg.id}").each do |scg| %>
+            <li>
+              <a class="sb-toggle-submenu" href="#">
+                <%= scg.name %>
+                <span class="sb-caret"></span>
+              </a>
+              <ul class="sb-submenu" style="display: none">
+                <% Product.where("category_id=#{scg.id}").each do |product| %>
+                  <li><a href="#"><%= product.name %></a></li>
+                  <li><%= link_to "#{product.name}", product_path(product) %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
     <li><a href="#">Menu Item 1</a></li>
     <li><a href="#">Menu Item 2</a></li>
     <li><a href="#">Menu Item 3</a></li>
@@ -32,26 +56,3 @@
     <li><a href="#">Menu Item 6</a></li>
   </ul>
 </div>
-
-<script>
-;(function($) {
-	$(document).ready(function() {
-		
-		// ------------------
-		// Slidebars Submenus
-		
-		$('.sb-toggle-submenu').off('click') // Stop submenu toggle from closing Slidebars.
-		.on('click', function() {
-			$submenu = $(this).parent().children('.sb-submenu');
-			$(this).add($submenu).toggleClass('sb-submenu-active'); // Toggle active class.
-			
-			if ($submenu.hasClass('sb-submenu-active')) {
-				$submenu.slideDown(200);
-			} else {
-				$submenu.slideUp(200);
-			}
-		});
-		
-	});
-}) (jQuery);
-</script>
