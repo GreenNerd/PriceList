@@ -1,5 +1,6 @@
 <div class="sb-slidebar sb-left">
   <ul class="sb-menu">
+    <li><a href="/">全部分类</a></li>
     <% Category.where("parent='0'").each do |cg| %>
       <li>
         <a class="sb-toggle-submenu" href="#">

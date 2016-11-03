@@ -1,16 +1,15 @@
-<h3 class="text-center">搜索结果</h3>
-
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-4 col-xs-offset-2" style="padding-left: 10px">
-      <% @products.reject { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
+<div class="container">
+  <%= render 'layouts/search' %>
+  <% if @products.present? %>
+    <div class="row">
+      <%= render partial: 'products/product_row', collection: @products, as: :product %>
     </div>
-    <div class="col-xs-4">
-      <% @products.select { |e| e.id % 2 == 0 }.each do |product| %>
-        <%= render "product_row", product: product, order_item: @order_item %>
-      <% end %>
+  <% else %>
+    <div class="alert alert-success" role="alert">
+      <h3 class="text-center" style="font-family:"serif";">
+        没有搜索到你要查询的信息，请<br>
+        换个关键字试试吧！
+      </h3>
     </div>
-  </div>
+  <% end %>
 </div>
