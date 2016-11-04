@@ -6,8 +6,13 @@ class Order < ActiveRecord::Base
     order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price.to_f) : 0 }.sum
   end
 
+  def total
+    order_items.count
+  end
+
 private
   def update_subtotal
     self[:subtotal] = subtotal
+    self[:total] = total
   end
 end

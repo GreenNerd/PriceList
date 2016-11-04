@@ -1,2 +1,1 @@
-$(".cart-text").html("<%= escape_javascript(render 'layouts/cart_text') %>")
-$(".shopping-cart").html("<%= escape_javascript(render 'carts/shopping_cart') %>")
+$('div#fixed_footer').html("<%= escape_javascript(render partial: 'layouts/footer', locals: {current_order: @order} ) %>")

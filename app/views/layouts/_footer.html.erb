@@ -1,13 +1,13 @@
 <footer mhtn="container">
   <div mhtn="row">
-  <div mhtn="col xs-100">
-  <div class="footer info">
-    购物车里面共有 <%= current_order.order_items.size %> 件商品, 共计 <%= number_to_currency current_order.subtotal %>&nbsp;
-    <a href="/cart">
-      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
-      <span class="badge"><%= current_order.order_items.size %></span>
-    </a>
-  </div>
-  </div>
+    <div mhtn="col xs-100">
+      <div class="info">
+        购物车里面共有 <%= current_order.order_items.size %> 件商品, 共计 <%= number_to_currency current_order.subtotal %>&nbsp;
+        <a href="/cart">
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+          <span class="badge"><%= current_order.order_items.size %></span>
+        </a>
+      </div>
+    </div>
   <div>
 </footer>

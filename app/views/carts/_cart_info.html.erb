@@ -1,0 +1,73 @@
+<div class="col-lg-9 col-md-9">
+  <div class="alert alert-success" role="alert">
+    <h2 class="title">购物车</h2>
+  </div>
+  <table class="items-list">
+    <tbody>
+      <tr>
+        <th>&nbsp;</th>
+        <th>名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>总价</th>
+      </tr>
+      <% @order_items.each do |oi| %>
+      <!-- Items -->
+      <tr class="item">
+        <td class="thumb">
+          <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
+        </td>
+        <td class="name">
+          <a href="/products/<%= get_product_id(oi) %>">
+              <%= get_product_name(oi) %>
+          </a>
+        </td>
+        <td class="price">
+          <%= number_to_currency oi.unit_price %>
+        </td>
+        <td class="qnt-count">
+          <a class="incr-btn" href="#">-</a>
+          <input class="quantity form-control" type="text" value="<%= oi.quantity %>">
+          <a class="incr-btn" href="#">+</a>
+        </td>
+        <td class="total">
+          <%= number_to_currency oi.total_price %>
+        </td>
+        <td class="delete">
+          <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
+        </td>
+        <p id="oi-id" style="display:none;">
+          <%= oi.id %>
+        </p>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div> <!-- container/row/col -->
+<div class="col-lg-3 col-md-3">
+  <div class="alert alert-info">
+    <h3>合计</h3>
+    <form class="cart-sidebar" method="post">
+      <div class="cart-totals">
+        <table>
+          <tbody>
+            <tr>
+              <td>总价</td>
+              <td class="total align-r"><%= number_to_currency current_order.subtotal %></td>
+            </tr>
+            <tr class="devider">
+              <td>件数</td>
+              <td class="align-r"><%= current_order.total.to_i %></td>
+            </tr>
+            <tr>
+              <td>合计</td>
+              <td class="align-r"><%= number_to_currency current_order.subtotal %></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="submit" class="btn btn-primary btn-sm btn-block" id="update-cart" value="Update shopping cart">
+        <input type="submit" class="btn btn-success btn-block" value="Proceed to checkout">
+      </div>
+    </form>
+  </div> <!-- alert info -->
+</div>
