@@ -16,7 +16,6 @@
               </a>
               <ul class="sb-submenu" style="display: none">
                 <% Product.where("category_id=#{scg.id}").each do |product| %>
-                  <li><a href="#"><%= product.name %></a></li>
                   <li><%= link_to "#{product.name}", product_path(product) %></li>
                 <% end %>
               </ul>

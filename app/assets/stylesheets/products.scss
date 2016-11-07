@@ -2,6 +2,155 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// product
+.product {
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(178, 178, 178);
+  border-image: initial;
+  border-radius: 5px;
+  font-size: 12px;
+  margin: 16px auto 12px;
+  position: relative;
+  width: 100%;
+  max-wdith: 356px;
+  text-align: left;
+  overflow: hidden;
+
+  .badges {
+    position: absolute;
+    top: -17px;
+    left: -3px;
+
+    .sale {
+      display: block;
+      float: left;
+      margin-right: 2px;
+      width: 55px;
+      height: 55px;
+      background: url(badges.png) no-repeat;
+      background-position: 0px 0px;
+    }
+  }
+
+  .price-label {
+    position: absolute;
+    height: 47px;
+    top: 0px;
+    right: 0px;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    padding: 11px 10px 11px 12px;
+    background: rgb(163, 199, 86);
+    border-radius: 0px 3px 0px 0px;
+    box-sizing: border-box;
+  }
+
+  .items {
+    width: 100%;
+    border-top: 1px solid rgb(178, 178, 178);
+    padding: 12px 12px 12px;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 5px 5px;
+    white-space: nowrap;
+    word-break: keep-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .tools {
+      position: relative;
+      margin-top: 10px;
+      height: 48px;
+
+      .add-cart-btn {
+        float: right;
+        display: block;
+        width: 48px;
+        height: 48px;
+        right: 0px;
+        top: 0px;
+        text-decoration: none;
+        padding-top: 9px;
+        z-index: 1;
+        color: rgb(255, 255, 255);
+        font-weight: 300;
+        white-space: nowrap;
+        font-size: 1.25em;
+        overflow: hidden;
+        background: rgb(43, 168, 219);
+        border-radius: 24px;
+        transition: width 0.25s ease;
+      }
+    }
+
+    a .title {
+      color: rgb(47, 52, 59);
+      font-size: 1.125em;
+      font-weight: 300;
+    }
+
+    span {
+      display: block;
+      font-size: 0.875em;
+      color: rgb(178, 178, 178);
+      font-weight: 300;
+      margin-top: 5px;
+    }
+
+    .pprice {
+      color: black;
+      weight: bold;
+      font-size: 1.125em;
+      margin-top: 14px;
+
+      .addtocart {
+        float: right;
+      }
+    }
+
+    .pname {
+      color: rgb(47, 52, 59);
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
+}
+
+.pbutton {
+  border: none;
+  border-radius: 5px;
+  bottom: 0;
+  color: white;
+  display: inline-block;
+  font-size: 10px;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 0 10px 5px;
+  padding: 0 15px;
+  position: relative;
+  text-align: cnter;
+  float: right;
+  .sel {
+    background: #151515;
+  }
+  .add {
+    background: #827ae1;
+  }
+}
+
+//
+.product .items .tools .add-cart-btn i {
+  font-size: 1.1em;
+  vertical-align: center;
+}
+
+.product .thumb {
+  width: auto;
+  height: 170px;
+}
+
 .catalog-grid {
   width: 100%;
   padding: 66px 0px 36px 0px;

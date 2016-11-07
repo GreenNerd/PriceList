@@ -64,7 +64,6 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.update_attributes(order_item_params)
     @order_items = @order.order_items
-    // Update quantity from ajax
     if params[:Uquantity].present?
       newQua = params[:Uquantity]
       @order_item.update_attribute(quantity, newQua)

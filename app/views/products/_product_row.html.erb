@@ -1,19 +1,19 @@
 <div class="col-xs-6 col-md-3 col-sm-12">
   <div class="product">
-    <div class="badges">
-      <span class="sale"></span>
-    </div>
-    <div class="price-label"><%= number_to_currency product.price %></div>
-    <a href="#">
+    <a href=<%= product_path(product.id) %>>
       <%= image_tag(product.image_url, alt: "1", class: "thumb") %>
     </a>
     <div class="items">
-      <a class="title" href="#"><%= product.name %></a>
-      <span><%= number_to_currency product.price %></span>
-      <div class="tools">
-        <%= button_to product_path(product.id), :class => "add-cart-btn", :method => "get" do %>
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-        <% end %>
+      <div class="pname">
+        <%= product.name %>
+      </div>
+      <div class="pprice">
+        <%= number_to_currency product.price %>
+        <div class="addtocart">
+          <%= button_to product_path(product.id), :method => "get" do %>
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
