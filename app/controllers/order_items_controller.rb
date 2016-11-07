@@ -62,12 +62,9 @@ class OrderItemsController < ApplicationController
   def update
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
+    byebug
     @order_item.update_attributes(order_item_params)
     @order_items = @order.order_items
-    if params[:Uquantity].present?
-      newQua = params[:Uquantity]
-      @order_item.update_attribute(quantity, newQua)
-    end
   end
 
   def destroy

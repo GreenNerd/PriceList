@@ -14,3 +14,22 @@ $('body').on("click", ".shopping-cart .delete a i", function(){
     });
   });
 });
+
+// Update items
+$('body').on("click", ".shopping-cart #update-cart", function() {
+  $positions = $('.shopping-cart .item');
+  $positions.each(function(){
+    qua = $(".shopping-cart .item .qnt-count :input").val();
+    oid = $(".shopping-cart #oi-id").val();
+
+    data = {"Oid": oid, "Uquantity": qua};
+    url = "<%= order_item_path(#{oid}) %>";
+    $.ajax({
+      url: url,
+      data: data,
+      dataType: "json",
+      cache: false,
+      type: "put"
+    });
+  });
+});
