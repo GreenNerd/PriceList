@@ -35,7 +35,7 @@
         </td>
         <td class="delete">
           <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
-          <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "put", remote: true %>
+          <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: :put, remote: true %>
         </td>
         <p id="oi-id" style="display:none;">
           <%= oi.id %>

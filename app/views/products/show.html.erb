@@ -1,5 +1,5 @@
 <div class="product">
-  <div>
+  <div style="height:400px;width:auto;">
     <%= carousel_for(@product.pictures)%>
   </div>
   <div class="title">
@@ -26,37 +26,58 @@
     </div>
   </div>
 
-  <!-- tabs -->
-  <div>
+</div><!-- /product -->
 
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">商品详情</a></li>
-      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">商品规格</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">商品图片</a></li>
-    </ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">
+<!-- Tabs Widget -->
+<section class="tabs-widget">
+  <!-- Nav Tabs -->
+  <ul class="nav nav-tabs">
+    <li><a href="#detail" data-toggle="tab" aria-expanded="true">商品详情</a></li>
+    <li class="active"><a href="#dimens" data-toggle="tab" aria-expanded="false">商品规格</a></li>
+    <li><a href="#pictur" data-toggle="tab">商品图片</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade" id="detail">
+      <p class="p-style2">
         <%= @product.description %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="profile">
-        <% @skus.each do |sku| %>
-          <h3><%= @product.name %>  <%= sku.product_type %></h3>
-          <% sku.dimensions.each do |k, v| %>
-            <p><%= k %>: <%= v %></p>
-          <% end %>
-        <% end %>
-      </div>
-      <div role="tabpanel" class="tab-pane" id="messages">
-          <% @product.pictures.each do |img| %>
-            <p><%= image_tag(img, size: "200x150") %></p>
-          <% end %>
+      </p>
+    </div>
+    <div class="tab-pane fade active in" id="dimens">
+      <div class="container">
+        <div class="row">
+          <section class="tech-specs">
+            <% @skus.each do |sku| %>
+            <div class="row">
+              <!-- Item -->
+              <h4><span><%= @product.name %>  <%= sku.product_type %></span></h4>
+              <% sku.dimensions.each do |k, v| %>
+              <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="item">
+                  <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-3">
+                      <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                      <span><%= k %></span>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-9">
+                      <p class="p-style2"><%= v %></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <% end %>
+          </section>
+        </div>
       </div>
     </div>
+    <div class="tab-pane fade" id="pictur">
+      <% @product.pictures.each do |img| %>
+        <p><%= image_tag(img, size: "461x484") %></p>
+      <% end %>
+    </div>
 
-  <%= render 'dialog' %>
-  </div> <!-- product/tabs -->
-
-</div><!-- /product -->
+    <%= render 'dialog' %>
+  </div> <!-- tabs content -->
+</section>

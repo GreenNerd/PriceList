@@ -29,7 +29,7 @@ Category.create! id: 20, name: "Nikon",      parent: 0
 Category.create! id: 21, name: "服务器",      parent: 0
 
 Product.destroy_all
-Product.create! id: 1, category_id: 4, name: "x3850x6服务器", image_url: "x3850x6.jpg", price: 62000.00, active: true, thumb: ["x3850x6.jpg"], pictures: ["x385x6.jpg", "2.jpg", "3.jpg"], description: 'Lenovo System x3850 X6, 2x Intel Xeon Processor E7-4830 v3 12C 2.1GHz 115W 30M TruDDR4 1866，标配2块内存板48个DIMM，32GB(4x8GB) 2133MHz DDR4内存，标配8个 2.5" SAS热插拔硬盘槽位，标配M5210 支持RAID0、1、10 可选缓存或Flash保护，主机带4口个千兆以太网卡，标配2个900W热插拔电源(带2根PDU电源线), 4U机架式，无光驱。三年7*24*4有限保修'
+Product.create! id: 1, category_id: 4, name: "x3850x6服务器", image_url: "x3850x6.jpg", price: 62000.00, active: true, thumb: ["x3850x6.jpg"], pictures: ["x3850x6.jpg", "2.jpg", "3.jpg"], description: 'Lenovo System x3850 X6, 2x Intel Xeon Processor E7-4830 v3 12C 2.1GHz 115W 30M TruDDR4 1866，标配2块内存板48个DIMM，32GB(4x8GB) 2133MHz DDR4内存，标配8个 2.5" SAS热插拔硬盘槽位，标配M5210 支持RAID0、1、10 可选缓存或Flash保护，主机带4口个千兆以太网卡，标配2个900W热插拔电源(带2根PDU电源线), 4U机架式，无光驱。三年7*24*4有限保修'
 Product.create! id: 2, category_id: 5, name: "7158IY5", image_url: "7158IY5.jpg", price: 12000.00, active: true, thumb: ["7158IY5.jpg"], pictures: ["7158IY5.jpg", "2.jpg", "3.jpg"], description: 'X3630M4 Xeon E5-2407V2 4C 2.4GHz/2*8GB DDR3/8*0GB 3.5"SAS/RAID-M5110/无光/2*1000M/550W/2U'
 Product.create! id: 3, category_id: 6, name: "7158IY1", image_url: "7158IY1.jpg", price: 11500.00, active: true, thumb: ["7158IY1.jpg"], pictures: ["7158IY1.jpg", "2.jpg", "3.jpg"], description: 'X3630M4 Xeon E5-2407V2 4C 2.4GHz/2*8GB DDR3/8*0GB 3.5"SAS/RAID-M1115/无光/2*1000M/550W/2U'
 Product.create! id: 4, category_id: 7, name: "69Y1194-1", image_url: "69Y1194-1.jpg", price: 3.08, active: true, thumb: ["69Y1194-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "haha"
@@ -54,7 +54,7 @@ User.create! id: 2, name: "vip", password: "123456", level: "VIP"
 User.create! id: 3, name: "admin", password: "123456", level: "ADMIN"
 
 StockKeepingUnit.destroy_all
-StockKeepingUnit.create! id: 1, product_id: 1, inventory_count: 9, product_type: "x3850x6", prices: {"normal": 62000, "VIP": 62000, "other": 62000}, dimensions: {"供应商": "北京华夏盈远科技有限公司", "联系人": "崔志洋", "联系方式": "18001305657"}
+StockKeepingUnit.create! id: 1, product_id: 1, inventory_count: 9, product_type: "X3850X6", prices: {"normal": 62000, "VIP": 62000, "other": 62000}, dimensions: {"供应商": "北京华夏盈远科技有限公司", "联系人": "崔志洋", "联系方式": "18001305657"}
 StockKeepingUnit.create! id: 2, product_id: 2, inventory_count: 6, product_type: "7158IY5", prices: {"normal": 12000, "VIP": 12000, "other": 12000}, dimensions: {"供应商": "上海祺冠系统集成有限公司", "联系人": "李坤", "联系方式": "13801991175"}
 StockKeepingUnit.create! id: 3, product_id: 2, inventory_count: 22, product_type: "7158IY1", prices: {"normal": 11500, "VIP": 11500, "other": 11500}, dimensions: {"供应商": "上海祺冠系统集成有限公司", "联系人": "李坤", "联系方式": "13801991175"}
 StockKeepingUnit.create! id: 4, product_id: 4, inventory_count: 130, product_type: "118", prices: {"normal": 120, "VIP": 66, "other": 9}, dimensions: {"处理器": "英特尔@至强R处理器E5-2690 v4 1.7GHz", "Cache": "20MB", "网卡": "板载双口千兆以太网络适配器，可选PIC-e双口10Gb网络适配器或双口16Gb光纤通道卡", "cpu": "i5", "color": "red"}
