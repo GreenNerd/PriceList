@@ -1,3 +1,38 @@
+<!--Hero Slider-->
+<section class="hero-slider fullscreen">
+	<div class="master-slider" id="fullscreen-slider">
+  
+  	<!--Slide 1-->
+  	<div class="ms-slide" data-delay="7">
+    	<div class="overlay"></div>
+      <%= image_tag "slide_1.jpg", alt: "Nikon D45" %>
+      <h2 style="width: 456px;" class="light-color ms-layer" data-effect="top(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nikon D4S</h2>
+      <p style="width: 456px;" class="light-color ms-layer" data-effect="back(500)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      <div class="ms-layer button" data-effect="bottom(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1845$</span>Buy it now</a></div>
+    </div>
+    
+  	<!--Slide 2-->
+  	<div class="ms-slide" data-delay="7">
+      <span class="overlay"></span>
+      <%= image_tag "slide_2.jpg", alt: "Nest" %>
+      <h2 style="width: 456px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">Nest</h2>
+      <p style="width: 456px;" class="light-color ms-layer" data-effect="bottom(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      <div class="ms-layer button" data-effect="rotatebottom(30|90,long,br,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>1640$$</span>Buy it now</a></div>
+    </div>
+    
+  	<!--Slide 3-->
+  	<div class="ms-slide" data-delay="7">
+    	<div class="overlay"></div>
+      <%= image_tag "slide_3.jpg", alt: "3D Printer" %>
+      <h2 style="width: 456px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="250" data-ease="easeOutQuad">3D Printer</h2>
+      <p style="width: 456px;" class="light-color ms-layer" data-effect="left(50,true)" data-duration="700" data-delay="500" data-ease="easeOutQuad">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+      <div class="ms-layer button" data-effect="left(50,true)" data-duration="600" data-delay="950" data-ease="easeOutQuad"><a class="btn btn-primary" href="#"><span>2500$</span>Buy it now</a></div>
+    </div>
+    
+  </div>
+</section><!--Hero Slider Close-->
+
+
 <div class="product">
   <div style="height:400px;width:auto;">
     <%= carousel_for(@product.pictures)%>
@@ -56,7 +91,7 @@
                 <div class="item">
                   <div class="row">
                     <div class="col-lg-4 col-md-4 col-sm-3">
-                      <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+                      <i class="fa fa-info-circle" aria-hidden="true"></i>
                       <span><%= k %></span>
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-9">
