@@ -1,0 +1,33 @@
+<!-- Items -->
+<%= form_for oi, remote: true do |f| %>
+<tr class="item">
+  <td class="thumb">
+    <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
+  </td>
+  <td class="name">
+    <a href="/products/<%= get_product_id(oi) %>">
+        <%= get_product_name(oi) %>
+    </a>
+  </td>
+  <td class="price">
+    <%= number_to_currency oi.unit_price %>
+  </td>
+  <td class="qnt-count">
+    <a class="incr-btn" href="#">-</a>
+    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "quantity form-control"%>
+    <a class="incr-btn" href="#">+</a>
+  </td>
+  <td class="total">
+    <%= number_to_currency oi.total_price %>
+  </td>
+  <td class="delete">
+    <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
+    <%= f.button(type: "submit", class: "btn btn-default") do %>
+      <i class="fa fa-refresh" aria-hidden="true"></i>
+    <% end %>
+  </td>
+  <p id="oi-id" style="display:none;">
+    <%= oi.id %>
+  </p>
+</tr>
+<% end %> <!-- ./form -->

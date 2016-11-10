@@ -12,35 +12,7 @@
         <th>总价</th>
       </tr>
       <% @order_items.each do |oi| %>
-      <!-- Items -->
-      <tr class="item">
-        <td class="thumb">
-          <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
-        </td>
-        <td class="name">
-          <a href="/products/<%= get_product_id(oi) %>">
-              <%= get_product_name(oi) %>
-          </a>
-        </td>
-        <td class="price">
-          <%= number_to_currency oi.unit_price %>
-        </td>
-        <td class="qnt-count">
-          <a class="incr-btn" href="#">-</a>
-          <input class="quantity form-control" type="text" value="<%= oi.quantity %>">
-          <a class="incr-btn" href="#">+</a>
-        </td>
-        <td class="total">
-          <%= number_to_currency oi.total_price %>
-        </td>
-        <td class="delete">
-          <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
-          <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: :put, remote: true %>
-        </td>
-        <p id="oi-id" style="display:none;">
-          <%= oi.id %>
-        </p>
-      </tr>
+        <%= render "carts/order_item", oi: oi %>
       <% end %>
     </tbody>
   </table>
