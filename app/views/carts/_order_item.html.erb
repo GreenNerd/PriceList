@@ -1,6 +1,6 @@
 <!-- Items -->
-<%= form_for oi, remote: true do |f| %>
 <tr class="item">
+<%= form_for oi, remote: true do |f| %>
   <td class="thumb">
     <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
   </td>
@@ -22,12 +22,14 @@
   </td>
   <td class="delete">
     <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
-    <%= f.button(type: "submit", class: "btn btn-default") do %>
+  </td>
+  <td class="delete">
+    <%= f.button(type: "submit", class: "btn btn-link") do %>
       <i class="fa fa-refresh" aria-hidden="true"></i>
     <% end %>
   </td>
   <p id="oi-id" style="display:none;">
     <%= oi.id %>
   </p>
-</tr>
 <% end %> <!-- ./form -->
+</tr>
