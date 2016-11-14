@@ -13,6 +13,7 @@ gem 'pg', '0.18.4'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'font-awesome-rails'
+gem 'qiniu'
 
 group :development, :test do
   gem 'byebug', platform: :mri
