@@ -11,9 +11,10 @@ Rails.application.routes.draw do
   get'products/addtocart', to: 'products#addtocart'
   post 'order_items/create', to: 'order_items#create'
   get 'order_items/create', to: 'order_items#create'
+  get 'cart/genpdf', to: 'carts#genpdf'
 
   resources :products, only: [:index, :show]
-  resource :cart, only: [:show]
+  resource :cart, only: [:show, :genpdf]
   resources :order_items, only: [:create, :update, :destroy, :new], defaults: { format: 'js' }
   resources :users
 

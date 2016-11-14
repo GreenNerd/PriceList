@@ -38,8 +38,7 @@
             </tr>
           </tbody>
         </table>
-        <input type="submit" class="btn btn-primary btn-sm btn-block" id="update-cart" value="Update shopping cart">
-        <input type="submit" class="btn btn-success btn-block" value="Proceed to checkout">
+        <%= link_to "生成PDF文件", cart_genpdf_path(:format => 'pdf'), class: "btn btn-primary btn-sm btn-block" %>
       </div>
     </form>
   </div> <!-- alert info -->
