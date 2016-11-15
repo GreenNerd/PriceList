@@ -12,17 +12,18 @@ class GenPdf < Prawn::Document
 
   def header
     # This inserts an image in the pdf file and set the size of the image
-    image "#{Rails.root}/app/assets/images/1.jpg", width: 530, height: 150
+    image "#{Rails.root}/app/assets/images/QR.png"
   end
 
   def text_content
     # The cursor for inserting content starts on the top of the page. Here we move it down a little to create more space between the text and image inserted above
-    y_position = cursor - 50
+    y_position = cursor - 30
 
     # The bounding_box takes the x and y coordinates for positioning its content and some options to style it
     bounding_box([0, y_position], :width => 270, :height => 300) do
-      text "Lorem ipsum", size: 15, style: :bold
-      text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum semper placerat."
+      font("#{Prawn::DATADIR}/fonts/msyh.ttf", :size => 12) do
+        text "存储互联二维码", :align => :center
+      end
     end
 
   end
@@ -35,14 +36,21 @@ class GenPdf < Prawn::Document
       row(0).font_style = :bold
       self.header = true
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.column_widths = [40, 300, 200]
+      self.column_widths = [100, 100, 100, 100, 100]
     end
   end
 
   def item_rows
-    [['#', 'name', 'Price']] +
+    [['#', 'name', 'Unit Price', 'quantity', 'Total Price']] +
       @items.map do |item|
-      [item.id, item.quantity, item.total_price]
+      if item.present?
+        sid = item.stock_keeping_unit_id
+        @sku = StockKeepingUnit.find_by(id: sid)
+        pid = @sku.product_id
+        @product = Product.find_by(id: pid)
+        pname = @product.name
+      end
+      [item.id, item.quantity, item.unit_price, item.quantity, item.total_price]
     end
   end
 end
