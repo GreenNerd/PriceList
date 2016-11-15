@@ -1,5 +1,5 @@
 GEM
-  remote: https://rubygems.org/
+  remote: https://ruby.taobao.org/
   specs:
     actioncable (5.0.0.1)
       actionpack (= 5.0.0.1)
@@ -96,8 +96,12 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    pdf-core (0.6.1)
     pg (0.18.4)
     pkg-config (1.1.7)
+    prawn (2.1.0)
+      pdf-core (~> 0.6.1)
+      ttfunk (~> 1.4.0)
     puma (3.6.0)
     qiniu (6.8.1)
       json (~> 1.8)
@@ -163,6 +167,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
+    ttfunk (1.4.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -196,6 +201,7 @@ DEPENDENCIES
   kaminari
   listen (~> 3.0.5)
   pg (= 0.18.4)
+  prawn
   puma (~> 3.0)
   qiniu
   rails (~> 5.0.0)
@@ -212,4 +218,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.13.0
+   1.13.5

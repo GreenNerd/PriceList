@@ -1,3 +1,5 @@
+source 'https://ruby.taobao.org'
+
 ruby '2.3.0'
 gem 'rails', '~> 5.0.0'
 gem 'puma', '~> 3.0'
@@ -14,6 +16,7 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'font-awesome-rails'
 gem 'qiniu'
+gem 'prawn'
 
 group :development, :test do
   gem 'byebug', platform: :mri
