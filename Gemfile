@@ -17,6 +17,7 @@ gem 'rails-i18n'
 gem 'font-awesome-rails'
 gem 'qiniu'
 gem 'prawn'
+gem 'prawn-table'
 
 group :development, :test do
   gem 'byebug', platform: :mri

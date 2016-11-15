@@ -1,3 +1,6 @@
+require 'prawn'
+require 'prawn/table'
+
 class GenPdf < Prawn::Document
   def initialize(order_items)
     super()
@@ -38,7 +41,7 @@ class GenPdf < Prawn::Document
 
   def item_rows
     [['#', 'name', 'Price']] +
-      @itemss.map do |items|
+      @items.map do |item|
       [item.id, item.quantity, item.total_price]
     end
   end

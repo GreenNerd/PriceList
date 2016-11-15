@@ -9,7 +9,7 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = GenPdf.new(order_items)
+        pdf = GenPdf.new(@order_items)
         send_data pdf.render, filename: 'report.pdf', type: 'application/pdf', :disposition => 'inline'
       end
     end
