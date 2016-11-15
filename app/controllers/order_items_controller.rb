@@ -11,7 +11,11 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @product = Product.find(session[:product_id])
-    @sku = StockKeepingUnit.find_by(product_type: params[:product_type])
+    if params[:product_type].present?
+      @sku = StockKeepingUnit.find_by(product_type: params[:product_type])
+    else
+      @sku = StockKeepingUnit.find_by(id: session[:product_id])
+    end
     @order_item = @order.order_items.new
     @order_item.stock_keeping_unit_id = @sku.id
     @order_item.quantity = params[:quantity]

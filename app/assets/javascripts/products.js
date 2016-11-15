@@ -32,3 +32,33 @@ $('body').on("click", ".shopping-cart #update-cart", function() {
     });
   });
 });
+
+// Ajax send data
+$("*").on("click", "#addtocart1", function(e){
+  typ = ""
+  qua = 1
+
+  data = {"product_type": typ, "quantity": qua};
+  url = '/order_items';
+
+  $.ajax({
+    url: url,
+    data: data,
+    dataType: "json",
+    cache: false,
+    type: "post",
+    success: function(response){
+      if (response.success) {
+        alert("ajax success");
+      }else {
+        alert("ajax error");
+      }
+    },
+    error: function(response){
+      if (response.success) {
+        alert("data accepted!");
+        $('#dialog').modal('toggle');
+        }
+    }
+  });
+});
