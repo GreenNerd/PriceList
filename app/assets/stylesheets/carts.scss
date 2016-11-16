@@ -130,6 +130,16 @@
     font-size: 1.3em;
   }
 }
+.shopping-cart table td.qnt-count {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 10px 2px 10px 0;
+}
+@media only screen and (max-width: 680px) {
+  .shopping-cart table td.qnt-count {
+    margin: 30px 2px 10px 0;
+  }
+}
 .shopping-cart table td.qnt-count .incr-btn {
   display: inline-block;
   width: 20px;
