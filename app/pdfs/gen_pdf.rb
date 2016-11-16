@@ -8,20 +8,19 @@ class GenPdf < Prawn::Document
     @order = order
     table_content
     order_content
-    header
-    text_content
+    qr_image
+    qr_title
   end
 
-  def header
+  def qr_image
     # This inserts an image in the pdf file and set the size of the image
-    move_down 20
-    image "#{Rails.root}/app/assets/images/QR.png"
-    move_down 20
+    image "#{Rails.root}/app/assets/images/QR.png", :position => :right, :vposition => :bottom
   end
 
-  def text_content
+  def qr_title
+    move_up 20
     font("#{Prawn::DATADIR}/fonts/simkai.ttf", :size => 12) do
-      text "存储互联二维码", :align => :center
+      text '请关注"存储互联"以获得更多信息', :valign => :bottom
     end
   end
 
