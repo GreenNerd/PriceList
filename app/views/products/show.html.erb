@@ -7,11 +7,11 @@
 <div class="d-pricing">
   <div class="col-xs-6">
     <div class="dl-title"><i class="fa fa-tag" aria-hidden="true"></i>库存</div>
-    <div class="dl-detail"><%= @mount %></div>
+    <div class="dl-count"><%= @mount %></div>
   </div>
   <div class="name col-xs-6">
     <div class="dl-title"><i class="fa fa-tag" aria-hidden="true"></i>价格</div>
-    <div class="dl-detail"><%= number_to_currency @product.price %></div>
+    <div class="dl-price"><%= number_to_currency @product.price %></div>
   </div>
 </div>
 
@@ -26,35 +26,29 @@
 <section class="tabs-widget">
   <!-- Nav Tabs -->
   <ul class="nav nav-tabs">
-    <li><a href="#detail" data-toggle="tab" aria-expanded="true">商品详情</a></li>
-    <li class="active"><a href="#dimens" data-toggle="tab" aria-expanded="false">商品规格</a></li>
+    <li class="active"><a href="#detail" data-toggle="tab" aria-expanded="false">商品详情</a></li>
+    <li><a href="#dimens" data-toggle="tab" aria-expanded="true">商品规格</a></li>
     <li><a href="#pictur" data-toggle="tab">商品图片</a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane fade" id="detail">
+    <div class="tab-pane fade active in" id="detail">
       <p class="p-style2">
         <%= @product.description %>
       </p>
     </div>
-    <div class="tab-pane fade active in" id="dimens">
+    <div class="tab-pane fade" id="dimens">
       <div class="container">
         <div class="row">
           <section class="tech-specs">
             <% @skus.each do |sku| %>
+            <h4><%= @product.name %>  <%= sku.product_type %></h4>
             <div class="row">
               <!-- Item -->
-              <h4><span><%= @product.name %>  <%= sku.product_type %></span></h4>
               <% sku.dimensions.each do |k, v| %>
               <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="item">
                   <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-3">
-                      <i class="fa fa-info-circle" aria-hidden="true"></i>
-                      <span><%= k %></span>
-                    </div>
-                    <div class="col-lg-8 col-md-8 col-sm-9">
-                      <p class="p-style2"><%= v %></p>
-                    </div>
+                    <p class="p-style2"><span style="display:inline-block;"><%= k %></span>: <%= v %></p>
                   </div>
                 </div>
               </div>
@@ -67,7 +61,8 @@
     </div>
     <div class="tab-pane fade" id="pictur">
       <% @product.pictures.each do |img| %>
-        <p><%= image_tag(img, size: "461x484") %></p>
+        <p><%= image_tag(img, style:"width:100%;") %></p>
+        <hr />
       <% end %>
     </div>
 

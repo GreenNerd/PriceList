@@ -44,10 +44,10 @@ module CarouselHelper
 
     def slide_tag(image, is_active)
       options = {
-        class: (is_active ? 'item active' : 'item') + " helperCarouselImg",
+        class: (is_active ? 'item active' : 'item'),
       }
 
-      content_tag(:div, image_tag(image, class: "center-block"), options)
+      content_tag(:div, image_tag(image, class: "center-block", style: "height:300px;"), options)
     end
 
     def controls
