@@ -105,6 +105,8 @@
       margin-top: 14px;
 
       .addtocart {
+        width: 24px;
+        height: 24px;
         float: right;
       }
     }
@@ -184,8 +186,7 @@
 }
 
 .product .thumb {
-  width: auto;
-  height: 170px;
+  width: 100%;
 }
 
 .catalog-grid {

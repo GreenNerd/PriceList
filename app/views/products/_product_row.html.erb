@@ -11,13 +11,13 @@
         <%= number_to_currency product.price %>
         <div class="addtocart">
           <% if StockKeepingUnit.where("product_id=#{product.id}").count > 1 %>
-            <%= button_to product_path(product.id), :method => "get" do %>
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            <% end %>
+            <%= link_to image_tag("shopping-cart.png"), product_path(product.id), :method => "get" %>
           <% elsif StockKeepingUnit.where("product_id=#{product.id}").count == 1 %>
-            <button id="addtocart1">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            </button>
+            <%= form_for @order_item, remote: true do |f| %>
+              <%= f.hidden_field :quantity, :value => 1 %>
+              <%= f.hidden_field :product_id, value: product.id %>
+              <%= f.submit "", :type => :image, :src => image_path("shopping-cart.png") %>
+            <% end %>
           <% end %>
         </div>
       </div>
