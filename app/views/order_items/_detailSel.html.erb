@@ -1,16 +1,14 @@
 <div class="container-fluid">
 <div class="container-fluid">
   <div class="col-md-6 col-sm-6 col-xs-6">
-    <%= image_tag(qiniu_image_url("1.jpg", :sel), class: "img-thumbnail") %>
+    <a href="#">
+    <%= image_tag(qiniu_image_url(@product.image_url, :sel), style: "width:100%;") %>
+    </a>
   </div>
   <div class="col-md-6 col-sm-6 col-xs-6">
     <div class="sel-msg">
-      <div class="key">
-        <span id="product_name" class="label label-default"></span>
-      </div>
-      <div class="value">
-        <span id="product_price" class="label label-default"></span>
-      </div>
+        <div id="product_name" class="alert alert-success key" role="alert"></div>
+        <div id="product_price" class="alert alert-info value" role="alert"></div>
     </div>
   </div>
 </div>

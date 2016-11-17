@@ -6,7 +6,7 @@ module ApplicationHelper
     when :index
       url << '?imageMogr2/thumbnail/173x170!'
     when :sel
-      url << '?imageMogr2/thumbnail/200x200!'
+      url << '?imageMogr2/thumbnail/x200'
     when :carousel
       url << '?imageMogr2/thumbnail/x300'
     when :raw
