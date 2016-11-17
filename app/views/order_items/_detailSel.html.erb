@@ -1,31 +1,37 @@
-<div class="container-fluid">
-<div class="container-fluid">
-  <div class="col-md-6 col-sm-6 col-xs-6">
-    <a href="#">
-    <%= image_tag(qiniu_image_url(@product.image_url, :sel), style: "width:100%;") %>
+<div class="container-fluid sel">
+<div class="container-fluid sel-thumbnail">
+  <div class="sel-left">
+    <a href="#" class="thumbnail">
+    <%= image_tag(qiniu_image_url(@product.image_url, :sel)) %>
     </a>
   </div>
-  <div class="col-md-6 col-sm-6 col-xs-6">
+  <div class="sel-right">
     <div class="sel-msg">
-        <div id="product_name" class="alert alert-success key" role="alert"></div>
-        <div id="product_price" class="alert alert-info value" role="alert"></div>
+        <div id="product_name" class="key"></div>
+        <div id="product_price" class="value"></div>
     </div>
   </div>
 </div>
 
 <!-- product type select -->
-<div style="margin-top: 20px;">
+<div class="container-fluid sel-type">
+  <div class="title">
   <p class="mylabel label-secondary">
     选择型号
   </p>
+  </div>
 
-  <ul class="rtype">
+  <div class="type">
+    <div class="container-fluid">
+    <div class="row">
     <% @skus.each do |sku| %>
-      <li style="display: inline-block;">
+      <div class="col-lg-3 col-md-4 col-sm-12">
         <input type="radio" data-labelauty=<%= sku.product_type%> name="radio" class="labelauty" style="display: none;" value=<%= sku.product_type %> >
-      </li>
+      </div>
     <% end %>
-  </ul>
+    </div>
+    </div>
+  </div>
 
   <script>
     $(document).ready(function(){
@@ -36,18 +42,22 @@
 
 
 <!-- product count -->
-<div>
-  <p class="mylabel label-secondary">选择数量</p>
-  <div class="qnt-count" style="margin-left: 40px;">
-    <a id="count_min" class="incr-btn" href="#">-</a>
-    <input id="count_text_box" name="" type="text" value="1" class="form-control" />
-    <a id="count_add" class="incr-btn" href="#">+</a>
+<div class="container-fluid sel-type" style="margin-top: 20px;">
+  <div class="title">
+    <p class="mylabel label-secondary">选择数量</p>
+  </div>
+  <div class="type">
+    <div class="qnt-count">
+      <a id="count_min" class="incr-btn" href="#">-</a>
+      <input id="count_text_box" name="" type="text" value="1" class="form-control" />
+      <a id="count_add" class="incr-btn" href="#">+</a>
+    </div>
   </div>
 
 </div>
 
 <!-- add to cart -->
-<div>
+<div class="sel-adc">
   <button id="addtocart2" class="btn btn-primary btn-sm" style="float:right">
     <i class="fa fa-cart-plus" aria-hidden="true"></i>加入购物车
   </button>
