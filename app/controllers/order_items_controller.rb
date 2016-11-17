@@ -10,26 +10,16 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    @product = Product.find(session[:product_id])
-    if params[:product_type].present?
-      @sku = StockKeepingUnit.find_by(product_type: params[:product_type])
-    else
-      @sku = StockKeepingUnit.find_by(id: session[:product_id])
+    if params[:order_item][:product_id].present?
+      pid = params[:order_item][:product_id]
+      quantity = params[:order_item][:quantity]
+      @sku = StockKeepingUnit.find_by(product_id: pid)
+      @order_item = @order.order_items
+                          .new({:quantity => quantity,
+                                :stock_keeping_unit_id => @sku.id})
+      @order.save
+      session[:order_id] = @order.id
     end
-    @order_item = @order.order_items.new
-    @order_item.stock_keeping_unit_id = @sku.id
-    @order_item.quantity = params[:quantity]
-    @order_item.order_id = @order.id.to_i
-    @order_item.unit_price = @sku.prices["VIP"].to_f
-    if @order.save
-      respond_to do |format|
-        format.js { render status: 200 }
-      end
-    else
-      p "failed"
-    end
-    session[:order_id] = @order.id
-
   end
 
   def test
@@ -85,4 +75,5 @@ private
   def order_item_params
     params.require(:order_item).permit(:quantity, :stock_keeping_unit_id)
   end
+
 end
