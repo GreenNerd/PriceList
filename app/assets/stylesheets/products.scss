@@ -466,8 +466,8 @@
   color: #fff;
 }
 @media only screen and (max-width: 768px) {
-  .tech-specs {
-    text-align: center;
+  .tech-specs .division .key {
+    padding-left: 10px;
   }
 }
 
@@ -594,4 +594,19 @@
 
 .container-fluid .box {
   margin: 10px 0 10px 0;
+}
+
+// 
+.tech-specs .item .division {
+  width: 100%;
+  .key {
+    width: 20%;
+    color: #2ba8db;
+    display: inline-block;
+    float: left;
+  }
+  .value {
+    width: 80%;
+    float: right;
+  }
 }
