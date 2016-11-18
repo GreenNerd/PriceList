@@ -59,11 +59,14 @@
 </div>
 
 <!-- add to cart -->
-<div class="sel-adc">
-  <button id="addtocart2" class="btn btn-primary btn-sm" style="float:right">
-    <i class="fa fa-cart-plus" aria-hidden="true"></i>加入购物车
-  </button>
-  <br>
+<div class="container-fluid sel-adc">
+  <%= form_for @order_item, remote: true, :html => { :onsubmit => "beforeSubmit()"} do |f| %>
+    <%= f.hidden_field :quantity, :id => "form-quantity" %>
+    <%= f.hidden_field :stock_keeping_unit_id, :id => "form-sku-id" %>
+    <%= f.submit "加入购物车", :id => "form-add",
+                               :class => "btn btn-primary btn-sm",
+                               :style => "float: right;" %>
+  <% end %>
 </div>
 
 </div>

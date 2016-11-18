@@ -79,3 +79,28 @@ $("*").on("click", ".incr-btn", function(e) {
   $button.parent().find("input").val(newVal);
   e.preventDefault();
 });
+
+
+// Add to cart from select page
+$("*").on("click", "form-add", function(e){
+  e.preventDefault();
+  typ = $('input[type=radio]:checked').val()
+  qua = $("#count_text_box").val()
+  if(typ) {
+    alert("funck you");
+  }
+  $("#form-quantity").val(8);
+  $("#form-sku-id").val(9);
+});
+
+function beforeSubmit() {
+  alert("funck you")
+  if ($('input[type=radio]:checked').length == 0) {
+    return false;
+  }
+  var typ = $('input[type=radio]:checked').val()
+  var qua = $("#count_text_box").val()
+  $("#form-quantity").val(8);
+  $("#form-sku-id").val(8);
+  return true;
+}

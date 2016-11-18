@@ -10,16 +10,18 @@ class OrderItemsController < ApplicationController
 
   def create
     @order = current_order
-    if params[:order_item][:product_id].present?
+    if params[:order_item][:stock_keeping_unit_id].present?
+      @order_item = @order.order_items.new(order_item_params)
+    elsif params[:order_item][:product_id].present?
       pid = params[:order_item][:product_id]
       quantity = params[:order_item][:quantity]
       @sku = StockKeepingUnit.find_by(product_id: pid)
       @order_item = @order.order_items
                           .new({:quantity => quantity,
                                 :stock_keeping_unit_id => @sku.id})
-      @order.save
-      session[:order_id] = @order.id
     end
+    @order.save
+    session[:order_id] = @order.id
   end
 
   def test
