@@ -23,13 +23,15 @@
 
   <div class="type">
     <div class="container-fluid">
-    <div class="row">
-    <% @skus.each do |sku| %>
-      <div class="col-lg-3 col-md-4 col-sm-12">
-        <input type="radio" data-labelauty=<%= sku.product_type%> name="radio" class="labelauty" style="display: none;" value=<%= sku.product_type %> >
+      <div class="row">
+        <ul class="rtype">
+          <% @skus.each do |sku| %>
+            <li style="display: inline-block">
+              <input type="radio" data-labelauty=<%= sku.product_type%> name="radio" class="labelauty" style="display: none;" value=<%= sku.product_type %> >
+            </li>
+          <% end %>
+        </ul>
       </div>
-    <% end %>
-    </div>
     </div>
   </div>
 
