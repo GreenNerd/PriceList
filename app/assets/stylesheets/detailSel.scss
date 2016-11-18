@@ -87,12 +87,12 @@ ul .rtype li {
 }
 
 // add delelte button in select page of product detail
-.qnt-count {
+.sel-type .type .qnt-count {
   display: inline-block;
   vertical-align: middle;
   padding-left: 40px;
 }
-.qnt-count .incr-btn {
+.sel-type .type .qnt-count .incr-btn {
   display: inline-block;
   width: 20px;
   height: 38px;
@@ -108,11 +108,11 @@ ul .rtype li {
   -moz-transition: background 0.3s ease;
   transition: background 0.3s ease;
 }
-.qnt-count .incr-btn:hover {
+.sel-type .type .qnt-count .incr-btn:hover {
   background: #1f89b4;
   text-decoration: none;
 }
-.qnt-count .form-control {
+.sel-type .type .qnt-count .form-control {
   display: inline-block;
   width: 36px;
   height: 38px;

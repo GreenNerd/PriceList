@@ -6,7 +6,7 @@ module CartsHelper
       @sku = StockKeepingUnit.find_by(id: sid)
       pid = @sku.product_id
       @product = Product.find_by(id: pid)
-      return @product.name + " " + @sku.product_type
+      return @product.name
     else
       return null
     end
