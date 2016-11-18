@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
     @products = Product.page(params[:page])
     if params[:search]
       @products = Product.find_by(name: params[:search])
-    else
-      #
     end
     @order_item = current_order.order_items.new
   end
@@ -15,6 +13,8 @@ class ProductsController < ApplicationController
     @skus = StockKeepingUnit.where(product_id: params[:id])
     @mount = @skus.sum(:inventory_count)
     session[:product_id] = @product.id
+
+    @order_item = current_order.order_items.new
   end
 
   def neworder

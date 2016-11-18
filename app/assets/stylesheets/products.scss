@@ -169,20 +169,20 @@
   border-radius: 5px;
   bottom: 0;
   color: white;
-  display: inline-block;
+  display: flex;
   font-size: 10px;
   height: 30px;
   line-height: 30px;
   margin: 10px 0 10px 5px;
   padding: 0 15px;
   position: relative;
-  text-align: cnter;
+  text-align: center;
   float: right;
   .sel {
-    background: #151515;
+    background: #795548;
   }
   .add {
-    background: #827ae1;
+    background: #733b8a;
   }
 }
 
@@ -590,4 +590,8 @@
 #imagelink {
   display: block;
   text-align: center;
+}
+
+.container-fluid .box {
+  margin: 10px 0 10px 0;
 }

@@ -15,10 +15,14 @@
   </div>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid box">
   <div class="pbutton">
-    <%= link_to "加入购物车", new_order_item_path, remote: true, :class => 'pbutton add' %>
     <%= link_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel' %>
+    <%= form_for @order_item, remote: true do |f| %>
+      <%= f.hidden_field :quantity, :value => 1 %>
+      <%= f.hidden_field :product_id, value: @product.id %>
+      <%= f.submit "加入购物车", :class => "pbutton add" %>
+    <% end %>
   </div>
 </div>
 
