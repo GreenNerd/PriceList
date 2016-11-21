@@ -45,7 +45,7 @@ Product.create! id: 13, category_id: 8, name: "42D0485-1", image_url: "42D0485-1
 Product.create! id: 14, category_id: 6, name: "46W0672-1", image_url: "46W0672-1.jpg", price: 700.00, active: true, thumb: ["46W0672-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
 Product.create! id: 15, category_id: 4, name: "46M0902", image_url: "46M0902.jpg", price: 300.00, active: true, thumb: ["46M0902.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
 (1..100).each do |i|
-  Product.create! id: 15+i, category_id: i%18+1, name: "46M0902 DIY #{ i }", image_url: "46M0902.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
+  Product.create! id: 15+i, category_id: i%18+1, name: "46M0902 DIY #{ i }", image_url: "#{ i % 9 + 1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
 end
 
 User.destroy_all
