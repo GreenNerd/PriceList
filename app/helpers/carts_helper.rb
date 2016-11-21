@@ -20,4 +20,16 @@ module CartsHelper
     end
   end
 
+  def get_type_by_oi(oi)
+    if oi.present?
+      sid = oi.stock_keeping_unit_id
+      @sku = StockKeepingUnit.find_by(id: sid)
+      if @sku.product_type != ""
+        return @sku.product_type
+      end
+    else
+      return "无"
+    end
+  end
+
 end
