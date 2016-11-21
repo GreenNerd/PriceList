@@ -1,0 +1,24 @@
+<div class="alert alert-info">
+  <h3>合计</h3>
+  <form class="cart-sidebar" method="post">
+    <div class="cart-totals">
+      <table>
+        <tbody>
+          <tr>
+            <td>总价</td>
+            <td class="total align-r"><%= number_to_currency current_order.subtotal %></td>
+          </tr>
+          <tr class="devider">
+            <td>件数</td>
+            <td class="align-r"><%= current_order.total.to_i %></td>
+          </tr>
+          <tr>
+            <td>合计</td>
+            <td class="align-r"><%= number_to_currency current_order.subtotal %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to "生成PDF文件", cart_genpdf_path(:format => 'pdf'), class: "btn btn-primary btn-sm btn-block" %>
+    </div>
+  </form>
+</div> <!-- alert info -->
