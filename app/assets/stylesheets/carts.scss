@@ -197,7 +197,7 @@
 
 .shopping-cart .dio .thumb {
   width: 152px;
-  height: auto;
+  height: 100%;
   display: inline-block;
 }
 
@@ -207,47 +207,48 @@
 }
 
 .shopping-cart .dio .info {
-  padding-left: 40px;
+  padding-left: 20px;
   display: inline-block;
   height: 100%;
   font-size: 1.125em;
   .name{
+    height: 25px;
     font-weight: bold;
     color: black;
     display: block;
+    white-space: nowrap;
   }
   .type {
+    height: 25px;
     display: block;
   }
   .price {
+    height: 25px;
     color: orange;
     display: block;
+    white-space: nowrap;
   }
 }
 
-.shopping-cart .dio .delete {
-  width: 5%;
-  float: right;
-  vertical-align: center;
-}
-
 .shopping-cart .dio .info .qnt-count {
+  height: 44px;
   vertical-align: middle;
-  margin: 5px 2px 5px 0;
+  padding-left: auto;
+  padding-right: auto;
 }
 .shopping-cart .dio .info .qnt-count .incr-btn {
   display: inline-block;
   width: 20px;
-  height: 38px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  height: 32px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   background: #2ba8db;
   color: #fff;
   text-align: center;
   font-size: 1.3em;
   font-weight: normal;
-  line-height: 34px;
+  line-height: 28px;
   -webkit-transition: background 0.3s ease;
   -moz-transition: background 0.3s ease;
   transition: background 0.3s ease;
@@ -262,14 +263,21 @@
     margin: 5px 2px 5px 0;
   }
 }
-.shopping-cart .dio .info .qnt-count .form-control {
+.shopping-cart .dio .info .qnt-count .dio-form-control {
   display: inline-block;
-  width: 36px;
-  height: 38px;
-  margin: 0 2px;
+  width: 34px;
+  height: 32px;
+  margin: 0;
   padding-left: 3px;
   padding-right: 3px;
   text-align: center;
+  background: transparent;
+  transition: all .3s;
+  box-sizing: border-box;
+  color: #333;
+  &::-webkit-input-placeholder {
+    color: #ddd;
+  }
 }
 
 div .items-list {
@@ -289,10 +297,22 @@ div .items-list {
   border-bottom: 1px solid #2ba8db;
 }
 
+.item-list .items-container {
+  margin-left: 0;
+  margin-right: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+.shopping-cart .dio .delete {
+  vertical-align: middle;
+  float: right;
+}
 .shopping-cart .dio .delete i {
   display: inline-block;
   font-size: 1.5em;
   color: #2ba8db;
+  cursor: pointer;
   -webkit-transition: color 0.3s ease;
   -moz-transition: color 0.3s ease;
   transition: color 0.3s ease;
@@ -304,12 +324,4 @@ div .items-list {
   .shopping-cart .dio .delete i {
     font-size: 1.3em;
   }
-}
-
-
-.item-list .items-container {
-  margin-left: 0;
-  margin-right: 0;
-  display: block;
-  box-sizing: border-box;
 }

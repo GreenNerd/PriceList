@@ -12,10 +12,10 @@
     </div>
     <div class="qnt-count">
       <a class="incr-btn" href="#">-</a>
-      <%= f.text_field :quantity, value: oi.quantity.to_i, class: "quantity form-control"%>
+      <%= f.text_field :quantity, value: oi.quantity.to_i, class: "dio-form-control"%>
       <a class="incr-btn" href="#">+</a>
     </div>
-    <div>
+    <div class="type">
       型号: <%= get_type_by_oi(oi) %>
     </div>
     <div class="price">

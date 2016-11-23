@@ -27,9 +27,8 @@ module CartsHelper
       if @sku.product_type != ""
         return @sku.product_type
       end
-    else
-      return "无"
     end
+    return "无"
   end
 
 end
