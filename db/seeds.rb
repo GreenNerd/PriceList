@@ -7,45 +7,36 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.destroy_all
 Category.create! id: 1, name: "热门手机", parent: 0
-Category.create! id: 2, name: "小米",     parent: 1
-Category.create! id: 3, name: "iPhone",     parent: 1
-Category.create! id: 4, name: "魅族",      parent: 1
-Category.create! id: 5, name: "荣耀",      parent: 1
-Category.create! id: 6, name: "OPPO",      parent: 1
-Category.create! id: 7, name: "NOKIA",      parent: 1
-Category.create! id: 8, name: "华为",      parent: 1
-Category.create! id: 9, name: "电脑整机",      parent: 0
-Category.create! id: 10, name: "笔记本",      parent: 9
-Category.create! id: 11, name: "台式机",      parent: 9
-Category.create! id: 12, name: "平板电脑",      parent: 9
-Category.create! id: 13, name: "一体机",      parent: 9
-Category.create! id: 14, name: "DIY",      parent: 9
-Category.create! id: 15, name: "智能设备",      parent: 0
-Category.create! id: 16, name: "智能手表",      parent: 15
-Category.create! id: 17, name: "智能眼睛",      parent: 15
-Category.create! id: 18, name: "智能机器人",      parent: 15
-Category.create! id: 19, name: "VR眼镜",      parent: 15
-Category.create! id: 20, name: "Nikon",      parent: 0
-Category.create! id: 21, name: "服务器",      parent: 0
+Category.create! id: 2, name: "电脑整机",      parent: 0
+Category.create! id: 3, name: "智能设备",      parent: 0
+Category.create! id: 4, name: "V3000",      parent: 1
+Category.create! id: 5, name: "V5030",      parent: 1
+Category.create! id: 6, name: "V7000",      parent: 1
+Category.create! id: 7, name: "V3000",      parent: 2
+Category.create! id: 8, name: "V5030",      parent: 2
+Category.create! id: 9, name: "V7000",      parent: 2
+Category.create! id: 10, name: "V3000",      parent: 3
+Category.create! id: 11, name: "V5030",      parent: 3
+Category.create! id: 12, name: "V7000",      parent: 3
 
 Product.destroy_all
-Product.create! id: 1, category_id: 4, name: "x3850x6服务器", image_url: "x3850x6.jpg", price: 62000.00, active: true, thumb: ["x3850x6.jpg"], pictures: ["x3850x6.jpg", "2.jpg", "3.jpg"], description: 'Lenovo System x3850 X6, 2x Intel Xeon Processor E7-4830 v3 12C 2.1GHz 115W 30M TruDDR4 1866，标配2块内存板48个DIMM，32GB(4x8GB) 2133MHz DDR4内存，标配8个 2.5" SAS热插拔硬盘槽位，标配M5210 支持RAID0、1、10 可选缓存或Flash保护，主机带4口个千兆以太网卡，标配2个900W热插拔电源(带2根PDU电源线), 4U机架式，无光驱。三年7*24*4有限保修'
+Product.create! id: 1, category_id: 4, name: "6195SC5", image_url: "x3850x6.jpg", price: 62000.00, active: true, thumb: ["x3850x6.jpg"], pictures: ["x3850x6.jpg", "2.jpg", "3.jpg"], description: 'Lenovo System x3850 X6, 2x Intel Xeon Processor E7-4830 v3 12C 2.1GHz 115W 30M TruDDR4 1866，标配2块内存板48个DIMM，32GB(4x8GB) 2133MHz DDR4内存，标配8个 2.5" SAS热插拔硬盘槽位，标配M5210 支持RAID0、1、10 可选缓存或Flash保护，主机带4口个千兆以太网卡，标配2个900W热插拔电源(带2根PDU电源线), 4U机架式，无光驱。三年7*24*4有限保修'
 Product.create! id: 2, category_id: 5, name: "7158IY5", image_url: "7158IY5.jpg", price: 12000.00, active: true, thumb: ["7158IY5.jpg"], pictures: ["7158IY5.jpg", "2.jpg", "3.jpg"], description: 'X3630M4 Xeon E5-2407V2 4C 2.4GHz/2*8GB DDR3/8*0GB 3.5"SAS/RAID-M5110/无光/2*1000M/550W/2U'
-Product.create! id: 3, category_id: 6, name: "7158IY1", image_url: "7158IY1.jpg", price: 11500.00, active: true, thumb: ["7158IY1.jpg"], pictures: ["7158IY1.jpg", "2.jpg", "3.jpg"], description: 'X3630M4 Xeon E5-2407V2 4C 2.4GHz/2*8GB DDR3/8*0GB 3.5"SAS/RAID-M1115/无光/2*1000M/550W/2U'
-Product.create! id: 4, category_id: 7, name: "69Y1194-1", image_url: "69Y1194-1.jpg", price: 3.08, active: true, thumb: ["69Y1194-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "haha"
-Product.create! id: 5, category_id: 8, name: "32R1860", image_url: "32R1860.jpg", price: 9573.00, active: true, thumb: ["32R1860.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is a Nikon WU 1b camera"
-Product.create! id: 6, category_id: 3, name: "X3750M4拆机套件", image_url: "X3750M4.jpg", price: 200.00, active: true, thumb: ["X3750M4.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is V3 camera"
-Product.create! id: 7, category_id: 2, name: "59Y6213-1", image_url: "59Y6213-1.jpg", price: 500.00, active: true, thumb: ["59y6213-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is J4 camera"
-Product.create! id: 8, category_id: 3, name: "38M2897-1", image_url: "38M2897-1.jpg", price: 1.00, active: true, thumb: ["38M2897-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AF-5"
-Product.create! id: 9, category_id: 6, name: "联想的光纤线", image_url: "guangxian.jpg", price: 165.00, active: true, thumb: ["guangxian.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 10, category_id: 5, name: "81Y9690", image_url: "81Y9690.jpg", price: 1651.06, active: true, thumb: ["81Y9690.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 11, category_id: 4, name: "00D5036-1 8GB(1x8GB, 1Rx4, 1.35v)", image_url: "00D5036-1.jpg", price: 450.00, active: true, thumb: ["00D5036.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 12, category_id: 7, name: "8852-5TC", image_url: "8852-5TC.jpg", price: 26350.00, active: true, thumb: ["8852-5TC.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 13, category_id: 8, name: "42D0485-1", image_url: "42D0485-1.jpg", price: 2100.00, active: true, thumb: ["42D0485-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 14, category_id: 6, name: "46W0672-1", image_url: "46W0672-1.jpg", price: 700.00, active: true, thumb: ["46W0672-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
-Product.create! id: 15, category_id: 4, name: "46M0902", image_url: "46M0902.jpg", price: 300.00, active: true, thumb: ["46M0902.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "This is AW1"
+Product.create! id: 3, category_id: 6, name: "7158IY1", image_url: "7158IY1.jpg", price: 11500.00, active: true, thumb: ["7158IY1.jpg"], pictures: ["7158IY1.jpg", "2.jpg", "3.jpg"], description: "V5030 2.8m, 10A/230V, C13 to BS 1363/A (UK) L"
+Product.create! id: 4, category_id: 7, name: "69Y1194", image_url: "69Y1194-1.jpg", price: 3.08, active: true, thumb: ["69Y1194-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V7000 300 GB 15,000 rpm 12 Gb  SAS 2.5 Inch HDD"
+Product.create! id: 5, category_id: 8, name: "32R1860", image_url: "32R1860.jpg", price: 9573.00, active: true, thumb: ["32R1860.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V7000 2.8m HV C13 China LC"
+Product.create! id: 6, category_id: 9, name: "X3750M4", image_url: "X3750M4.jpg", price: 200.00, active: true, thumb: ["X3750M4.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V7000 Expan V7 - Rmt Mirror w/3Yr S&S -"
+Product.create! id: 7, category_id: 11, name: "59Y6213", image_url: "59Y6213-1.jpg", price: 500.00, active: true, thumb: ["59y6213-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V7000 200 GB 12 Gb SAS 2.5 Inch Flash Drive"
+Product.create! id: 8, category_id: 12, name: "38M2897", image_url: "38M2897-1.jpg", price: 1.00, active: true, thumb: ["38M2897-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V7000 Compression Accelerator Cards (Pair)"
+Product.create! id: 9, category_id: 4, name: "00NC541", image_url: "guangxian.jpg", price: 165.00, active: true, thumb: ["guangxian.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 Software V7 - Remote Mirror w/3Yr S&S"
+Product.create! id: 10, category_id: 5, name: "81Y9690", image_url: "81Y9690.jpg", price: 1651.06, active: true, thumb: ["81Y9690.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 2.8m, 10A/230V, C13 to CEE7-VII (EUR) Ln"
+Product.create! id: 11, category_id: 6, name: "00D5036", image_url: "00D5036-1.jpg", price: 450.00, active: true, thumb: ["00D5036.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 2.8m, 10A/230V, C13 to SI 32 (Israel) Ln C"
+Product.create! id: 12, category_id: 7, name: "00MN528", image_url: "8852-5TC.jpg", price: 26350.00, active: true, thumb: ["8852-5TC.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 400GB 2.5 Flash Drive"
+Product.create! id: 13, category_id: 8, name: "42D0485", image_url: "42D0485-1.jpg", price: 2100.00, active: true, thumb: ["42D0485-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 12Gb SAS Adapter Pai"
+Product.create! id: 14, category_id: 9, name: "46W0672", image_url: "46W0672-1.jpg", price: 700.00, active: true, thumb: ["46W0672-1.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 16Gb FC LW SFP Transceivers"
+Product.create! id: 15, category_id: 10, name: "46M0902", image_url: "46M0902.jpg", price: 300.00, active: true, thumb: ["46M0902.jpg"], pictures: ["1.jpg", "2.jpg", "3.jpg"], description: "V5030 Cache Upgrade"
 (1..100).each do |i|
-  Product.create! id: 15+i, category_id: i%18+1, name: "46M0902 DIY #{ i }", image_url: "#{ i % 9 + 1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "This is a Nikon camera"
+  Product.create! id: 15+i, category_id: i%9+4, name: "00NC#{ i }#{ i + 1 }", image_url: "#{ i % 9 + 1 }.jpg", price: 712.23+i, active: true, thumb: ["#{ i%9+1 }.jpg"], pictures: ["#{ (i+1)%9+1 }.jpg", "#{ (i+2)%9+1 }.jpg", "#{ (i+3)%9+1 }.jpg"], description: "LFF Control Enclosure 3Yr S&S"
 end
 
 User.destroy_all
