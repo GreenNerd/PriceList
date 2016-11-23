@@ -82,17 +82,6 @@ $("*").on("click", ".incr-btn", function(e) {
 
 
 // Add to cart from select page
-$("*").on("click", "form-add", function(e){
-  e.preventDefault();
-  typ = $('input[type=radio]:checked').val()
-  qua = $("#count_text_box").val()
-  if(typ) {
-    alert("funck you");
-  }
-  $("#form-quantity").val(8);
-  $("#form-sku-id").val(9);
-});
-
 function beforeSubmit() {
   if ($('input[type=radio]:checked').length == 0) {
     $.alert({
@@ -102,10 +91,10 @@ function beforeSubmit() {
     });
     return false;
   }
-  var typ = $('input[type=radio]:checked').val()
-  var qua = $("#count_text_box").val()
-  $("#form-quantity").val(8);
-  $("#form-sku-id").val(8);
+  var sid = $('input[type=radio]:checked').attr('id');
+  var qua = $("#count_text_box").val();
+  $("#form-quantity").val(qua);
+  $("#form-sku-id").val(sid);
   $("#add-to-cart").bind("ajax:success", submitSuccess());
   return true;
 }
