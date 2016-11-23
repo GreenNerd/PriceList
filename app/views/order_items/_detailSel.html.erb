@@ -46,7 +46,7 @@
 <!-- product count -->
 <div class="container-fluid sel-type" style="margin-top: 20px;">
   <div class="title">
-    <p class="mylabel label-secondary">选择数量</p>
+    <p class="mylabel label-secondary">选择型号</p>
   </div>
   <div class="type">
     <div class="qnt-count">
@@ -63,7 +63,7 @@
   <%= form_for @order_item, remote: true, :html => { :onsubmit => "beforeSubmit()"} do |f| %>
     <%= f.hidden_field :quantity, :id => "form-quantity" %>
     <%= f.hidden_field :stock_keeping_unit_id, :id => "form-sku-id" %>
-    <%= f.submit "加入购物车", :id => "form-add",
+    <%= f.submit "加入清单", :id => "form-add",
                                :class => "btn btn-primary btn-sm",
                                :style => "float: right;" %>
   <% end %>
