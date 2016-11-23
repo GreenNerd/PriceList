@@ -18,3 +18,4 @@
 //= require detailSel
 //= require jquery-labelauty
 //= require slidebars
+//= require angular-confirm.min

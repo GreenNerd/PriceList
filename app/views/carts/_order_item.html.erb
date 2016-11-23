@@ -15,8 +15,8 @@
       <%= f.text_field :quantity, value: oi.quantity.to_i, class: "quantity form-control"%>
       <a class="incr-btn" href="#">+</a>
     </div>
-    <div class="total">
-      <%= get_type_by_oi(oi) %>
+    <div>
+      型号: <%= get_type_by_oi(oi) %>
     </div>
     <div class="price">
       <%= number_to_currency oi.total_price %>
