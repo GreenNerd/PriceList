@@ -25,10 +25,16 @@
     <div class="container-fluid">
       <div class="row">
         <ul class="rtype">
-          <% @skus.each do |sku| %>
-            <li style="display: inline-block">
-              <input type="radio" data-labelauty=<%= sku.product_type%> name="radio" class="labelauty" style="display: none;" value=<%= sku.product_type %> >
-            </li>
+          <% if @skus.count > 1 %>
+            <% @skus.each do |sku| %>
+              <li style="display: inline-block">
+                <input type="radio" data-labelauty=<%= sku.product_type%> name="radio" class="labelauty" style="display: none;" value=<%= sku.product_type %> >
+              </li>
+            <% end %>
+          <% else %>
+              <li>
+                <input type="radio" data-labelauty="默认值" name="radio" class="labelauty" style="display: none;" value="默认值" >
+              </li>
           <% end %>
         </ul>
       </div>
@@ -46,7 +52,7 @@
 <!-- product count -->
 <div class="container-fluid sel-type" style="margin-top: 20px;">
   <div class="title">
-    <p class="mylabel label-secondary">选择型号</p>
+    <p class="mylabel label-secondary">选择数量</p>
   </div>
   <div class="type">
     <div class="qnt-count">
@@ -60,7 +66,7 @@
 
 <!-- add to cart -->
 <div class="container-fluid sel-adc">
-  <%= form_for @order_item, remote: true, :html => { :onsubmit => "beforeSubmit()"} do |f| %>
+  <%= form_for @order_item, remote: true, :html => { :onsubmit => "beforeSubmit()", :success => "submitSucess()" } do |f| %>
     <%= f.hidden_field :quantity, :id => "form-quantity" %>
     <%= f.hidden_field :stock_keeping_unit_id, :id => "form-sku-id" %>
     <%= f.submit "加入清单", :id => "form-add",

@@ -94,13 +94,31 @@ $("*").on("click", "form-add", function(e){
 });
 
 function beforeSubmit() {
-  alert("funck you")
   if ($('input[type=radio]:checked').length == 0) {
+    $.alert({
+      icon: 'fa fa-warning',
+      title: '',
+      content: '请选择型号！',
+    });
     return false;
   }
   var typ = $('input[type=radio]:checked').val()
   var qua = $("#count_text_box").val()
   $("#form-quantity").val(8);
   $("#form-sku-id").val(8);
+  $("#add-to-cart").bind("ajax:success", submitSuccess());
   return true;
+}
+
+function submitSuccess() {
+  $.confirm({
+    icon: 'fa fa-check',
+    title: "",
+    content: '添加成功，请继续购物或者到购物车结算',
+    autoClose: 'close|2000',
+    buttons: {
+      close: function() {
+      }
+    }
+  });
 }

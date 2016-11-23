@@ -17,7 +17,7 @@
 
 <div class="container-fluid box">
   <div class="pbutton">
-    <%= link_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel' %>
+    <%= link_to "选择数量", new_order_item_path, remote: true, method: 'get', :class => 'pbutton sel', :style => "text-decoration: none" %>
     <%= form_for @order_item, remote: true do |f| %>
       <%= f.hidden_field :quantity, :value => 1 %>
       <%= f.hidden_field :product_id, value: @product.id %>
