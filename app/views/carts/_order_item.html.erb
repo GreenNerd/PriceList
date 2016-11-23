@@ -1,29 +1,30 @@
 <!-- Items -->
 <%= form_for oi, remote: true do |f| %>
-<div class="dio">
-  <div class="thumb">
+<tr class="item">
+  <td class="thumb">
     <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
-  </div>
-  <div class="info">
-    <div class="name">
-      <a href="/products/<%= get_product_id(oi) %>">
-            <%= get_product_name(oi) %>
-        </a>
-    </div>
-    <div class="qnt-count">
-      <a class="incr-btn" href="#">-</a>
-      <%= f.text_field :quantity, value: oi.quantity.to_i, class: "dio-form-control"%>
-      <a class="incr-btn" href="#">+</a>
-    </div>
-    <div class="type">
-      型号: <%= get_type_by_oi(oi) %>
-    </div>
-    <div class="price">
-      <%= number_to_currency oi.total_price %>
-    </div>
-  </div>
-  <div class="delete">
+  </td>
+  <td class="name">
+    <a href="/products/<%= get_product_id(oi) %>">
+          <%= get_product_name(oi) %>
+      </a>
+  <td>
+  <td class="price">
+    <%= number_to_currency oi.total_price %>
+  </td>
+  <td class="qnt-count">
+    <a class="incr-btn" href="#">-</a>
+    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "form-control"%>
+    <a class="incr-btn" href="#">+</a>
+  </td>
+  <td class="total">
+    型号: <%= get_type_by_oi(oi) %>
+  </td>
+  <td class="delete">
     <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
-  </div>
-</div>
+  </td >
+  <p id="oi-id" style="display: none;">
+    <%= oi.id %>
+  </p>
+</tr>
 <% end %>

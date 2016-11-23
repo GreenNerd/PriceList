@@ -2,13 +2,18 @@
   <div class="alert alert-success" role="alert">
     <h2 class="title">购物车</h2>
   </div>
-  <div class="items-list">
-    <div class="items-container">
+  <table class="items-list">
+    <tbody>
+      <tr>
+        <th>&nbsp;</th>
+        <th>名称/总价</th>
+        <th>数量/型号</th>
+      </tr>
       <% @order_items.each do |oi| %>
         <%= render "carts/order_item", oi: oi %>
       <% end %>
-    </div>
-  </div>
+    </tbody>
+  </table>
 </div> <!-- container/row/col -->
 <div id="cart_total_info" class="col-lg-3 col-md-3">
   <%= render 'carts/cart_total' %>
