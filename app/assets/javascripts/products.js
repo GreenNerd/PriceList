@@ -1,6 +1,28 @@
 /* Shopping-cart
  ***********************
  */
+
+// Items changed
+$('*').on('change', ".shopping-cart .qnt-count .tb-form-control", function(){
+  alert("test");
+});
+
+$('*').on('change', ".shopping-cart .qnt-count #sel-type", function(){
+  var str = $(".shopping-cart .qnt-count select option:selected").val();
+  alert(str);
+});
+
+$('*').on('change', ".shopping-cart", function(){
+  $positions = $('.shopping-cart .qnt-count select');
+  $positions.each(function(){
+    $(this).change(function(){
+      var str = $(this).find(":selected").val();
+      alert(str);
+      break;
+    });
+  });
+});
+
 // Deleting items
 $('*').on("click", ".shopping-cart .delete a i", function(){
   var $target = $(this).parent().parent().parent();

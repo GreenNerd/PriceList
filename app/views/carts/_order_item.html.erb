@@ -10,13 +10,12 @@
     </a>
     <p class="price"><%= number_to_currency oi.total_price %></p>
     <a class="incr-btn" href="#">-</a>
-    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "tb-form-control"i, id: "tb-form-control" %>
+    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "tb-form-control", id: "tb-form-control" %>
     <a class="incr-btn" href="#">+</a>
     <div class="type">
     <% dtype = get_type_by_oi(oi) %>
     <% dtypes = get_types_by_oi(oi) %>
     <div class="form-group">
-      <label for="sel-type" style="display: inline-block;"></label>
       <select class="form-control" id="sel-type" style="width: 35%;min-width:100px;display: inline-block;">
         <%= dtypes.each do |dt| %>
           <% if dt == dtype %>
