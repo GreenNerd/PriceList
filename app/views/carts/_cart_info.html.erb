@@ -6,9 +6,9 @@
     <tbody>
       <tr>
         <th>&nbsp;</th>
-        <th>名称/总价</th>
-        <th>数量/型号</th>
+        <th class="to-title">名称/总价/数量/型号</th>
       </tr>
+      <tr />
       <% @order_items.each do |oi| %>
         <%= render "carts/order_item", oi: oi %>
       <% end %>

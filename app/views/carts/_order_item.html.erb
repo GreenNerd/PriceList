@@ -2,23 +2,32 @@
 <%= form_for oi, remote: true do |f| %>
 <tr class="item">
   <td class="thumb">
-    <a href="#"><%= image_tag ("shopping-cart-thumb-2.jpg") %></a>
-  </td>
-  <td class="name">
-    <a href="/products/<%= get_product_id(oi) %>">
-          <%= get_product_name(oi) %>
-      </a>
-  <td>
-  <td class="price">
-    <%= number_to_currency oi.total_price %>
+    <a href="#"><%= image_tag (qiniu_cart_thumb(oi)) %></a>
   </td>
   <td class="qnt-count">
+    <a href="/products/<%= get_product_id(oi) %>">
+          <%= get_product_name(oi) %>
+    </a>
+    <p class="price"><%= number_to_currency oi.total_price %></p>
     <a class="incr-btn" href="#">-</a>
-    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "form-control"%>
+    <%= f.text_field :quantity, value: oi.quantity.to_i, class: "tb-form-control"i, id: "tb-form-control" %>
     <a class="incr-btn" href="#">+</a>
-  </td>
-  <td class="total">
-    型号: <%= get_type_by_oi(oi) %>
+    <div class="type">
+    <% dtype = get_type_by_oi(oi) %>
+    <% dtypes = get_types_by_oi(oi) %>
+    <div class="form-group">
+      <label for="sel-type" style="display: inline-block;"></label>
+      <select class="form-control" id="sel-type" style="width: 35%;min-width:100px;display: inline-block;">
+        <%= dtypes.each do |dt| %>
+          <% if dt == dtype %>
+            <option selected><%= dt %></option>
+          <% else %>
+            <option><%= dt %></option>
+          <% end %>
+        <% end %>
+      </select>
+    </div>
+    </div>
   </td>
   <td class="delete">
     <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
