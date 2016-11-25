@@ -15,11 +15,24 @@ class OrderItemsController < ApplicationController
       old_sid = @order_item.stock_keeping_unit_id
       pid = StockKeepingUnit.find_by(id: old_sid).product_id
       old_type = StockKeepingUnit.find_by(id: old_sid).product_type
-      new_type = params[:Csel]
       @order_item.update_attribute(:quantity, params[:Cqua])
       if old_type != params[:Csel]
-        new_sid = StockKeepingUnit.where("product_id = ? AND product_type = ?", pid, new_type).first.stock_keeping_unit_id
-        @order_item.update_attribute(:stock_keeping_unit_id, )
+        StockKeepingUnit.where("product_id = ?", pid)
+        new_sid = StockKeepingUnit.where("product_id = ? AND product_type = ?", pid, params[:Csel]).first.id
+        @order_item.update_attribute(:stock_keeping_unit_id, new_sid)
+
+        # merge the same order item
+        sameOi = @order.order_items.where("stock_keeping_unit_id = ?", new_sid)
+        if sameOi.count > 1
+          mergedQua = sameOi.collect{ |oi| oi.quantity }.sum
+          sameOi.each do |oi|
+            if oi == sameOi.first
+              oi.update_attribute(:quantity, mergedQua)
+            else
+              oi.destroy
+            end
+          end
+        end
       end
     end
     respond_to do |format|

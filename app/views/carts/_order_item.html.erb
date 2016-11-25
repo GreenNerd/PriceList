@@ -31,8 +31,5 @@
   <td class="delete">
     <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, order_item_path(oi), method: "delete", remote: true %>
   </td >
-  <p id="oi-id" style="display: none;">
-    <%= oi.id %>
-  </p>
 <% end %>
 </tr>

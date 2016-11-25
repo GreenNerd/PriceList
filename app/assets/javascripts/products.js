@@ -3,10 +3,6 @@
  */
 
 // Items changed
-$('*').on('change', ".shopping-cart .qnt-count .tb-form-control", function(){
-  alert("test");
-});
-
 $('.shopping-cart').ready(function(){
   $positions = $('.shopping-cart .item');
   $positions.each(function(){
@@ -28,14 +24,14 @@ $('.shopping-cart').ready(function(){
           type: "post",
           success: function(response){
             if (response.success) {
-              alert("ajax success");
+              // alert("ajax success");
             }else {
-              alert("ajax error");
+              // alert("ajax error");
             }
           },
           error: function(response){
             if (response.success) {
-              alert("data accepted!");
+              // alert("data accepted!");
               }
           }
         });
