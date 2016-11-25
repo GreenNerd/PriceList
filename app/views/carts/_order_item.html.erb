@@ -1,6 +1,6 @@
 <!-- Items -->
-<%= form_for oi, remote: true do |f| %>
 <tr class="item">
+<%= form_for oi, remote: true do |f| %>
   <td class="thumb">
     <a href="#"><%= image_tag (qiniu_cart_thumb(oi)) %></a>
   </td>
@@ -16,7 +16,7 @@
     <% dtype = get_type_by_oi(oi) %>
     <% dtypes = get_types_by_oi(oi) %>
     <div class="form-group">
-      <select class="form-control" id="sel-type" style="width: 35%;min-width:100px;display: inline-block;">
+      <select class="form-control" id=<%= oi.id %> style="width: 35%;min-width:100px;display: inline-block;">
         <%= dtypes.each do |dt| %>
           <% if dt == dtype %>
             <option selected><%= dt %></option>
@@ -34,5 +34,5 @@
   <p id="oi-id" style="display: none;">
     <%= oi.id %>
   </p>
-</tr>
 <% end %>
+</tr>

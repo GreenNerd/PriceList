@@ -8,6 +8,25 @@ class OrderItemsController < ApplicationController
     @skus = StockKeepingUnit.where(product_id: @product.id)
   end
 
+  def oiedit
+    @order = current_order
+    if params[:Coid].present? && params[:Csel].present? && params["Cqua"].present?
+      @order_item = @order.order_items.find_by(id: params[:Coid])
+      old_sid = @order_item.stock_keeping_unit_id
+      pid = StockKeepingUnit.find_by(id: old_sid).product_id
+      old_type = StockKeepingUnit.find_by(id: old_sid).product_type
+      new_type = params[:Csel]
+      @order_item.update_attribute(:quantity, params[:Cqua])
+      if old_type != params[:Csel]
+        new_sid = StockKeepingUnit.where("product_id = ? AND product_type = ?", pid, new_type).first.stock_keeping_unit_id
+        @order_item.update_attribute(:stock_keeping_unit_id, )
+      end
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def create
     @order = current_order
     if params[:order_item][:stock_keeping_unit_id].present?

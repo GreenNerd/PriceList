@@ -7,18 +7,39 @@ $('*').on('change', ".shopping-cart .qnt-count .tb-form-control", function(){
   alert("test");
 });
 
-$('*').on('change', ".shopping-cart .qnt-count #sel-type", function(){
-  var str = $(".shopping-cart .qnt-count select option:selected").val();
-  alert(str);
-});
-
-$('*').on('change', ".shopping-cart", function(){
-  $positions = $('.shopping-cart .qnt-count select');
+$('.shopping-cart').ready(function(){
+  $positions = $('.shopping-cart .item');
   $positions.each(function(){
     $(this).change(function(){
-      var str = $(this).find(":selected").val();
-      alert(str);
-      break;
+      // update product type of order item
+      oid = $(this).find('.qnt-count select').attr('id');
+      sel = $(this).find('.qnt-count select :selected').val();
+      qua = $(this).find('.qnt-count :input').val();
+
+      data = {"Coid": oid, "Csel": sel, "Cqua": qua};
+      url = '/order_items/' + oid + '/oiedit';
+      setTimeout(function(){
+        val = $(this).find('select :selected').val();
+        $.ajax({
+          url: url,
+          data: data,
+          dataType: "json",
+          cache: false,
+          type: "post",
+          success: function(response){
+            if (response.success) {
+              alert("ajax success");
+            }else {
+              alert("ajax error");
+            }
+          },
+          error: function(response){
+            if (response.success) {
+              alert("data accepted!");
+              }
+          }
+        });
+      }, 200);
     });
   });
 });

@@ -15,7 +15,11 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
   resource :cart, only: [:show, :genpdf]
-  resources :order_items, only: [:create, :update, :destroy, :new], defaults: { format: 'js' }
+  resources :order_items, only: [:create, :update, :destroy, :new, :oiedit], defaults: { format: 'js' } do
+    member do
+      post 'oiedit'
+    end
+  end
   resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -2,3 +2,5 @@ $('#dialog').on('hidden', function() {
 });
 
 $('div#fixed-footer').html("<%= escape_javascript(render 'layouts/footer') %>")
+
+$('#dialog').modal('toggle');
