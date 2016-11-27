@@ -60,3 +60,6 @@ StockKeepingUnit.create! id: 12, product_id: 5, inventory_count: 10, product_typ
 (1..100).each do |i|
   StockKeepingUnit.create! id: 12+i, product_id: 6+i, inventory_count: 19, product_type: "", prices: {"normal": 62000, "VIP": 62000, "other": 62000}, dimensions: {"供应商": "北京华夏盈远科技有限公司", "联系人": "崔志洋", "联系方式": "18001305657"}
 end
+
+Auth.destroy_all
+Auth.create! id: 1, email: "admin@admin.com", password: '123456'

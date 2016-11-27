@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :auths, controllers: {
+    sessions: 'auths/sessions',
+    passwords: 'auths/passwords',
+    registrations: 'auths/registrations'
+  }
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'search/get'
   get 'sessions/new'

@@ -23,6 +23,16 @@ RailsAdmin.config do |config|
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar true
   require 'i18n'
+  # something more dynamic
+  # config.main_app_name = Proc.new { |controller| [ "Cool App", "BackOffice - #{controller.params[:action].try(:titleize)}" ]}
+  config.main_app_name = ["报价单"]
+
+  config.authenticate_with do
+    config.authenticate_with do
+      warden.authenticate! scope: :auth
+    end
+  end
+  config.current_user_method(&:current_auth)
 
   config.actions do
     dashboard                     # mandatory
