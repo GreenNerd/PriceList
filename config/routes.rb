@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sites_admin/index'
+
   devise_for :auths, controllers: {
     sessions: 'auths/sessions',
     passwords: 'auths/passwords',
@@ -19,6 +21,8 @@ Rails.application.routes.draw do
   post 'order_items/create', to: 'order_items#create'
   get 'order_items/create', to: 'order_items#create'
   get 'cart/genpdf', to: 'carts#genpdf'
+
+  get 'SitesAdmin', to: 'sites_admin#index'
 
   resources :products, only: [:index, :show]
   resource :cart, only: [:show, :genpdf]

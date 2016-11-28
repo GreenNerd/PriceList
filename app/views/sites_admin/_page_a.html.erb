@@ -1,0 +1,39 @@
+<div>
+  <div class="container-fluid">
+    <div class="checkbox" style="display:inline-block; padding-righy:10px;">
+      <label><input type="checkbox" value="">全选</label>
+    </div>
+    <div class="form-group" style="display: inline-block;width: 10%;">
+      <select class="form-control">
+        <option>aaa</option>
+        <option>bbb</option>
+        <option selected>ccc</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-info">上架</button>
+    <button type="button" class="btn btn-info">下架</button>
+    <button type="button" class="btn btn-info">添加到精选</button>
+    <button type="button" class="btn btn-info">删除</button>
+    <button type="button" class="btn btn-info" style="float:right;">新建商品</button>
+  </div>
+</div>
+
+<div class="admin-line"></div>
+
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>名称</th>
+        <th>单价</th>
+        <th>库存</th>
+        <th>&nbsp;</th>
+      </tr>
+      <% @products.each do |pro| %>
+        <%= render "sites_admin/pro_item", pro: pro %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
