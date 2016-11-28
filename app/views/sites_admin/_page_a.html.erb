@@ -1,20 +1,27 @@
 <div>
-  <div class="container-fluid">
-    <div class="checkbox" style="display:inline-block; padding-righy:10px;">
-      <label><input type="checkbox" value="">全选</label>
+  <div class="row" style="padding-left:0">
+    <div class="col-lg-2 col-md-2">
+      <div class="checkbox" style="display:inline-block;">
+        <label><input type="checkbox" value="">全选</label>
+      </div>
     </div>
-    <div class="form-group" style="display: inline-block;width: 10%;">
-      <select class="form-control">
-        <option>aaa</option>
-        <option>bbb</option>
-        <option selected>ccc</option>
-      </select>
+    <div class="col-lg-2 col-md-2">
+      <div class="form-group" style="display:inline-block; width:10%; min-width:80px;">
+        <select class="form-control">
+          <option>aaa</option>
+          <option>bbb</option>
+          <option selected>ccc</option>
+        </select>
+      </div>
     </div>
-    <button type="button" class="btn btn-info">上架</button>
-    <button type="button" class="btn btn-info">下架</button>
-    <button type="button" class="btn btn-info">添加到精选</button>
-    <button type="button" class="btn btn-info">删除</button>
-    <button type="button" class="btn btn-info" style="float:right;">新建商品</button>
+    <div class="col-lg-6 col-md-6">
+      <button type="button" class="btn btn-info btn-sm">上架</button>
+      <button type="button" class="btn btn-info btn-sm">下架</button>
+      <button type="button" class="btn btn-info btn-sm">删除</button>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <button type="button" class="btn btn-info btn-sm">新建商品</button>
+    </div>
   </div>
 </div>
 

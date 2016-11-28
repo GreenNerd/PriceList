@@ -2,6 +2,12 @@
 <p>this is tab c</p>
 
 <div class="container">
-  <button type="button" class="btn btn-info">test</button>
-  <button type="button" class="btn btn-info">test</button>
+  <button type="button" class="btn btn-info" id="test">test bbbbb</button>
+  <button type="button" class="btn btn-info">this is the second scope</button>
 </div>
+
+<script>
+  $('button #test').click(function(){
+    alert("test");
+  });
+</script>
