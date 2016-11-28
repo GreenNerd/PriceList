@@ -27,22 +27,24 @@
 
 <div class="admin-line"></div>
 
-<div>
-  <table>
-    <tbody>
-      <tr>
-        <th>&nbsp;</th>
-        <th>&nbsp;</th>
-        <th>名称</th>
-        <th>单价</th>
-        <th>库存</th>
-        <th>&nbsp;</th>
-      </tr>
-      <% @products.each do |pro| %>
-        <%= render "sites_admin/pro_item", pro: pro %>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <table class="admin-items">
+      <tbody>
+        <tr>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+          <th>名称</th>
+          <th>单价</th>
+          <th>库存</th>
+          <th>&nbsp;</th>
+        </tr>
+        <% @products.each do |pro| %>
+          <%= render "sites_admin/pro_item", pro: pro %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="kaminari">

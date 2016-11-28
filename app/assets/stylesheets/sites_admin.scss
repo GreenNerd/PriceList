@@ -12,5 +12,17 @@
   margin: 10px 0 10px 0;
 }
 
+.admin-items {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
 
-
+.admin-items td.admin-edit {
+  padding: 0;
+}
+@media screen and (max-width: 374px) {
+  .admin-item td.admin-edit {
+    display: none;
+  }
+}
