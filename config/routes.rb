@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'cart/genpdf', to: 'carts#genpdf'
 
   get 'SitesAdmin', to: 'sites_admin#index'
+  get 'pro_create', to: 'sites_admin#create'
 
   resources :products, only: [:index, :show]
   resource :cart, only: [:show, :genpdf]
