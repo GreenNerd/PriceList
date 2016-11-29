@@ -19,3 +19,5 @@
 //= require jquery-labelauty
 //= require slidebars
 //= require jquery-confirm.min
+
+//= require sites_admin
