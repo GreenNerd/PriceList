@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 
+//= require simditor
+
 //= require products
 //= require detailSel
 //= require jquery-labelauty

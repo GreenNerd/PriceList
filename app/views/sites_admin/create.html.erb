@@ -46,7 +46,7 @@
   </div>
   <div>
     <span>商品描述:</span>
-    <input value="">
+    <textarea id="detail-editor" placeholder="Balala" autofocus></textarea>
   </div>
   <div>
     <span>商品规格:</span>
@@ -82,3 +82,17 @@
   </div>
 
 </div>
+
+
+<script>
+  editor = new Simditor({
+    textarea: $('#detail-editor'),
+    toolbar: [
+        'title','bold','italic','underline','strikethrough','color','|',
+        'ol','ul','blockquote','code','table','link','image','hr','|',
+        'indent','outdent'
+      ],
+    pasteImage: true,
+    defaultImage: '<%= image_path "upload-loading.png" %>'
+  });
+</script>

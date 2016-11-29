@@ -20,6 +20,7 @@ gem 'prawn'
 gem 'prawn-table'
 gem 'rails_admin', '~> 1.0'
 gem 'devise'
+gem 'simditor'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Category.destroy_all
-Category.create! id: 1, name: "热门手机", parent: 0
-Category.create! id: 2, name: "电脑整机",      parent: 0
-Category.create! id: 3, name: "智能设备",      parent: 0
+Category.create! id: 1, name: "服务器", parent: 0
+Category.create! id: 2, name: "存储器",      parent: 0
+Category.create! id: 3, name: "交换机",      parent: 0
 Category.create! id: 4, name: "V3000",      parent: 1
 Category.create! id: 5, name: "V5030",      parent: 1
 Category.create! id: 6, name: "V7000",      parent: 1
