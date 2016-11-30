@@ -13,44 +13,23 @@
                 <span aria-hidden="true">&times;</span>
         </button>
         <h4 class="modal-title">
-          <i class='fa fa-plus-square'></i> 商品型号
+          <i class='fa fa-plus-square'></i>
+          <label class="label label-default">添加商品型号</label>
         </h4>
       </div>
+
       <div class="modal-body">
         <div class="panel panel-default">
           <div class="panel-heading">添加商品型号</div>
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>编号</th>
-                <th>型号</th>
-                <th>价格</th>
-                <th>库存</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>1</th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-              </tr>
-              <tr>
-                <th>2</th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-              </tr>
-              <tr>
-                <th>3</th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-                <th><input type="text" class="form-control"></th>
-              </tr>
-            </tbody>
-          <table>
         </div>
+        <form>
+          <div class="form-group">
+            <label for="dimensionForKey">商品型号</label>
+            <input class="form-control" id="dimensionForKey" placeholder="商品型号">
+          </div>
+        </form>
       </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-primary btn-sm">保存</button>
         <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消</button>
