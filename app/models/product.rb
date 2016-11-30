@@ -6,5 +6,5 @@ class Product < ApplicationRecord
 
   default_scope { where(active: true) }
 
-  mount_uploader :thumb, ImageUploader
+  mount_uploaders :thumb, ImageUploader
 end
