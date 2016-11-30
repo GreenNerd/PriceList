@@ -23,3 +23,4 @@
 //= require jquery-confirm.min
 
 //= require sites_admin
+//= require bootstrap-treeview
