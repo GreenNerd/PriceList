@@ -6,6 +6,6 @@ class SitesAdminController < ApplicationController
   def create
     @product = Product.new
     @sku = StockKeepingUnit.new
-    @category = Category.new
+    @categories = Category.where("parent = ?", 0)
   end
 end

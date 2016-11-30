@@ -28,6 +28,17 @@
 }
 
 // For create product item
-.container-fluid .pro-create {
-   
+.pro-create .sep {
+  margin: 20px;
+}
+
+// vertical center the modal
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
 }

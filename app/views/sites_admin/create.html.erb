@@ -4,38 +4,38 @@
 
 <%= form_for @product, html: { multipart: true } do |f| %>
 <div class="container-fluid pro-create">
-  <div>
+  <div class="sep">
     <span>选择分类:</span>
     <div class="form-group" style="display:inline-block; width:10%; min-width:80px;">
       <select class="form-control">
-        <option>服务器配件</option>
-        <option>存储</option>
-        <option selected>服务器</option>
+        <% @categories.each do |c| %>
+          <option><%= c.name %></option>
+        <% end %>
       </select>
     </div>
     <button type="button" class="btn btn-info btn-sm" id="with_cgry">管理分类</button>
   </div>
-  <div>
+  <div class="sep">
     <span>商品标题:</span>
     <label>
       this is the product name
     </label>
   </div>
-  <div>
+  <div class="sep">
     <span>商品型号:</span>
     <button type="button" class="btn btn-info btn-sm" id="with_type">添加多种商品型号</button>
   </div>
-  <div>
+  <div class="sep">
     <span>商品价格:</span>
     <input value="9999">
     <label>元</label>
   </div>
-  <div>
+  <div class="sep">
     <span>商品库存:</span>
     <input value="100">
     <label>件</label>
   </div>
-  <div>
+  <div class="sep">
     <span>商品图片:</span>
       <%= f.file_field :thumb %>
     <div class="well">
@@ -46,11 +46,11 @@
       <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
     </div>
   </div>
-  <div>
+  <div class="sep">
     <span>商品描述:</span>
     <textarea id="detail-editor" placeholder="Balala" autofocus></textarea>
   </div>
-  <div>
+  <div class="sep">
     <span>商品规格:</span>
     <div class="well container-fluid">
       <p>
@@ -66,7 +66,7 @@
       </p>
     </div>
   </div>
-  <div>
+  <div class="sep">
     <span>商品图片:</span>
     <div class="well">
       <button type="button" class="btn btn-info btn-sm">上传图片</button>
