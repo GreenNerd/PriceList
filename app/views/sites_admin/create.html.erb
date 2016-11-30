@@ -5,8 +5,8 @@
 <%= form_for @product, html: { multipart: true } do |f| %>
 <div class="container-fluid pro-create">
   <div class="sep">
-    <span>选择分类:</span>
-    <div class="form-group" style="display:inline-block; width:10%; min-width:80px;">
+    <span class="label label-default">选择分类:</span>
+    <div class="form-group" style="display:inline-block;">
       <select class="form-control">
         <% @categories.each do |c| %>
           <option><%= c.name %></option>
@@ -16,28 +16,72 @@
     <button type="button" class="btn btn-info btn-sm" id="with_cgry">管理分类</button>
   </div>
   <div class="sep">
-    <span>商品标题:</span>
-    <label>
-      this is the product name
-    </label>
+    <span class="label label-default">商品标题:</span>
+    <input value="Blalala">
   </div>
   <div class="sep">
-    <span>商品型号:</span>
+    <span class="label label-default">商品型号:</span>
     <button type="button" class="btn btn-info btn-sm" id="with_type">添加多种商品型号</button>
   </div>
   <div class="sep">
-    <span>商品价格:</span>
+    <span class="label label-default">商品价格:</span>
     <input value="9999">
     <label>元</label>
   </div>
   <div class="sep">
-    <span>商品库存:</span>
+    <span class="label label-default">商品库存:</span>
     <input value="100">
     <label>件</label>
   </div>
   <div class="sep">
-    <span>商品图片:</span>
+    <span class="label label-default">商品图片:</span>
+    <div style="padding-left:70px;">
+    <div class="well">
       <%= f.file_field :thumb %>
+      <button type="button" class="btn btn-info btn-sm">上传图片</button>
+      <br />
+      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+    </div>
+    </div>
+  </div>
+  <div class="sep">
+    <span class="label label-default">商品描述:</span>
+    <div style="padding-left:70px;">
+      <textarea id="detail-editor" placeholder="" autofocus></textarea>
+    </div>
+  </div>
+  <div class="sep">
+    <span class="label label-default">商品规格:</span>
+    <button type="button" class="btn btn-info btn-sm" id="with_disn">添加规格</button>
+    <div style="padding-left:70px;">
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span class="label label-primary">机箱形态</span>
+        TinkServer TD350 8*2.5系列 4U塔式
+      </div>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span class="label label-primary">处理器</span>
+        因特尔@至强@处理器E5-2609 v4 1.7GHz
+      </div>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <span class="label label-primary">处理器</span>
+        因特尔@至强@处理器E5-2609 v4 1.7GHz
+      </div>
+    </div>
+  </div>
+  <div class="sep">
+    <span class="label label-default">商品图片:</span>
+    <div style="padding-left:70px;">
     <div class="well">
       <button type="button" class="btn btn-info btn-sm">上传图片</button>
       <br />
@@ -45,35 +89,6 @@
       <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
       <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
     </div>
-  </div>
-  <div class="sep">
-    <span>商品描述:</span>
-    <textarea id="detail-editor" placeholder="Balala" autofocus></textarea>
-  </div>
-  <div class="sep">
-    <span>商品规格:</span>
-    <div class="well container-fluid">
-      <p>
-        <button type="button" class="btn btn-info btn-sm">添加分类</button>
-      </p>
-      </p>
-        <button type="button" class="btn btn-info btn-sm">机箱形态</button>
-        <label>TinkServer TD350 8*2.5系列 4U塔式</label>
-      </p>
-      <p>
-        <button type="button" class="btn btn-info btn-sm">处理器</button>
-        <label>因特尔@至强@处理器E5-2609 v4 1.7GHz</label>
-      </p>
-    </div>
-  </div>
-  <div class="sep">
-    <span>商品图片:</span>
-    <div class="well">
-      <button type="button" class="btn btn-info btn-sm">上传图片</button>
-      <br />
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
     </div>
   </div>
   <div>
@@ -98,4 +113,33 @@
     pasteImage: true,
     defaultImage: '<%= image_path "upload-loading.png" %>'
   });
+</script>
+<script>
+function setDimensions() {
+    $ngConfirm({
+        title: 'Oh no',
+        content: '<p>Something bad, bad happened.</p>' +
+        'Select the alert type:' +
+        ' <div class="form-group">' +
+        '<select class="form-control" ng-model="ngc.type">' +
+        '<option value="default">Default</option>' +
+        '<option value="red">Red</option>' +
+        '<option value="blue">Blue</option>' +
+        '<option value="green">Green</option>' +
+        '<option value="purple">Purple</option>' +
+        '<option value="dark">Dark</option>' +
+        '</select>' +
+        '<div class="checkbox"><label><input type="checkbox" ng-model="ngc.typeAnimated"> Animated</label></div>' +
+        '</div>',
+        type: 'red',
+        typeAnimated: true,
+        buttons: {
+            ok: function () {
+            }
+        },
+        onContentReady: function ($scope) {
+
+        }
+    })
+};
 </script>
