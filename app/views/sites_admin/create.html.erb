@@ -2,6 +2,7 @@
   <h3 style="font-weight:bold;">上传/管理商品</h3>
 </div>
 
+<%= form_for @product, html: { multipart: true } do |f| %>
 <div class="container-fluid pro-create">
   <div>
     <span>选择分类:</span>
@@ -36,6 +37,7 @@
   </div>
   <div>
     <span>商品图片:</span>
+      <%= f.file_field :thumb %>
     <div class="well">
       <button type="button" class="btn btn-info btn-sm">上传图片</button>
       <br />
@@ -82,6 +84,7 @@
   </div>
 
 </div>
+<% end %>
 
 
 <script>

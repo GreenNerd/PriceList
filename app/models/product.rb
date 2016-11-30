@@ -5,4 +5,6 @@ class Product < ApplicationRecord
   paginates_per 12
 
   default_scope { where(active: true) }
+
+  mount_uploader :thumb, ImageUploader
 end

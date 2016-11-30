@@ -21,6 +21,8 @@ gem 'prawn-table'
 gem 'rails_admin', '~> 1.0'
 gem 'devise'
 gem 'simditor'
+gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug', platform: :mri
