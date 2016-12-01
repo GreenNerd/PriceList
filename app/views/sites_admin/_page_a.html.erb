@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <div class="row" style="padding-left:0">
     <div class="col-lg-2 col-md-2">
       <div class="checkbox" style="display:inline-block;">
@@ -14,23 +14,23 @@
         </select>
       </div>
     </div>
-    <div class="col-lg-6 col-md-6">
+    <div class="col-lg-3 col-md-3">
       <button type="button" class="btn btn-info btn-sm">上架</button>
       <button type="button" class="btn btn-info btn-sm">下架</button>
       <button type="button" class="btn btn-info btn-sm">删除</button>
     </div>
     <div class="col-lg-2 col-md-2">
-      <button type="button" class="btn btn-info btn-sm">新建商品</button>
+      <%= link_to "新建商品", pro_create_path, class: "btn btn-info btn-sm" %>
     </div>
   </div>
 </div>
 
 <div class="admin-line"></div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <table class="table admin-items">
-      <tbody>
+    <table class="table table-hover admin-items">
+      <thead>
         <tr>
           <th>&nbsp;</th>
           <th>&nbsp;</th>
@@ -39,6 +39,8 @@
           <th>库存</th>
           <th>&nbsp;</th>
         </tr>
+      </thead>
+      <tbody>
         <% @products.each do |pro| %>
           <%= render "sites_admin/pro_item", pro: pro %>
         <% end %>
