@@ -114,16 +114,12 @@
 
   <div class="sep">
     <span class="label label-default">商品图片:</span>
-    <div style="padding-left:70px;">
-    <div class="well">
-      <button type="button" class="btn btn-info btn-sm">上传图片</button>
-      <br />
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-      <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+      <div class="row" style="padding-left:70px;">
+        <label class="control-label">选择文件</label>
+        <input id="input-44" name="input44[]" type="file" mutiple class="file-loading">
+        <div id="errorBlock" class="help-block"></div>
+      </div>
     </div>
-    </div>
-  </div>
   <div>
 
   <div style="padding-bottom:80px; padding-top:80px;">
@@ -136,18 +132,24 @@
 
 
 <script>
-  editor = new Simditor({
-    textarea: $('#detail-editor'),
-    toolbar: [
-        'title','bold','italic','underline','strikethrough','color','|',
-        'ol','ul','blockquote','code','table','link','image','hr','|',
-        'indent','outdent'
-      ],
-    pasteImage: true,
-    defaultImage: '<%= image_path "upload-loading.png" %>'
+$(document).on('ready', function(){
+  $("#input-44").fileinput({
+    uploadUrl: "/file-upload-batch/2",
+    maxFilePreviewSize: 10240
   });
-</script>
-<script>
+});
+
+editor = new Simditor({
+  textarea: $('#detail-editor'),
+  toolbar: [
+      'title','bold','italic','underline','strikethrough','color','|',
+      'ol','ul','blockquote','code','table','link','image','hr','|',
+      'indent','outdent'
+    ],
+  pasteImage: true,
+  defaultImage: '<%= image_path "upload-loading.png" %>'
+});
+
 function setDimensions() {
     $ngConfirm({
         title: 'Oh no',

@@ -24,3 +24,6 @@
 
 //= require sites_admin
 //= require bootstrap-treeview
+
+//= require fileinput.min
+//= require zh
