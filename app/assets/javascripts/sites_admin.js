@@ -9,7 +9,13 @@ $('*').on('click', "#with_cgry", function(e){
 $('*').on('click', "#with_type", function(e){
   e.preventDefault();
   $('#dialog_type').modal('toggle');
-  $('#dialog_type').modal('show');
+  // $('#dialog_type').modal('show');
+
+  $("#dimensionForSub").click(function(){
+    type = $("#diensionForKey").val();
+    $('#dimension-sep').append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" + type + "</div>");
+    $('#dialog_type').modal('toggle');
+  });
 });
 
 $('*').on('click', "#with_disn", function(e){
