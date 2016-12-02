@@ -18,11 +18,6 @@ $('*').on('click', "#with_type", function(e){
   });
 });
 
-$('*').on('click', "#with_disn", function(e){
-  e.preventDefault();
-  $('#dialog_disn').modal('toggle');
-  $('#dialog_disn').modal('show');
-});
 
 function getTree() {
   var data = [
