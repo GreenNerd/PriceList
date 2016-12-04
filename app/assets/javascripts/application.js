@@ -15,6 +15,8 @@
 //= require jquery_ujs
 
 //= require simditor
+//= require select2
+//= require select2_locale_zh-CN
 
 //= require products
 //= require detailSel

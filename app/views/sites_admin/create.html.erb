@@ -7,9 +7,13 @@
   <div class="sep">
     <span class="label label-default">选择分类:</span>
     <div class="form-group" style="display:inline-block;">
-      <select class="form-control">
-        <% @categories.each do |c| %>
-          <option><%= c.name %></option>
+      <select class="form-control" id="cgry-select">
+        <% Category.where("parent=?", 0).each do |cg| %>
+          <optgroup label=<%= cg.name %>>
+            <% Category.where("parent=#{cg.id}").each do |scg| %>
+              <option><%= scg.name %></option>
+            <% end %>
+          </optgroup>
         <% end %>
       </select>
     </div>
@@ -189,4 +193,8 @@ function setDimensions() {
         }
     })
 };
+
+$(document).ready(function(){
+  $('#cgry-select').select2();
+});
 </script>
