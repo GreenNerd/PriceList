@@ -20,6 +20,37 @@
 
       <div class="modal-body">
         <div id="cgry-tree"></div>
+        <div class="container">
+          <div type="button" class="btn btn-danger btn-sm" id="cgry-tree-add">add</div>
+          <div type="button" class="btn btn-danger btn-sm" id="cgry-tree-rmv">remove</div>
+          <div type="button" class="btn btn-danger btn-sm" id="cgry-tree-rna">rename</div>
+        </div>
+  <ul class="sb-menu">
+    <li><a href="/">全部商品</a></li>
+    <% Category.where("parent='0'").each do |cg| %>
+      <li>
+        <a class="sb-toggle-submenu" href="#">
+          <%= cg.name %>
+          <span class="sb-caret"></span>
+        </a>
+        <ul class="sb-submenu" style="display: none">
+          <% Category.where("parent=#{cg.id}").each do |scg| %>
+            <li>
+              <a class="sb-toggle-submenu" href="#">
+                <%= scg.name %>
+                <span class="sb-caret"></span>
+              </a>
+              <ul class="sb-submenu" style="display: none">
+                <% Product.where("category_id=#{scg.id}").each do |product| %>
+                  <li><%= link_to "#{product.name}", product_path(product) %></li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
       </div>
 
       <div class="modal-footer">
