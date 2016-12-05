@@ -7,9 +7,13 @@
   <div class="sep">
     <span class="label label-default">选择分类:</span>
     <div class="form-group" style="display:inline-block;">
-      <select class="form-control">
-        <% @categories.each do |c| %>
-          <option><%= c.name %></option>
+      <select class="form-control" id="cgry-select">
+        <% Category.where("parent=?", 0).each do |cg| %>
+          <optgroup label=<%= cg.name %>>
+            <% Category.where("parent=#{cg.id}").each do |scg| %>
+              <option><%= scg.name %></option>
+            <% end %>
+          </optgroup>
         <% end %>
       </select>
     </div>
@@ -20,7 +24,7 @@
     <span class="label label-default">商品标题:</span>
     <div class="row" style="padding-left:70px;">
       <div class="col-lg-3">
-        <input type="text" class="form-control" placeholder="请输入商品标题" >
+        <%= f.text_field :name, type: "text", class: "form-control", placeholder: "请输入商品标题" %>
       </div>
     </div>
   </div>
@@ -44,7 +48,7 @@
     <div class="row" style="padding-left:70px;">
       <div class="col-lg-3">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="请输入商品价格">
+          <%= f.text_field :price, type: "text", class: "form-control", placeholder: "请输入商品价格" %>
           <span class="input-group-addon">元</span>
         </div>
       </div>
@@ -80,7 +84,7 @@
   <div class="sep">
     <span class="label label-default">商品描述:</span>
     <div style="padding-left:70px;">
-      <textarea class="form-control" rows="3" id="detail-editor" placeholder="" autofocus></textarea>
+      <%= f.text_area :description, class: "form-control", id: "detail-editor", placeholder: "" %>
     </div>
   </div>
 
@@ -123,13 +127,25 @@
   <div>
 
   <div style="padding-bottom:80px; padding-top:80px;">
-    <button type="button" class="btn btn-info btn-sm" style="float:right;">取消</button>
-    <button type="button" class="btn btn-info btn-sm" style="float:right;">保存</button>
+    <%= f.submit "保存", type: "button", class:"btn btn-info btn-sm", style: "float:right;" %>
   </div>
 
 </div>
 <% end %>
 
+<script>
+$("#cgry-tree-add").on('click', function(){
+  nodes = $('#cgry-tree').treeview('getSelected');
+  parents = $('#cgry-tree').treeview('getParents', nodes);
+  alert(nodes[0]);
+  $('#cgry-tree').treeview('addNodeAfter', [ parents, nodes, { silent: true } ]);
+});
+$("#cgry-tree-rmv").on('click', function(){
+  nodes = $('#cgry-tree').treeview('getSelected');
+  alert(nodes[0]);
+  $('#cgry-tree').treeview('removeNode', [ nodes, { silent: true } ]);
+});
+</script>
 
 <script>
 $(document).on('ready', function(){
@@ -177,4 +193,8 @@ function setDimensions() {
         }
     })
 };
+
+$(document).ready(function(){
+  $('#cgry-select').select2();
+});
 </script>

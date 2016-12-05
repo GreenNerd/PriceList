@@ -10,10 +10,10 @@
         <div role="tabpanel" class="<%= if (params[:tab] == 'a' || !params[:tab]) then 'tab-pane active' else 'tab-pane' end %>" id="a">
           <%= render 'sites_admin/page_a'%>
         </div>
-        <div role="tabpanel" class="<%= if (params[:tab] == 'b' || !params[:tab]) then 'tab-pane active' else 'tab-pane' end %>" id="b">
+        <div role="tabpanel" class="tab-pane" id="b">
           <%= render 'sites_admin/page_b'%>
         </div>
-        <div role="tabpanel" class="<%= if (params[:tab] == 'c' || !params[:tab]) then 'tab-pane active' else 'tab-pane' end %>" id="c">
+        <div role="tabpanel" class="tab-pane" id="c">
           <%= render 'sites_admin/page_c'%>
         </div>
       </div>

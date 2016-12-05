@@ -12,12 +12,12 @@ Category.create! id: 3, name: "交换机",      parent: 0
 Category.create! id: 4, name: "V3000",      parent: 1
 Category.create! id: 5, name: "V5030",      parent: 1
 Category.create! id: 6, name: "V7000",      parent: 1
-Category.create! id: 7, name: "V3000",      parent: 2
-Category.create! id: 8, name: "V5030",      parent: 2
-Category.create! id: 9, name: "V7000",      parent: 2
-Category.create! id: 10, name: "V3000",      parent: 3
-Category.create! id: 11, name: "V5030",      parent: 3
-Category.create! id: 12, name: "V7000",      parent: 3
+Category.create! id: 7, name: "G4030",      parent: 2
+Category.create! id: 8, name: "G5330",      parent: 2
+Category.create! id: 9, name: "G7200",      parent: 2
+Category.create! id: 10, name: "M3030",      parent: 3
+Category.create! id: 11, name: "M5331",      parent: 3
+Category.create! id: 12, name: "M7020",      parent: 3
 
 Product.destroy_all
 Product.create! id: 1, category_id: 4, name: "6195SC5", image_url: "x3850x6.jpg", price: 62000.00, active: true, thumb: ["x3850x6.jpg"], pictures: ["x3850x6.jpg", "2.jpg", "3.jpg"], description: 'Lenovo System x3850 X6, 2x Intel Xeon Processor E7-4830 v3 12C 2.1GHz 115W 30M TruDDR4 1866，标配2块内存板48个DIMM，32GB(4x8GB) 2133MHz DDR4内存，标配8个 2.5" SAS热插拔硬盘槽位，标配M5210 支持RAID0、1、10 可选缓存或Flash保护，主机带4口个千兆以太网卡，标配2个900W热插拔电源(带2根PDU电源线), 4U机架式，无光驱。三年7*24*4有限保修'
