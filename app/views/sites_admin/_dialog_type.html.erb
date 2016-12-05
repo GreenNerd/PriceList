@@ -19,8 +19,11 @@
       </div>
 
       <div class="modal-body">
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
           <div class="panel-heading">添加商品型号</div>
+          <div class="panel-body">
+            <%= render 'sites_admin/sku_items' %>
+          </div>
         </div>
         <form>
           <div class="form-group">
@@ -29,39 +32,7 @@
           </div>
         </form>
 
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>编号</th>
-              <th>型号</th>
-              <th>价格</th>
-              <th>库存</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th> 1 </th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-            </tr>
-            <tr>
-              <th> 2 </th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-            </tr>
-            <tr>
-              <th> 3 </th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-              <th><input type="text" class="form-control"></th>
-            </tr>
-          </tbody>
-        <table>
 
-        <p class="bg-danger">This is a test.</p>
-        <table></table>
       </div>
 
       <div class="modal-footer">

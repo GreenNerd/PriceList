@@ -24,6 +24,7 @@ gem 'simditor'
 gem 'carrierwave', '>= 1.0.0.rc', '< 2.0'
 gem 'mini_magick'
 gem 'select2-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
