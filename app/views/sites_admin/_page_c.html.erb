@@ -1,8 +1,21 @@
+<div style="display:block;">
+<%= form_for @product do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.check_box :active %>
+  <%= f.text_field :image_url %>
+  <%= f.text_field :thumb %>
+  <%= f.text_field :pictures %>
 
-<p>this is tab c</p>
+  <%= f.fields_for :stock_keeping_units do |sku| %>
+    <div class="well">
+      <%= sku.text_field :product_type %>
+      <%= sku.text_field :inventory_count %>
+      <%= sku.text_area :dimensions %>
+      <%= sku.text_field :prices %>
+    </div>
+  <% end %>
 
-<div class="container">
-  <button type="button" class="btn btn-info">test</button>
-  <button type="button" class="btn btn-info">test</button>
-  <button type="button" class="btn btn-info">test</button>
+  <%= f.submit "yes?" %>
+<% end %>
 </div>
