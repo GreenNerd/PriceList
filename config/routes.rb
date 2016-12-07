@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   get 'SitesAdmin', to: 'sites_admin#index'
   get 'pro_create', to: 'sites_admin#create'
 
-  resources :products, only: [:index, :show]
+  # resources :products, only: [:index, :show]
+  resources :products
   resource :cart, only: [:show, :genpdf]
   resources :order_items, only: [:create, :update, :destroy, :new, :oiedit], defaults: { format: 'js' } do
     member do

@@ -21,4 +21,47 @@ class ProductsController < ApplicationController
     @order_item = Order.new
   end
 
+  def new
+    @product = Product.new
+    1.times { @product.stock_keeping_units.build }
+  end
+
+  def create
+    @product = Product.new(product_params)
+
+    if @product.save
+      redirect_to @product
+    else
+      render :action => 'new'
+    end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render :action => 'edit'
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+  end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:id, :image_url, :price, :active, :name, :thumb,
+                                    :pictures, :description, stock_keeping_units_attributes: [:id, :inventory_count, :product_type, :prices, :dimensions])
+  end
 end

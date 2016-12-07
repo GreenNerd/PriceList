@@ -1,7 +1,7 @@
 class SitesAdminController < ApplicationController
   def index
     @products = Product.page(params[:page])
-    @product = Product.find_by_id(1)
+    @product = Product.find_by_id(2)
   end
 
   def create
