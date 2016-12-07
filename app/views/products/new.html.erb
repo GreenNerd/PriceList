@@ -1,22 +1,108 @@
-<div style="display:block;">
-<%= form_for @product do |f| %>
-  <%= f.text_field :name %>
-  <%= f.text_area :description %>
-  <%= f.check_box :active %>
-  <%= f.text_field :image_url %>
-  <%= f.text_field :thumb %>
-  <%= f.text_field :pictures %>
-  <%= f.text_field :price %>
-
-  <%= f.fields_for :stock_keeping_units do |sku| %>
-    <div class="well">
-      <%= sku.text_field :product_type %>
-      <%= sku.text_field :inventory_count %>
-      <%= sku.text_area :dimensions %>
-      <%= sku.text_field :prices %>
+<div class="col-md-1"></div>
+<div class="col-md-10">
+  <%= form_for @product, html: { class: "form-horizontal" } do |f| %>
+    <!-- product category -->
+    <div class="form-group">
+      <label for="cgry-select" class="col-sm-2 control-label">选择分类</label>
+      <div class="col-sm-10">
+        <%= f.select(:category_id, Category.all.collect { |m| [ m.name, m.id ] }, {}, class: "form-control", id: "cgry-select", style: "width:20%", multiple: true) %>
+        <button type="button" class="btn btn-info btn-sm" id="with_cgry">管理分类</button>
+      </div>
     </div>
-  <% end %>
 
-  <%= f.submit "add product" %>
+    <!-- product name -->
+    <div class="form-group">
+      <label for="pro-name" class="col-sm-2 control-label">商品标题</label>
+      <div class="col-sm-10">
+        <%= f.text_field :name, class: "form-control", id: "pro-name", placeholder: "请输入商品标题" %>
+      </div>
+    </div>
+    
+    <!-- product type -->
+    <div class="form-group">
+      <label for="pro-type" class="col-sm-2 control-label">商品型号</label>
+      <div class="col-sm-10">
+        <%= f.fields_for :stock_keeping_units do |sku| %>
+          <div class="well">
+            <%= sku.text_field :product_type %>
+            <%= sku.text_field :inventory_count %>
+            <%= sku.text_area :dimensions %>
+            <%= sku.text_field :prices %>
+            Delete: <%= sku.check_box :_destroy %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <!-- product price -->
+    <div class="form-group">
+      <label for="pro-price" class="col-sm-2 control-label">商品标题</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <%= f.text_field :price, type: "text", class: "form-control", placeholder: "请输入商品价格", id: "pro-price" %>
+          <span class="input-group-addon">元</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- product image_url -->
+    <div class="form-group">
+      <label for="pro-image-url" class="col-sm-2 control-label">商品标题</label>
+      <div class="col-sm-10">
+        <div class="well">
+          <%= f.label :image_url %>
+          <%= f.file_field :image_url %>
+          <button type="button" class="btn btn-info btn-sm">上传图片</button>
+          <br />
+          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+        </div>
+      </div>
+    </div>
+
+    <!-- product description -->
+    <div class="form-group">
+      <label for="pro-description" class="col-sm-2 control-label">商品描述</label>
+      <div class="col-sm-10">
+        <%= f.text_area :description, class: "form-control", id: "detail-editor", placeholder: "" %>
+      </div>
+    </div>
+    <!-- product name -->
+    <div class="form-group">
+      <label for="pro-name" class="col-sm-2 control-label">Others</label>
+      <div class="col-sm-10">
+        <!-- product others -->
+        Active: <%= f.check_box :active %>
+        Thumb: <%= f.text_field :thumb %>
+        Pictures: <%= f.text_field :pictures %>
+      </div>
+    </div>
+
+    <div style="padding-bottom:100px; padding-top:80px;">
+      <%= f.submit "保存", class:"btn btn-info btn-sm", style: "float:right;" %>
+    </div>
+
 <% end %>
 </div>
+<div class="col-md-1"></div>
+
+<script>
+$(document).ready(function(){
+  $('#cgry-select').select2({
+    placeholder: "请选择商品分类",
+    allowClear: true
+  });
+});
+
+editor = new Simditor({
+  textarea: $('#detail-editor'),
+  toolbar: [
+      'title','bold','italic','underline','strikethrough','color','|',
+      'ol','ul','blockquote','code','table','link','image','hr','|',
+      'indent','outdent'
+    ],
+  pasteImage: true,
+  defaultImage: '<%= image_path "upload-loading.png" %>'
+});
+</script>
