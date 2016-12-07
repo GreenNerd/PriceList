@@ -26,3 +26,5 @@ Things you may want to cover:
 * CREATE EXTENSION hstore WITH SCHEMA pg_catalog;
   psql -U dbuser -d shop_app
   # add hstore type extension support
+
+* select setval('stock_keeping_units_id_seq', (select max(id) from stock_keeping_units)+1);
