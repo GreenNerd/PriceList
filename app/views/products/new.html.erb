@@ -41,9 +41,9 @@
       </div>
     </div>
     
-    <!-- product image_url -->
+    <!-- product thumb -->
     <div class="form-group">
-      <label for="pro-image-url" class="col-sm-2 control-label">商品图片</label>
+      <label for="pro-thumb" class="col-sm-2 control-label">商品缩略图</label>
       <div class="col-sm-10">
         <div class="well">
           <%= image_tag "def_product.png", id: "img-preview-a", class: "img-rounded" %>
@@ -51,7 +51,7 @@
           <%= image_tag "def_product.png", id: "img-preview-c", class: "img-rounded" %>
           <br />
           <span class="btn btn-info">
-            <%= f.file_field :image_url, onchange: "readURL(this)", multiple: true, class: "file_input" %>
+            <%= f.file_field :thumb, onchange: "tmbReadURL(this)", multiple: true, class: "file_input" %>
           </span>
         </div>
       </div>
@@ -66,12 +66,42 @@
     </div>
     <!-- product name -->
     <div class="form-group">
-      <label for="pro-name" class="col-sm-2 control-label">Others</label>
+      <label for="pro-name" class="col-sm-2 control-label">上架/下架</label>
       <div class="col-sm-10">
         <!-- product others -->
         Active: <%= f.check_box :active %>
-        Thumb: <%= f.text_field :thumb %>
-        Pictures: <%= f.text_field :pictures %>
+      </div>
+    </div>
+
+    <!-- product pictures -->
+    <div class="form-group">
+      <label for="pro-pics" class="col-sm-2 control-label">商品图片</label>
+      <div class="col-sm-10">
+        <div class="well">
+          <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-d", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-f", class: "img-rounded" %>
+          <br />
+          <span class="btn btn-info">
+            <%= f.file_field :pictures, onchange: "picReadURL(this)", multiple: true, class: "file_input" %>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- product pictures -->
+    <div class="form-group">
+      <label for="pro-image-url" class="col-sm-2 control-label">商品图片</label>
+      <div class="col-sm-10">
+        <div class="well">
+          <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-d", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-f", class: "img-rounded" %>
+          <br />
+          <span class="btn btn-info">
+            <%= f.file_field :image_url, multiple: true, class: "file_input" %>
+          </span>
+        </div>
       </div>
     </div>
 

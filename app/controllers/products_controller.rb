@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:id, {image_url: []}, :price, :active, :name, :thumb,
+    params.require(:product).permit(:id, {thumb: []}, {pictures: []}, {image_url: []}, :price, :active, :name, :thumb,
                                     :pictures, :description, stock_keeping_units_attributes: [:id, :inventory_count, :product_type, :prices, :dimensions, :_destroy])
   end
 end

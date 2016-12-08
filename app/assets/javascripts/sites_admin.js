@@ -64,7 +64,7 @@ $(document).ready(function(){
   });
 });
 
-function readURL(input) {
+function tmbReadURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();
     reader.onload = function(e) {
@@ -82,6 +82,31 @@ function readURL(input) {
         var reader = new FileReader();
         reader.onload = function(e) {
           $('#img-preview-c').attr('src', e.target.result).width(152).height(119);
+        };
+        reader.readAsDataURL(input.files[2]);
+      }
+    }
+  }
+}
+
+function picReadURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#img-preview-e').attr('src', e.target.result).width(152).height(119);
+    };
+    reader.readAsDataURL(input.files[0]);
+    if (input.files[1]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#img-preview-d').attr('src', e.target.result).width(152).height(119);
+      };
+      reader.readAsDataURL(input.files[1]);
+
+      if (input.files[2]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#img-preview-f').attr('src', e.target.result).width(152).height(119);
         };
         reader.readAsDataURL(input.files[2]);
       }
