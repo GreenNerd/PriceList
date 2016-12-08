@@ -55,3 +55,36 @@ function getTree() {
   ];
   return data;
 }
+
+// new product page
+$(document).ready(function(){
+  $('#cgry-select').select2({
+    placeholder: "请选择商品分类",
+    allowClear: true
+  });
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#img-preview-a').attr('src', e.target.result).width(152).height(119);
+    };
+    reader.readAsDataURL(input.files[0]);
+    if (input.files[1]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        $('#img-preview-b').attr('src', e.target.result).width(152).height(119);
+      };
+      reader.readAsDataURL(input.files[1]);
+
+      if (input.files[2]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $('#img-preview-c').attr('src', e.target.result).width(152).height(119);
+        };
+        reader.readAsDataURL(input.files[2]);
+      }
+    }
+  }
+}

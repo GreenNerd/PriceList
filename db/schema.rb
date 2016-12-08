@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(version: 20161127180057) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "image_url"
+    t.json    "image_url"
     t.decimal "price",       precision: 12, scale: 3
     t.boolean "active"
     t.string  "name"
-    t.string  "thumb",                                array: true
-    t.string  "pictures",                             array: true
+    t.json    "thumb",                                array: true
+    t.json    "pictures",                             array: true
     t.text    "description"
     t.integer "category_id"
     t.index ["category_id"], name: "index_products_on_category_id", using: :btree

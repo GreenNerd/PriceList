@@ -46,13 +46,13 @@
       <label for="pro-image-url" class="col-sm-2 control-label">商品图片</label>
       <div class="col-sm-10">
         <div class="well">
-          <%= image_tag "def_product.png", id: "img-preview" %>
-          <%= f.file_field :image_url, onchange: "readURL(this)", multiple: true %>
-          <button type="button" class="btn btn-info btn-sm">上传图片</button>
+          <%= image_tag "def_product.png", id: "img-preview-a", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-b", class: "img-rounded" %>
+          <%= image_tag "def_product.png", id: "img-preview-c", class: "img-rounded" %>
           <br />
-          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
-          <img src="http://ogf4uc3pg.bkt.clouddn.com/X3750M4.jpg?imageMogr2/thumbnail/152x119!" alt="" class="img-rounded">
+          <span class="btn btn-info">
+            <%= f.file_field :image_url, onchange: "readURL(this)", multiple: true, class: "file_input" %>
+          </span>
         </div>
       </div>
     </div>
@@ -84,13 +84,6 @@
 <div class="col-md-1"></div>
 
 <script>
-$(document).ready(function(){
-  $('#cgry-select').select2({
-    placeholder: "请选择商品分类",
-    allowClear: true
-  });
-});
-
 editor = new Simditor({
   textarea: $('#detail-editor'),
   toolbar: [
@@ -101,16 +94,4 @@ editor = new Simditor({
   pasteImage: true,
   defaultImage: '<%= image_path "upload-loading.png" %>'
 });
-
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      $('#img-preview').attr('src', e.target.result)
-        .width(152)
-        .height(119);
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
-}
 </script>

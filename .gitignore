@@ -22,3 +22,6 @@
 
 # Ignore Image uploaded
 /public/uploads/*
+
+# Ignore Gemfile.lock
+Gemfile.lock
