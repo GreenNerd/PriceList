@@ -1,6 +1,5 @@
-<%= f.fields_for @product.stock_keeping_units.build do |n| %>
-  <%= n.text_field :product_type %>
-  <%= n.text_field :inventory_count %>
-  <%= n.text_area :dimensions %>
-  <%= n.text_field :prices %>
-<% end %>
+<div class="well">
+  <%= f.fields_for @product.stock_keeping_units.build do |n| %>
+    <% render 'products/new_pro_item', sku: n %>
+  <% end %>
+</div>

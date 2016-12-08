@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    1.times { @product.stock_keeping_units.build }
+    3.times { @product.stock_keeping_units.build }
   end
 
   def create
