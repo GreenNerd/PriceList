@@ -113,3 +113,15 @@ function picReadURL(input) {
     }
   }
 }
+
+// Insert product stock keeping unit when create product
+$('*').on('click', '#insert-pro-sku-btn', function(){
+  res = $('.well:first').clone();
+  inputs = res.find("input");
+  inputs.each(function(){
+    var num = parseInt(($(this).attr('id') + "").match(/\d+/g)) + 1;
+    $(this).attr('id', ($(this).attr('id') + "").replace(/\d+/g, num));
+    $(this).attr('name', ($(this).attr('name') + "").replace(/\d+/g, num));
+  });
+  $('#insert-pro-sku').append(res);
+});
