@@ -23,13 +23,11 @@
       <label for="pro-type" class="col-sm-2 control-label">商品型号</label>
       <div class="col-sm-10" id="insert-pro-sku">
         <div>
-          <button type="button" class="btn btn-success btn-sm" id="insert-pro-sku-btn">添加型号</button>
+          <span><%= link_to_add_fields "添加型号", f, :stock_keeping_units %></span>
         </div>
 
         <%= f.fields_for :stock_keeping_units do |sku| %>
-          <div class="well">
-            <%= render 'products/new_pro_item', sku: sku %>
-          </div>
+          <%= render 'products/stock_keeping_unit_fields', sku: sku %>
         <% end %>
 
       </div>
