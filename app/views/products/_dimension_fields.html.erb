@@ -1,0 +1,25 @@
+<div class="well">
+  <!-- dimension key -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label">规格名称</label>
+    <div class="col-sm-10">
+      <%= f.text_field :key, class: "form-control", placeholder: "请输入规格名称" %>
+    </div>
+  </div>
+  <!-- dimension val -->
+  <div class="form-group">
+    <label class="col-sm-2 control-label">规格内容</label>
+    <div class="col-sm-10">
+      <%= f.text_area :val, class: "form-control", placeholder: "请输入规格内容" %>
+    </div>
+  </div>
+  <!-- dimension delete -->
+  <div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+      <div style="float:right">
+        <%= link_to_remove_fields "删除", f %>
+      </div>
+    </div>
+  </div>
+</div>

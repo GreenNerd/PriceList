@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     1.times { @product.stock_keeping_units.build }
+    1.times { @product.dimensions.build }
   end
 
   def create
@@ -64,6 +65,7 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:id, {thumb: []}, {pictures: []}, {image_url: []}, :price, :active, :name, :thumb, :category_id,
-                                    :pictures, :description, stock_keeping_units_attributes: [:id, :inventory_count, :product_type, :prices, :dimensions, :_destroy])
+                                    :pictures, :description, stock_keeping_units_attributes: [:id, :inventory_count, :product_type, :prices, :dimensions, :_destroy],
+                                    dimensions_attributes: [:key, :val])
   end
 end

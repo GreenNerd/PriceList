@@ -27,7 +27,7 @@
         </div>
 
         <%= f.fields_for :stock_keeping_units do |sku| %>
-          <%= render 'products/stock_keeping_unit_fields', sku: sku %>
+          <%= render 'products/stock_keeping_unit_fields', f: sku %>
         <% end %>
 
       </div>
@@ -67,6 +67,20 @@
         <%= f.text_area :description, class: "form-control", id: "detail-editor", placeholder: "" %>
       </div>
     </div>
+
+    <!-- product dimensions -->
+    <div class="form-group">
+      <label for="pro-description" class="col-sm-2 control-label">商品规格</label>
+      <div class="col-sm-10">
+        <div>
+          <span><%= link_to_add_fields "添加规格", f, :dimensions %></span>
+        </div>
+        <%= f.fields_for :dimensions do |disn| %>
+          <%= render 'products/dimension_fields', f: disn %>
+        <% end %>
+      </div>
+    </div>
+
     <!-- product name -->
     <div class="form-group">
       <label for="pro-name" class="col-sm-2 control-label">上架/下架</label>
