@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(version: 20161127180057) do
     t.integer  "product_id"
     t.integer  "inventory_count"
     t.string   "product_type"
-    t.hstore   "prices"
-    t.hstore   "dimensions"
+    t.decimal  "prices"
+    t.json     "dimensions"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["product_id"], name: "index_stock_keeping_units_on_product_id", using: :btree
