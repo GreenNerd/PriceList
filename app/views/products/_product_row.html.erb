@@ -1,7 +1,7 @@
 <div class="col-xs-6 col-md-3">
   <div class="product">
     <a href=<%= product_path(product.id) %> id="imagelink">
-      <%= image_tag(product.thumb[0].to_s, alt: "1", class: "thumb") if product.thumb? %>
+      <%= image_tag(product.thumb[0].to_s, alt: "1", class: "thumb", size: "173x170") if product.thumb? %>
     </a>
     <div class="items">
       <div class="pname">
