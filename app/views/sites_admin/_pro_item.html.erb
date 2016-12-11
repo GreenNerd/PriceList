@@ -5,7 +5,7 @@
     </div>
   </td>
   <td>
-    <a href="#"><%= image_tag (qiniu_admin_pro_thumb(pro)) %></a>
+    <a href="#"><%= image_tag(pro.thumb[0], size: "152x119") if pro.thumb? %></a>
   </td>
   <td>
     <%= pro.name %>

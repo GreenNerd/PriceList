@@ -27,7 +27,7 @@
         </div>
 
         <%= f.fields_for :stock_keeping_units do |sku| %>
-          <%= render 'products/stock_keeping_unit_fields', sku: sku %>
+          <%= render 'products/stock_keeping_unit_fields', f: sku %>
         <% end %>
 
       </div>
@@ -49,9 +49,21 @@
       <label for="pro-thumb" class="col-sm-2 control-label">商品缩略图</label>
       <div class="col-sm-10">
         <div class="well">
-          <%= image_tag "def_product.png", id: "img-preview-a", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-b", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-c", class: "img-rounded" %>
+          <% if @product.thumb.to_a.count > 0 %>
+           <%= image_tag @product.thumb[0].to_s, id: "img-preview-a", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-a", class: "img-rounded" %>
+          <% end %>
+          <% if @product.thumb.to_a.count > 1 %>
+           <%= image_tag @product.thumb[1].to_s, id: "img-preview-b", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-b", class: "img-rounded" %>
+          <% end %>
+          <% if @product.thumb.to_a.count > 2 %>
+           <%= image_tag @product.thumb[2].to_s, id: "img-preview-c", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-c", class: "img-rounded" %>
+          <% end %>
           <br />
           <span class="btn btn-info">
             <%= f.file_field :thumb, onchange: "tmbReadURL(this)", multiple: true, class: "file_input" %>
@@ -67,12 +79,26 @@
         <%= f.text_area :description, class: "form-control", id: "detail-editor", placeholder: "" %>
       </div>
     </div>
+
+    <!-- product dimensions -->
+    <div class="form-group">
+      <label for="pro-description" class="col-sm-2 control-label">商品规格</label>
+      <div class="col-sm-10">
+        <div>
+          <span><%= link_to_add_fields "添加规格", f, :dimensions %></span>
+        </div>
+        <%= f.fields_for :dimensions do |disn| %>
+          <%= render 'products/dimension_fields', f: disn %>
+        <% end %>
+      </div>
+    </div>
+
     <!-- product name -->
     <div class="form-group">
       <label for="pro-name" class="col-sm-2 control-label">上架/下架</label>
       <div class="col-sm-10">
         <!-- product others -->
-        Active: <%= f.check_box :active %>
+        <span class="label label-danger">上架:</span> <%= f.check_box :active %>
       </div>
     </div>
 
@@ -81,28 +107,24 @@
       <label for="pro-pics" class="col-sm-2 control-label">商品图片</label>
       <div class="col-sm-10">
         <div class="well">
-          <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-d", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-f", class: "img-rounded" %>
+          <% if @product.pictures.to_a.count > 0 %>
+           <%= image_tag @product.pictures[0].to_s, id: "img-preview-e", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
+          <% end %>
+          <% if @product.pictures.to_a.count > 1 %>
+           <%= image_tag @product.pictures[1].to_s, id: "img-preview-d", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-d", class: "img-rounded" %>
+          <% end %>
+          <% if @product.pictures.to_a.count > 2 %>
+           <%= image_tag @product.pictures[2].to_s, id: "img-preview-f", class: "img-rounded", size: "180x180" %>
+          <% else %>
+           <%= image_tag "def_product.png", id: "img-preview-f", class: "img-rounded" %>
+          <% end %>
           <br />
           <span class="btn btn-info">
             <%= f.file_field :pictures, onchange: "picReadURL(this)", multiple: true, class: "file_input" %>
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- product pictures -->
-    <div class="form-group">
-      <label for="pro-image-url" class="col-sm-2 control-label">商品图片</label>
-      <div class="col-sm-10">
-        <div class="well">
-          <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-d", class: "img-rounded" %>
-          <%= image_tag "def_product.png", id: "img-preview-f", class: "img-rounded" %>
-          <br />
-          <span class="btn btn-info">
-            <%= f.file_field :image_url, multiple: true, class: "file_input" %>
           </span>
         </div>
       </div>
