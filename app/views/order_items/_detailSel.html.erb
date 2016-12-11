@@ -2,7 +2,7 @@
 <div class="container-fluid sel-thumbnail">
   <div class="sel-left">
     <a href="#" class="thumbnail">
-    <%= image_tag(qiniu_image_url(@product.image_url, :sel)) %>
+    <%= image_tag @product.thumb[0].to_s %>
     </a>
   </div>
   <div class="sel-right">

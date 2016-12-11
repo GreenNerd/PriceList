@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @skus = StockKeepingUnit.where(product_id: params[:id])
+    @dimensions = Dimension.where(product_id: params[:id])
     @mount = @skus.sum(:inventory_count)
     session[:product_id] = @product.id
 

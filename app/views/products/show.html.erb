@@ -1,4 +1,4 @@
-<%= carousel_for(qiniu_carousel(@product.pictures)) %>
+<%= carousel_for(@product.pictures.to_a) %>
 
 <div class="d-title">
   <p><%= @product.name %></p>
@@ -44,24 +44,21 @@
       <div class="container">
         <div class="row">
           <section class="tech-specs">
-            <% @skus.each do |sku| %>
-            <h4><%= @product.name %>  <%= sku.product_type %></h4>
             <div class="row">
               <!-- Item -->
-              <% sku.dimensions.each do |k, v| if sku.dimensions.present? %>
-              <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="item">
-                  <div class="row">
-                    <div class="division">
-                      <div class="key"><%= k %></div>
-                      <div class="value"><%= v %></div>
+              <% @dimensions.each do |disn| %>
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                  <div class="item">
+                    <div class="row">
+                      <div class="division">
+                        <div class="key"><%= disn.key %></div>
+                        <div class="value"><%= disn.val %></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
               <% end %>
             </div>
-            <% end %>
           </section>
         </div>
       </div>
