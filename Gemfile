@@ -25,6 +25,7 @@ gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 gem 'select2-rails'
 gem 'simple_form'
+gem 'awesome_nested_set'
 
 group :development, :test do
   gem 'byebug', platform: :mri
