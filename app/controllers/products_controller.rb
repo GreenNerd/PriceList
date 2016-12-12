@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to @product
+      redirect_to sites_admin_index_url
     else
       render :action => 'new'
     end
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to @product
+      redirect_to sites_admin_index_url
     else
       render :action => 'edit'
     end

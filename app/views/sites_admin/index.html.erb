@@ -4,17 +4,17 @@
       <ul class="nav nav-pills nav-stacked admin-nav col-lg-3 col-md-3">
         <li class="<%= 'active' if (params[:tab] == 'a' || !params[:tab]) %>"><a disabled href="#a" data-toggle="tab">全部商品</a></li>
         <li class="<%= 'active' if params[:tab] == 'b' %>"><a disabled href="#b" data-toggle="tab">已上架的商品</a></li>
-        <li class="<%= 'active' if params[:tab] == 'c' %>"><a disabled href="#c" data-toggle="tab">为上架的商品</a></li>
+        <li class="<%= 'active' if params[:tab] == 'c' %>"><a disabled href="#c" data-toggle="tab">未上架的商品</a></li>
       </ul>
       <div class="tab-content col-lg-9 col-md-9">
         <div role="tabpanel" class="<%= if (params[:tab] == 'a' || !params[:tab]) then 'tab-pane active' else 'tab-pane' end %>" id="a">
           <%= render 'sites_admin/page_a'%>
         </div>
         <div role="tabpanel" class="tab-pane" id="b">
-          <%= render 'sites_admin/page_b'%>
+          <%= render 'sites_admin/page_a'%>
         </div>
         <div role="tabpanel" class="tab-pane" id="c">
-          <%= render 'sites_admin/page_c'%>
+          <%= render 'sites_admin/page_a'%>
         </div>
       </div>
     </div>
