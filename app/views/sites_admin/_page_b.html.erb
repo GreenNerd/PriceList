@@ -1,3 +1,4 @@
+<% if @product %>
 <%= simple_form_for @product do |f| %>
   <%= f.input :name %>
   <%= f.input :price %>
@@ -6,4 +7,5 @@
   <%= f.association :stock_keeping_units %>
   <%= f.association :category %>
   <%= f.button :submit %>
+<% end %>
 <% end %>

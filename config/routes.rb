@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :categories, only: [:index, :create, :update, :destroy]
+  resources :categories, only: [:index, :create, :update, :destroy, :new, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'

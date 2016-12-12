@@ -1,0 +1,17 @@
+<tr>
+  <th><%= category.name %></th>
+  <th><%= category.depth + 1 %></th>
+  <th>
+    <% if get_cgry_parent_name(category) == -1 %>
+      <span class="label label-danger">一级分类</span>
+    <% else %>
+      <span class="label label-default">
+        <%= get_cgry_parent_name(category) %>
+      </span>
+    <% end%>
+  </th>
+  <th>
+    <%= link_to "编辑分类", edit_category_path(category), class: "btn btn-primary btn-sm"%>
+    <%= link_to "删除分类", category_path(category), class: "btn btn-danger btn-sm", method: "delete", remote: true %>
+  </th>
+</tr>

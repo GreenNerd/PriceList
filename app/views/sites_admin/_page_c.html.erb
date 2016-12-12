@@ -1,4 +1,5 @@
 <div style="display:block;">
+<% if @product %>
 <%= form_for @product do |f| %>
   <%= f.text_field :name %>
   <%= f.text_area :description %>
@@ -18,5 +19,6 @@
   <% end %>
 
   <%= f.submit "yes?" %>
+<% end %>
 <% end %>
 </div>
