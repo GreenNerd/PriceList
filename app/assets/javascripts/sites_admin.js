@@ -130,7 +130,7 @@ $('*').on('click', '#insert-pro-sku-btn', function(){
 // Dynamic add fields in form
 function remove_fields(link) {
   $(link).prev("input[type=hidden]").val("1");
-  $(link).closest(".fields").hide();
+  $(link).closest(".well").hide();
 }
 
 function add_fields(link, association, content) {
