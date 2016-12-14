@@ -25,6 +25,13 @@ class ProductsController < ApplicationController
   end
 
   def new
+    put_policy = Qiniu::Auth::PutPolicy.new(
+      "pricelist",                  # 存储空间
+      nil,                          # 最终资源名，可省略，即缺省为“创建”语义
+      1800,                         # 相对有效期，可省略，缺省为3600秒后uptoken过期
+      (Time.now + 30.minutes).to_i  # 绝对有效期，可省略，指明uptoken过期期限(绝对值)
+    )
+    @uptoken = Qiniu::Auth.generate_uptoken(put_policy)  # 生产凭证
     @product = Product.new
     1.times { @product.stock_keeping_units.build }
     1.times { @product.dimensions.build }

@@ -1,3 +1,4 @@
+
 $('*').on('click', "#with_cgry", function(e){
   e.preventDefault();
   $('#dialog_cgry').modal('toggle');

@@ -29,3 +29,7 @@
 
 //= require fileinput.min
 //= require zh
+
+//= require moxie.min
+//= require plupload.min
+//= require qiniu.min
