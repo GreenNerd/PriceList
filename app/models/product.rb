@@ -12,7 +12,4 @@ class Product < ApplicationRecord
 
   default_scope { where(active: true) }
 
-  mount_uploaders :thumb, ImageUploader
-  mount_uploaders :pictures, ImageUploader
-  mount_uploaders :image_url, ImageUploader
 end
