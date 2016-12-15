@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def new
     @uptoken = uptoken
+    @uptokenpics = uptoken
     @product = Product.new
     1.times { @product.stock_keeping_units.build }
     1.times { @product.dimensions.build }
