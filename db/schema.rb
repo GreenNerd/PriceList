@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 20161215050624) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "parent"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "parent_id"
