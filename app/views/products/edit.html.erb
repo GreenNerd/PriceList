@@ -5,7 +5,7 @@
     <div class="form-group">
       <label for="cgry-select" class="col-sm-2 control-label">选择分类</label>
       <div class="col-sm-10">
-        <%= f.select(:category_id, options_for_select(Category.all.collect { |m| [ m.name, m.id ] }), class: "form-control", id: "cgry-select", style: "width:20%", multiple: true) %>
+        <%= f.select(:category_id, options_for_select(Category.all.collect { |m| [ m.title, m.id ] }), class: "form-control", id: "cgry-select", style: "width:20%", multiple: true) %>
       </div>
     </div>
 
@@ -107,7 +107,7 @@
       <div class="col-sm-10">
         <div class="well">
           <% if @product.pictures.to_a.count > 0 %>
-           <%= image_tag @product.pictures[0].to_s, id: "img-preview-e", class: "img-rounded", size: "180x180" %>
+           <%= image_tag qiniu_image_url(@product.pictures[0].to_s), id: "img-preview-e", class: "img-rounded", size: "180x180" %>
           <% else %>
            <%= image_tag "def_product.png", id: "img-preview-e", class: "img-rounded" %>
           <% end %>

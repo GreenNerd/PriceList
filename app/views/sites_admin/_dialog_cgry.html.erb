@@ -27,17 +27,17 @@
         </div>
   <ul class="sb-menu">
     <li><a href="/">全部商品</a></li>
-    <% Category.where("parent='0'").each do |cg| %>
+    <% Category.where("parent_id=?", 0).each do |cg| %>
       <li>
         <a class="sb-toggle-submenu" href="#">
-          <%= cg.name %>
+          <%= cg.title %>
           <span class="sb-caret"></span>
         </a>
         <ul class="sb-submenu" style="display: none">
           <% Category.where("parent=#{cg.id}").each do |scg| %>
             <li>
               <a class="sb-toggle-submenu" href="#">
-                <%= scg.name %>
+                <%= scg.title %>
                 <span class="sb-caret"></span>
               </a>
               <ul class="sb-submenu" style="display: none">

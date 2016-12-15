@@ -40,6 +40,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:id])
+    render :action => :edit
   end
 
   def manage
