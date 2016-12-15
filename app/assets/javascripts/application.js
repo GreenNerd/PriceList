@@ -13,6 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require jquery-ui
 
 //= require simditor
 //= require select2
@@ -25,11 +26,15 @@
 //= require jquery-confirm.min
 
 //= require sites_admin
-//= require bootstrap-treeview
-
-//= require fileinput.min
-//= require zh
 
 //= require moxie.min
 //= require plupload.min
 //= require qiniu.min
+
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer
+
+//= require expandable_tree/jquery.cookie
+//= require expandable_tree/restorable
+//= require expandable_tree/hashchange
+//= require expandable_tree/initializer

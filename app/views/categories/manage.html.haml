@@ -1,0 +1,5 @@
+%p= link_to raw('&larr; back'), '/categories'
+
+
+%ol.sortable_tree.expandable{ data: { max_levels: 3, rebuild_url: rebuild_categories_url, expand_node_url: expand_node_categories_url, cookies_store: :true, cookie_scope: @categories.first.class } }
+  = expandable_tree @categories

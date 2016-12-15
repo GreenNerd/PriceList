@@ -3,6 +3,9 @@
   <div class="panel panel-primary">
     <div class="panel-heading">分类管理</div>
     <div class="panel-body">
+      <span class="label label-info">
+        <%= link_to raw('&larr; 返回'), categories_path %>
+      </span>
       <%= form_for @category, html: { class: "form-horizontal" } do |f| %>
         <div class="form-group">
           <label class="col-sm-2 control-label">上级分类</label>

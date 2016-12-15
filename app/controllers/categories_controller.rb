@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
+  include TheSortableTreeController::Rebuild
+  include TheSortableTreeController::ExpandNode
+
   def index
-    @categories = Category.all
+    @categories = Category.nested_set.roots.select('id, title, content, parent_id')
   end
 
   def new
@@ -32,6 +35,22 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
+    render :action => :index
+  end
+
+  def show
+    @category = Category.find(params[:id])
+  end
+
+  def manage
+    # @categories = Category.nested_set.select('id, title, content, parent_id').all
+    @categories = Category.nested_set.roots.select('id, title, content, parent_id')
+  end
+
+  def node_manage
+    @root = Category.root
+    @categories = @root.self_and_descendants.nested_set.select('id, title, content, parent_id')
+    render template: 'categories/manage'
   end
 
   private

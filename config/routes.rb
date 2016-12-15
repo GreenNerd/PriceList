@@ -34,7 +34,17 @@ Rails.application.routes.draw do
     end
   end
   resources :users
-  resources :categories, only: [:index, :create, :update, :destroy, :new, :edit]
+  resources :categories, only: [:index, :create, :update, :destroy, :new, :edit, :show] do
+    collection do
+      # page where you want to render Sortable tree.
+      get :manage
+      get :expand
+      get :node_manage
+      # required for Sortable GUI server side actions
+      post :rebuild
+      post :expand_node
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'products#index'
