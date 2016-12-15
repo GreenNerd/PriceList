@@ -2,7 +2,7 @@
 <tr class="item">
 <%= form_for oi, remote: true do |f| %>
   <td class="thumb">
-    <a href="#"><%= image_tag get_thumb_by_oi(oi), size: "152x119" %></a>
+    <a href="#"><%= image_tag qiniu_cart_thumb(oi) %></a>
   </td>
   <td class="qnt-count">
     <a href="/products/<%= get_product_id(oi) %>">

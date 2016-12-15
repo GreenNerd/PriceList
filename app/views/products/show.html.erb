@@ -1,4 +1,6 @@
-<%= carousel_for(@product.pictures.to_a) %>
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+<%= carousel_for(qiniu_carousel(@product.pictures)) %>
 
 <div class="d-title">
   <p><%= @product.name %></p>
@@ -72,3 +74,5 @@
 
   </div> <!-- tabs content -->
 </section>
+</div>
+<div class="col-lg-1"></div>
