@@ -12,4 +12,7 @@ class Product < ApplicationRecord
 
   default_scope { where(active: true) }
 
+  validates :name, presence: true
+  validates :thumb, presence: true
+  validates :description, presence: true
 end

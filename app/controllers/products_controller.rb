@@ -25,14 +25,14 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @uptoken = uptoken
-    @uptokenpics = uptoken
+    set_uptoken
     @product = Product.new
     1.times { @product.stock_keeping_units.build }
     1.times { @product.dimensions.build }
   end
 
   def create
+    set_uptoken
     @product = Product.new(product_params)
 
     if @product.save
@@ -43,8 +43,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @uptoken = uptoken
-    @uptokenpics = uptoken
+    set_uptoken
     @product = Product.find(params[:id])
   end
 
@@ -65,6 +64,11 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_uptoken
+    @uptoken = uptoken
+    @uptokenpics = uptoken
+  end
 
   def set_product
     @product = Product.find(params[:id])
