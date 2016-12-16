@@ -202,6 +202,7 @@ var uploader = Qiniu.uploader({
                console.log(info);
                console.log(sourceLink);
           val = $.parseJSON($('#pro-thumb-upload').val());
+          val.push(res.key)
           $('#pro-thumb-upload').val(JSON.stringify(val));
           // var array = $.parseJSON("[" + val + "]");
           // array.push(res.key);
@@ -361,7 +362,5 @@ $("#upload-thumbs a.img-upload-del-pics").on('click', function(){
   $("#pro-pics-upload").val(JSON.stringify(val));
   $(this).parent("div").hide();
 });
-
-</script>
 
 </script>

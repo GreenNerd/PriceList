@@ -1,8 +1,10 @@
+<%= form_tag '/SitesAdmin/manage' do %>
+
 <div class="container">
   <div class="row" style="padding-left:0">
     <div class="col-lg-2 col-md-2">
       <div class="checkbox" style="display:inline-block;">
-        <label><input type="checkbox" value="">全选</label>
+        <label><input type="checkbox" onclick="handleClick(this);">全选</label>
       </div>
     </div>
     <div class="col-lg-2 col-md-2">
@@ -10,9 +12,9 @@
       </div>
     </div>
     <div class="col-lg-3 col-md-3">
-      <button type="button" class="btn btn-info btn-sm">上架</button>
-      <button type="button" class="btn btn-info btn-sm">下架</button>
-      <button type="button" class="btn btn-info btn-sm">删除</button>
+      <%= submit_tag "上架", class: "btn btn-info btn-sm", name: "up" %>
+      <%= submit_tag "下架", class: "btn btn-info btn-sm", name: "down" %>
+      <%= submit_tag "删除", class: "btn btn-info btn-sm", name: "del" %>
     </div>
     <div class="col-lg-2 col-md-2">
       <%= link_to "管理分类", categories_path, class: "btn btn-primary btn-sm" %>
@@ -37,7 +39,7 @@
           <th>&nbsp;</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="sitesadmin-checkbox">
         <% @products.each do |pro| %>
           <%= render "sites_admin/pro_item", pro: pro %>
         <% end %>
@@ -49,3 +51,5 @@
 <div class="kaminari">
   <%= paginate @products, :window => 2 %>
 </div>
+
+<% end %>

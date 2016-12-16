@@ -59,7 +59,9 @@ class ProductsController < ApplicationController
 
   def destroy
     @product = Product.find(params[:id])
-    @product.destroy
+    if @product.destroy
+      redirect_to sites_admin_index_url
+    end
   end
 
   private

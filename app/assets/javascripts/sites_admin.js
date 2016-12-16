@@ -139,3 +139,12 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
 }
+
+
+// Mutilple delete
+function handleClick(cb) {
+  var $lines = $("#sitesadmin-checkbox tr input");
+  for(var i=0; i< $lines.length; i++) {
+    $lines[i].checked = !($lines[i].checked);
+  }
+}
