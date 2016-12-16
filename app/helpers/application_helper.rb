@@ -1,5 +1,8 @@
 module ApplicationHelper
   def qiniu_image_url(name, format = :raw)
+    if name.to_s.empty?
+      name = "def_product.png"
+    end
     url = "http://ogf4uc3pg.bkt.clouddn.com/#{name}"
 
     case format

@@ -6,6 +6,9 @@ module CarouselHelper
 
   class Carousel
     def initialize(view, images)
+      if images.count == 0
+        images = ["def_product.png"]
+      end
       @view, @images = view, images
       @uid = SecureRandom.hex(6)
     end

@@ -1,6 +1,6 @@
 module SitesAdminHelper
   def qiniu_admin_pro_thumb(pro)
-    qiniu_image_url(pro.image_url, :cart)
+    qiniu_image_url(pro.thumb.first, :cart)
   end
 
   def link_to_remove_fields(name, f)
