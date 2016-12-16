@@ -246,21 +246,26 @@ function showPreview(uploader, file, container) {
   $(image).attr('class', 'img-rounded');
   $(image).attr('height', '180');
   $(image).attr('width', '180');
+  $(image).attr('id', file.name);
   $(image).appendTo(item);
   // Add delete button
   var dbtn = $('<a><i class="fa fa-close" aria-hidden="true"></i></a>');
-  $(dbtn).appendTo(item);
-  $(dbtn).on('click', function(){
-    uploader.removeFile(file);
-    $(item).hide();
-  });
-  // $(image).appendTo($("#upload-thumbs"));
-  var preloader = new mOxie.Image();
-  preloader.onload = function() {
-    preloader.downsize(300, 300);
-    image.setAttribute('src', preloader.getAsDataURL());
+  if ($(container).find("img#" + file.name).attr('id') === file.name) {
+  } 
+  else {
+    $(dbtn).appendTo(item);
+    $(dbtn).on('click', function(){
+      uploader.removeFile(file);
+      $(item).hide();
+    });
+    // $(image).appendTo($("#upload-thumbs"));
+    var preloader = new mOxie.Image();
+    preloader.onload = function() {
+      preloader.downsize(300, 300);
+      image.setAttribute('src', preloader.getAsDataURL());
+    }
+    preloader.load(file.getSource());
   }
-  preloader.load(file.getSource());
 }
 
 //引入Plupload 、qiniu.js后
