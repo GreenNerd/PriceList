@@ -13,6 +13,8 @@ module ApplicationHelper
       url << '?imageMogr2/thumbnail/x300'
     when :raw
       url << "?attname=#{name}"
+    when :sitesadmin
+      url << '?imageMogr2/thumbnail/180x180!'
     end
   end
 

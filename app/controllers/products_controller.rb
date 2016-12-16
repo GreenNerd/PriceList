@@ -43,6 +43,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @uptoken = uptoken
+    @uptokenpics = uptoken
     @product = Product.find(params[:id])
   end
 
