@@ -172,12 +172,10 @@ var uploader = Qiniu.uploader({
     // auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
     init: {
         'FilesAdded': function(up, files) {
-            plupload.each(files, function(file) {
                 // 文件添加进队列后,处理相关的事情
               for (var i=0; i < files.length; i++) {
                 showPreview(up, files[i], '#upload-thumbs');
               }
-            });
         },
         'BeforeUpload': function(up, file) {
                // 每个文件上传前,处理相关的事情
@@ -251,6 +249,10 @@ function showPreview(uploader, file, container) {
   $(dbtn).on('click', function(){
     uploader.removeFile(file);
     $(item).hide();
+    val = $.parseJSON($(container + " input").val());
+    alert("test");
+    val.pop(file.name)
+    $('#pro-thumb-upload').val(JSON.stringify(val));
   });
   // $(image).appendTo($("#upload-thumbs"));
   var preloader = new mOxie.Image();
@@ -282,14 +284,13 @@ var uploaderpics = Qiniu.uploader({
     drop_element: 'upload-container-pics',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
     chunk_size: '4mb',                //分块上传时，每片的体积
     // auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
+    multi_selection: true,
     init: {
         'FilesAdded': function(up, files) {
-            plupload.each(files, function(file) {
                 // 文件添加进队列后,处理相关的事情
               for (var i=0; i < files.length; i++) {
                 showPreview(up, files[i], '#upload-pics');
               }
-            });
         },
         'BeforeUpload': function(up, file) {
                // 每个文件上传前,处理相关的事情
@@ -360,7 +361,7 @@ $("#upload-pics a.img-upload-del-pics").on('click', function(){
 $("#upload-thumbs a.img-upload-del-pics").on('click', function(){
   val = $.parseJSON($("#pro-thumb-upload").val());
   val.pop($(this).attr("name"));
-  $("#pro-pics-upload").val(JSON.stringify(val));
+  $("#pro-thumb-upload").val(JSON.stringify(val));
   $(this).parent("div").hide();
 });
 

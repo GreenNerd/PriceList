@@ -175,12 +175,10 @@ var uploader = Qiniu.uploader({
     // auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
     init: {
         'FilesAdded': function(up, files) {
-            plupload.each(files, function(file) {
                 // 文件添加进队列后,处理相关的事情
               for (var i=0; i < files.length; i++) {
                 showPreview(up, files[i], '#upload-thumbs');
               }
-            });
         },
         'BeforeUpload': function(up, file) {
                // 每个文件上传前,处理相关的事情
@@ -250,9 +248,7 @@ function showPreview(uploader, file, container) {
   $(image).appendTo(item);
   // Add delete button
   var dbtn = $('<a><i class="fa fa-close" aria-hidden="true"></i></a>');
-  if ($(container).find("img#" + file.name).attr('id') === file.name) {
-  } 
-  else {
+  if ($("#" + file.name).length == 0) {
     $(dbtn).appendTo(item);
     $(dbtn).on('click', function(){
       uploader.removeFile(file);
@@ -265,7 +261,7 @@ function showPreview(uploader, file, container) {
       image.setAttribute('src', preloader.getAsDataURL());
     }
     preloader.load(file.getSource());
-  }
+  } 
 }
 
 //引入Plupload 、qiniu.js后
@@ -291,12 +287,10 @@ var uploaderpics = Qiniu.uploader({
     // auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
     init: {
         'FilesAdded': function(up, files) {
-            plupload.each(files, function(file) {
                 // 文件添加进队列后,处理相关的事情
               for (var i=0; i < files.length; i++) {
                 showPreview(up, files[i], '#upload-pics');
               }
-            });
         },
         'BeforeUpload': function(up, file) {
                // 每个文件上传前,处理相关的事情
