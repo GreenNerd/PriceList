@@ -27,8 +27,6 @@ class ProductsController < ApplicationController
   def new
     set_uptoken
     @product = Product.new
-    1.times { @product.stock_keeping_units.build }
-    1.times { @product.dimensions.build }
   end
 
   def create
@@ -48,10 +46,12 @@ class ProductsController < ApplicationController
   end
 
   def update
+    set_uptoken
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to sites_admin_index_url
     else
+      Rails.logger.info(@product.errors.messages)
       render :action => 'edit'
     end
   end
@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:id, {thumb: []}, {pictures: []}, {image_url: []}, :price, :active, :name, :thumb, :category_id,
+    params.require(:product).permit(:id, {thumb: []}, {pictures: []}, {image_url: []}, :price, :active, :name, :thumb, :category_id, :count,
                                     :pictures, :description, stock_keeping_units_attributes: [:id, :inventory_count, :product_type, :prices, :dimensions, :_destroy],
                                     dimensions_attributes: [:id, :key, :val, :_destroy])
   end
