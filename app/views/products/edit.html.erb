@@ -60,7 +60,7 @@
       <label for="pro-thumb" class="col-sm-2 control-label">商品缩略图</label>
       <div class="col-sm-10">
         <div class="well" id="upload-thumbs">
-          <%= f.hidden_field :thumb, value: "#{@product.thumb}", id: "pro-thumb-upload" %>
+          <%= f.hidden_field :thumb, value: ',' + @product.thumb.join(',') + ',', id: "pro-thumb-upload" %>
           <% @product.thumb.each do |pic| %>
             <div style="display:inline-block;">
               <%= image_tag qiniu_image_url(pic, :sitesadmin), class: "img-rounded", height: 180, width: 180 %>
@@ -211,9 +211,8 @@ var uploader = Qiniu.uploader({
                var sourceLink = domain + res.key; // 获取上传成功后的文件的Url
                console.log(info);
                console.log(sourceLink);
-          val = $.parseJSON($('#pro-thumb-upload').val());
-          val.push(res.key)
-          $('#pro-thumb-upload').val(JSON.stringify(val));
+          val = $('#pro-thumb-upload').val();
+          $('#pro-thumb-upload').val(val + res.key + ',');
           // var array = $.parseJSON("[" + val + "]");
           // array.push(res.key);
           // $('#pro-thumb-upload').val(array.toString());
@@ -326,9 +325,8 @@ var uploaderpics = Qiniu.uploader({
                var sourceLink = domain + res.key; // 获取上传成功后的文件的Url
                console.log(info);
                console.log(sourceLink);
-          val = $.parseJSON($('#pro-pics-upload').val());
-          val.push(res.key);
-          $('#pro-pics-upload').val(JSON.stringify(val));
+          val = $('#pro-pics-upload').val();
+          $('#pro-pics-upload').val(val + res.key + ',');
           // var array = $.parseJSON("[" + val + "]");
           // array.push(res.key);
           // $('#pro-thumb-upload').val(array.toString());
@@ -363,8 +361,8 @@ $('#stop_load_pics').on('click', function(){
 
 // Remove pictures while upload
 $("#upload-pics a.img-upload-del-pics").on('click', function(){
-  val = $.parseJSON($("#pro-pics-upload").val());
-  val.pop($(this).attr("name"));
+  val = $("#pro-pics-upload").val();
+  rmv = ',' + $(this).attr("name");
   $("#pro-pics-upload").val(JSON.stringify(val));
   $(this).parent("div").hide();
 });
