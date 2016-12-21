@@ -19,101 +19,20 @@ $('*').on('click', "#with_type", function(e){
   });
 });
 
-
-function getTree() {
-  var data = [
-    {
-      text: "Parent 1",
-      nodes: [
-        {
-          text: "Child 1",
-          nodes: [
-            {
-              text: "Grandchild 1"
-            },
-            {
-              text: "Grandchild 2"
-            }
-          ]
-        },
-        {
-          text: "Child 2"
-        }
-      ]
-    },
-    {
-      text: "Parent 2"
-    },
-    {
-      text: "Parent 3"
-    },
-    {
-      text: "Parent 4"
-    },
-    {
-      text: "Parent 5"
-    }
-  ];
-  return data;
-}
-
 // new product page
 $(document).ready(function(){
   $('#cgry-select').select2({
     placeholder: "请选择商品分类",
     allowClear: true
   });
+  $('#new-cgry-select').select2({
+    placeholder: "请选择商品分类",
+    allowClear: true
+  });
+  $('#edit-cgry-select').select2({
+    allowClear: true
+  });
 });
-
-function tmbReadURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      $('#img-preview-a').attr('src', e.target.result).width(152).height(119);
-    };
-    reader.readAsDataURL(input.files[0]);
-    if (input.files[1]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $('#img-preview-b').attr('src', e.target.result).width(152).height(119);
-      };
-      reader.readAsDataURL(input.files[1]);
-
-      if (input.files[2]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          $('#img-preview-c').attr('src', e.target.result).width(152).height(119);
-        };
-        reader.readAsDataURL(input.files[2]);
-      }
-    }
-  }
-}
-
-function picReadURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      $('#img-preview-e').attr('src', e.target.result).width(152).height(119);
-    };
-    reader.readAsDataURL(input.files[0]);
-    if (input.files[1]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        $('#img-preview-d').attr('src', e.target.result).width(152).height(119);
-      };
-      reader.readAsDataURL(input.files[1]);
-
-      if (input.files[2]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-          $('#img-preview-f').attr('src', e.target.result).width(152).height(119);
-        };
-        reader.readAsDataURL(input.files[2]);
-      }
-    }
-  }
-}
 
 // Insert product stock keeping unit when create product
 $('*').on('click', '#insert-pro-sku-btn', function(){
