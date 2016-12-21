@@ -59,6 +59,7 @@ $("*").on("click", ".incr-btn", function(e) {
     }
   }
   $button.parent().find("input").val(newVal);
+  $button.parent().find("input").trigger('change');
   e.preventDefault();
 });
 
