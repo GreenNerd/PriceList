@@ -1,11 +1,55 @@
-<% if @product %>
-<%= simple_form_for @product do |f| %>
-  <%= f.input :name %>
-  <%= f.input :price %>
-  <%= f.check_box :active %>
-  <%= f.text_area :description %>
-  <%= f.association :stock_keeping_units %>
-  <%= f.association :category %>
-  <%= f.button :submit %>
-<% end %>
+<%= form_tag '/SitesAdmin/manage' do %>
+
+<div class="container">
+  <div class="row" style="padding-left:0">
+    <div class="col-lg-2 col-md-2">
+      <div class="checkbox" style="display:inline-block;">
+        <label><input type="checkbox" onclick="handleClick(this);">全选</label>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <div class="form-group" style="display:inline-block; width:10%; min-width:80px;">
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <%= submit_tag "上架", class: "btn btn-info btn-sm", name: "up" %>
+      <%= submit_tag "下架", class: "btn btn-info btn-sm", name: "down" %>
+      <%= submit_tag "删除", class: "btn btn-info btn-sm", name: "del" %>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <%= link_to "管理分类", categories_path, class: "btn btn-primary btn-sm" %>
+      <%= link_to "新建商品", new_product_path, class: "btn btn-success btn-sm" %>
+    </div>
+  </div>
+</div>
+
+<div class="admin-line"></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <table class="table table-hover admin-items">
+      <thead>
+        <tr>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+          <th>名称</th>
+          <th>单价</th>
+          <th>库存</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody id="sitesadmin-checkbox">
+        <% @onsales.each do |pro| %>
+          <%= render "sites_admin/pro_item", pro: pro %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="kaminari">
+  <%= paginate @products, :window => 2 %>
+</div>
+
 <% end %>
