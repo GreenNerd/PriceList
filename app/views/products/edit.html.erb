@@ -60,7 +60,11 @@
       <label for="pro-thumb" class="col-sm-2 control-label">商品缩略图</label>
       <div class="col-sm-10">
         <div class="well" id="upload-thumbs">
-          <%= f.hidden_field :thumb, value: ',' + @product.thumb.join(',') + ',', id: "pro-thumb-upload" %>
+          <% if @product.thumb? %>
+            <%= f.hidden_field :thumb, value: ',' + @product.thumb.join(',') + ',', id: "pro-thumb-upload" %>
+          <% else %>
+            <%= f.hidden_field :thumb, value: ',', id: "pro-thumb-upload" %>
+          <% end %>
           <% @product.thumb.each do |pic| %>
             <div style="display:inline-block;">
               <%= image_tag qiniu_image_url(pic, :sitesadmin), class: "img-rounded", height: 180, width: 180 %>
@@ -113,7 +117,11 @@
       <label for="pro-pics" class="col-sm-2 control-label">商品图片</label>
       <div class="col-sm-10">
         <div class="well" id="upload-pics">
-          <%= f.hidden_field :pictures, value: "#{@product.pictures}", id: "pro-pics-upload" %>
+          <% if @product.pictures? %>
+            <%= f.hidden_field :pictures, value: ',' + @product.pictures.join(',') + ',', id: "pro-pics-upload" %>
+          <% else %>
+            <%= f.hidden_field :pictures, value: ',', id: "pro-pics-upload" %>
+          <% end %>
           <% @product.pictures.each do |pic| %>
             <div style="display:inline-block;">
               <%= image_tag qiniu_image_url(pic, :sitesadmin), class: "img-rounded", height: 180, width: 180 %>
@@ -362,15 +370,15 @@ $('#stop_load_pics').on('click', function(){
 // Remove pictures while upload
 $("#upload-pics a.img-upload-del-pics").on('click', function(){
   val = $("#pro-pics-upload").val();
-  rmv = ',' + $(this).attr("name");
-  $("#pro-pics-upload").val(JSON.stringify(val));
+  rmv = $(this).attr("name") + ',';
+  $("#pro-pics-upload").val(val.replace(rmv, ''));
   $(this).parent("div").hide();
 });
 
 $("#upload-thumbs a.img-upload-del-pics").on('click', function(){
-  val = $.parseJSON($("#pro-thumb-upload").val());
-  val.pop($(this).attr("name"));
-  $("#pro-thumb-upload").val(JSON.stringify(val));
+  val = $("#pro-thumb-upload").val();
+  rmv = $(this).attr("name") + ',';
+  $("#pro-thumb-upload").val(val.replace(rmv, ''));
   $(this).parent("div").hide();
 });
 
