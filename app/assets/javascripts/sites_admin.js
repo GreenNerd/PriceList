@@ -1,3 +1,7 @@
+$('*').on('click', "#with_disn", function(e){
+  $('#dialog_disn').modal('toggle');
+  $('#dialog_disn').modal('show');
+});
 
 $('*').on('click', "#with_cgry", function(e){
   e.preventDefault();
