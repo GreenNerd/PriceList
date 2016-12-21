@@ -1,8 +1,8 @@
 class SitesAdminController < ApplicationController
   def index
     @products = Product.page(params[:page])
-    @onsales = Product.where("onsale = ?", true)
-    @dnsales = Product.where("onsale = ?", false)
+    @onsales = Product.where("onsale = ?", true).page(params[:page])
+    @dnsales = Product.where("onsale = ?", false).page(params[:page])
     logger.info @products.empty?
   end
 
