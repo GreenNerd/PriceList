@@ -38,6 +38,8 @@ class OrderItemsController < ApplicationController
     respond_to do |format|
       format.js
     end
+
+    redirect_to cart_url
   end
 
   def create
