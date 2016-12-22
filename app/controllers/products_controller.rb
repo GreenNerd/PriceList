@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
   def new
     set_uptoken
     @product = Product.new
+    1.times { @product.stock_keeping_units.build }
   end
 
   def create
