@@ -1,25 +1,25 @@
 <tr>
-  <td>
+  <td class="amt">
     <div class="checkbox">
       <label><%= check_box_tag "del_products[]", pro.id  %></label>
     </div>
   </td>
-  <td>
+  <td class="amt">
     <a href="#"><%= image_tag(qiniu_admin_pro_thumb(pro)) %></a>
   </td>
-  <td>
+  <td class="amt">
     <%= pro.name %>
   </td>
-  <td>
+  <td class="amt">
     <%= pro.price %>
   </td>
-  <td>
+  <td class="amt">
     <%= pro.count %>
   </td>
-  <td class="admin-edit">
+  <td class="admin-edit amt">
     <%= link_to "编辑商品", edit_product_path(pro), class: "btn btn-success btn-sm" %>
   </td>
-  <td class="admin-edit">
+  <td class="admin-edit amt">
     <%= link_to "删除商品", product_path(pro), class: "btn btn-danger btn-sm", method: "delete", remote: true %>
   </td>
 </tr>
