@@ -47,7 +47,7 @@ class GenPdf < Prawn::Document
         pname = @product.name
         cid = @product.category_id
         @category = Category.find_by(id: cid)
-        cname = @category.name
+        cname = @category.title
       end
       [pname, cname, item.unit_price, item.quantity, item.total_price]
     end
