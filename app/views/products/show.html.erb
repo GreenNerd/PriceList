@@ -1,6 +1,6 @@
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
-<%= carousel_for(qiniu_carousel(@product.pictures)) %>
+<%= carousel_for(qiniu_carousel(@product.thumb)) %>
 
 <div class="d-title">
   <p><%= @product.name %></p>
@@ -9,7 +9,7 @@
 <div class="d-pricing">
   <div class="col-xs-6">
     <div class="dl-title"><i class="fa fa-tag" aria-hidden="true"></i>库存</div>
-    <div class="dl-count"><%= @mount %></div>
+    <div class="dl-count"><%= @product.count %></div>
   </div>
   <div class="name col-xs-6">
     <div class="dl-title"><i class="fa fa-tag" aria-hidden="true"></i>价格</div>
