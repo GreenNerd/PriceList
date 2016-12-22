@@ -35,7 +35,7 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    render :action => :index
+    redirect_to categories_url
   end
 
   def show
