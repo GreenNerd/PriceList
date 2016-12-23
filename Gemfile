@@ -27,6 +27,7 @@ gem 'select2-rails'
 gem 'simple_form'
 gem 'awesome_nested_set'
 gem 'the_sortable_tree'
+gem 'mina'
 
 group :development, :test do
   gem 'byebug', platform: :mri
