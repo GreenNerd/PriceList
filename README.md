@@ -1,25 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+sudo apt-get install imagemagick postgresql postgresql-contrib libpq-dev nodejs
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+## database settings
+* sudo -u postgres createuser -s dbuser; sudo -u postgres psql; \password dbuser
+* vim  /etc/postgresql/9.5/main/pg_hba.conf
+    # local   all             all                                     peer
+    local   all             all                                     md5
 
 * ...
 
