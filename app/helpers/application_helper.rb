@@ -7,7 +7,7 @@ module ApplicationHelper
 
     case format
     when :index
-      url << '?imageMogr2/thumbnail/173x170!'
+      url << '?imageMogr2/thumbnail/173x170'
     when :cart
       url << '?imageMogr2/thumbnail/152x119!'
     when :sel

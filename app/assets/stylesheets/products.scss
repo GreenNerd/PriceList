@@ -17,6 +17,14 @@
   text-align: left;
   overflow: hidden;
 
+  .thumb {
+    height: 170px;
+    width: 173px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-clip: padding-box;
+  }
+
   .badges {
     position: absolute;
     top: -17px;
