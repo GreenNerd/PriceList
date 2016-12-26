@@ -24,7 +24,24 @@ zh-CN:
         delimiter: ","
         precision: 2
   activerecord:
+    attributes:
+      product:
+        name: "商品名称"
+        thumb: "商品缩略图"
+        description: "商品描述"
+        stock_keeping_units: "商品型号"
     errors:
+      models:
+        product:
+          attributes:
+            name:
+              blank: " 不能为空"
+            thumb:
+              blank: " 不能为空"
+            description:
+              blank: " 不能为空"
+            stock_keeping_units: 
+              blank: " 至少包含一条商品型号，默认为空"
       messages:
         record_invalid: "验证失败: %{errors}"
         restrict_dependent_destroy:

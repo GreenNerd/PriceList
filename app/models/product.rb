@@ -15,4 +15,5 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :thumb, presence: true
   validates :description, presence: true
+  validates :stock_keeping_units, presence: true
 end
