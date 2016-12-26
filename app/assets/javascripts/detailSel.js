@@ -1,34 +1,3 @@
-// Ajax send data
-$("*").on("click", "#addtocart2", function(e){
-  typ = $('input[type=radio]:checked').val()
-  qua = $("#count_text_box").val()
-
-  data = {"product_type": typ, "quantity": qua};
-  url = '/order_items';
-
-  $.ajax({
-    url: url,
-    data: data,
-    dataType: "json",
-    cache: false,
-    type: "post",
-    success: function(response){
-      if (response.success) {
-        alert("ajax success");
-      }else {
-        alert("ajax error");
-      }
-    },
-    error: function(response){
-      if (response.success) {
-        alert("data accepted!");
-        $('#dialog').modal('toggle');
-        }
-    }
-  });
-});
-
-
 // sumenu toggle
 $("*").on("click", ".sb-toggle-submenu", function(){
   // Stop submenu toggle
