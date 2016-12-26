@@ -1,5 +1,4 @@
 class OrderItemsController < ApplicationController
-  # before_action :set_order_item, only: [:create]
   protect_from_forgery except: :create
 
   def new
@@ -10,13 +9,13 @@ class OrderItemsController < ApplicationController
 
   def oiedit
     @order = current_order
-    if params[:Coid].present? && params[:Csel].present? && params["Cqua"].present?
+    if params[:Cqua].present? && params[:Coid].present?
       @order_item = @order.order_items.find_by(id: params[:Coid])
+      @order_item.update_attribute(:quantity, params[:Cqua])
       old_sid = @order_item.stock_keeping_unit_id
       pid = StockKeepingUnit.find_by(id: old_sid).product_id
       old_type = StockKeepingUnit.find_by(id: old_sid).product_type
-      @order_item.update_attribute(:quantity, params[:Cqua])
-      if old_type != params[:Csel]
+      if params[:Csel].present? && old_type != params[:Csel]
         StockKeepingUnit.where("product_id = ?", pid)
         new_sid = StockKeepingUnit.where("product_id = ? AND product_type = ?", pid, params[:Csel]).first.id
         @order_item.update_attribute(:stock_keeping_unit_id, new_sid)
@@ -35,11 +34,7 @@ class OrderItemsController < ApplicationController
         end
       end
     end
-    respond_to do |format|
-      format.js
-    end
 
-    redirect_to cart_url
   end
 
   def create

@@ -8,7 +8,7 @@ $('.shopping-cart').ready(function(){
   $positions.each(function(){
     $(this).change(function(){
       // update product type of order item
-      oid = $(this).find('.qnt-count select').attr('id');
+      oid = $(this).find('.qnt-count .type').attr('id');
       sel = $(this).find('.qnt-count select :selected').val();
       qua = $(this).find('.qnt-count :input').val();
 
@@ -19,7 +19,7 @@ $('.shopping-cart').ready(function(){
         $.ajax({
           url: url,
           data: data,
-          dataType: "json",
+          dataType: "script",
           cache: false,
           type: "post",
           success: function(response){

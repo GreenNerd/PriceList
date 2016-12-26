@@ -12,7 +12,11 @@ class OrderItem < ApplicationRecord
     if persisted?
       self[:unit_price]
     else
-      stock_keeping_unit.prices.to_f
+      if stock_keeping_unit.prices.to_f == 0
+        stock_keeping_unit.product.price.to_f
+      else
+        stock_keeping_unit.prices.to_f
+      end
     end
   end
 

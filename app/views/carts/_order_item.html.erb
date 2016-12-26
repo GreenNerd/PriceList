@@ -5,27 +5,27 @@
     <a href="#"><%= image_tag qiniu_cart_thumb(oi) %></a>
   </td>
   <td class="qnt-count">
-    <a href="/products/<%= get_product_id(oi) %>">
-          <%= get_product_name(oi) %>
-    </a>
+    <p class="pname"><%= get_product_name(oi) %></p>
     <p class="price"><%= number_to_currency oi.total_price %></p>
     <a class="incr-btn" href="#">-</a>
     <%= f.text_field :quantity, value: oi.quantity.to_i, class: "tb-form-control", id: "tb-form-control" %>
     <a class="incr-btn" href="#">+</a>
-    <div class="type">
-    <% dtype = get_type_by_oi(oi) %>
-    <% dtypes = get_types_by_oi(oi) %>
-    <div class="form-group">
-      <select class="form-control" id=<%= oi.id %> style="width: 35%;min-width:100px;display: inline-block;">
-        <%= dtypes.each do |dt| %>
-          <% if dt == dtype %>
-            <option selected><%= dt %></option>
-          <% else %>
-            <option><%= dt %></option>
-          <% end %>
-        <% end %>
-      </select>
-    </div>
+    <div class="type" id=<%= oi.id %> >
+      <% dtype = get_type_by_oi(oi) %>
+      <% dtypes = get_types_by_oi(oi) %>
+      <% if dtypes.count > 1 %>
+        <div class="form-group">
+          <select class="form-control" id=<%= oi.id %> style="width: 35%;min-width:100px;display: inline-block;">
+            <%= dtypes.each do |dt| %>
+              <% if dt == dtype %>
+                <option selected><%= dt %></option>
+              <% else %>
+                <option><%= dt %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </div>
+      <% end %>
     </div>
   </td>
   <td class="delete">

@@ -25,7 +25,6 @@ Rails.application.routes.draw do
   get 'SitesAdmin', to: 'sites_admin#index'
   post 'SitesAdmin/manage',  to: "sites_admin#manage"
 
-  # resources :products, only: [:index, :show]
   resources :products
   resource :cart, only: [:show, :genpdf]
   resources :order_items, only: [:create, :update, :destroy, :new, :oiedit], defaults: { format: 'js' } do
