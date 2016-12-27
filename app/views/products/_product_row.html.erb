@@ -1,7 +1,7 @@
 <div class="col-xs-6 col-md-3">
   <div class="product">
     <a href=<%= product_path(product.id) %> id="imagelink">
-      <div class="thumb" style="background-image: url(<%= qiniu_image_url(product.thumb[0].to_s, :index) %>)">
+      <div class="thumb" style="background-image: url(<%= qiniu_image_url(product.thumb[0].to_s, :raw) %>)">
       </div>
     </a>
     <div class="items">
