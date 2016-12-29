@@ -252,14 +252,16 @@ function showPreview(uploader, file, container) {
   var item = $('<div></div>').prependTo(container);
   $(item).attr('style', 'display:inline-block;');
   var image = new Image();
+  var filename = file.name;
+  var imgid = filename.replace(" ", "");
   $(image).attr('class', 'img-rounded');
   $(image).attr('height', '180');
   $(image).attr('width', '180');
-  $(image).attr('id', file.name);
+  $(image).attr('id', imgid);
   $(image).appendTo(item);
   // Add delete button
   var dbtn = $('<a><i class="fa fa-close" aria-hidden="true"></i></a>');
-  if ($("#" + file.name).length == 0) {
+  if ($("#" + imgid).length == 0) {
     $(dbtn).appendTo(item);
     $(dbtn).on('click', function(){
       uploader.removeFile(file);
