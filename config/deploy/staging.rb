@@ -9,7 +9,7 @@
 set :stage, :test
 set :branch, 'bootstrap'
 
-server "115.28.4.71", user: "puma", roles: %w{app db web}
+server "price.cunchuhulian.cn", user: "ubuntu", roles: %w{app db web}
 
 set :deploy_to, "home/#{fetch(:deploy_user)}/PriceList"
 

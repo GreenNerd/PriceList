@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:GreenNerd/PriceList.git"
 set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/wwwroot/PriceList"
+set :deploy_to, "/home/ubuntu/data/PriceList"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
