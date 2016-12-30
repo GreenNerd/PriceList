@@ -35,15 +35,19 @@ $("*").on("click", ".incr-btn", function(e) {
 
 // Add to cart from select page
 function beforeSubmit() {
-  if ($('input[type=radio]:checked').length == 0) {
-    $.alert({
-      icon: 'fa fa-warning',
-      title: '',
-      content: '请选择型号！',
-    });
-    return false;
+  if ($('input[type=radio]').length == 0) {
+    var sid = $('input#no-type-product').attr('value');
+  } else {
+    if ($('input[type=radio]:checked').length == 0) {
+      $.alert({
+        icon: 'fa fa-warning',
+        title: '',
+        content: '请选择型号！',
+      });
+      return false;
+    }
+    var sid = $('input[type=radio]:checked').attr('id');
   }
-  var sid = $('input[type=radio]:checked').attr('id');
   var qua = $("#count_text_box").val();
   $("#form-quantity").val(qua);
   $("#form-sku-id").val(sid);

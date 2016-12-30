@@ -83,7 +83,7 @@ $("*").on("click", "#addtocart1", function(e){
   $.ajax({
     url: url,
     data: data,
-    dataType: "json",
+    dataType: "script",
     cache: false,
     type: "post",
     success: function(response){

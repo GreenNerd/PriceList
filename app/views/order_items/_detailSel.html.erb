@@ -14,6 +14,7 @@
 </div>
 
 <!-- product type select -->
+<% if @skus.count > 1 %>
 <div class="container-fluid sel-type">
   <div class="title">
   <p class="mylabel label-secondary">
@@ -47,6 +48,9 @@
     });
   </script>
 </div>
+<% elsif @skus.count == 1 %>
+  <%= hidden_field_tag "no-type-product", value=@skus[0].id %>
+<% end %>
 
 
 <!-- product count -->
