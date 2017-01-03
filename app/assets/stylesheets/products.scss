@@ -586,3 +586,14 @@
     float: right;
   }
 }
+
+// carousel single image situation
+.carousel-single-img {
+  height: 300px;
+  width: 100%;
+  border: 1px solid #ddd;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-clip: padding-box;
+  background-size: contain;
+}

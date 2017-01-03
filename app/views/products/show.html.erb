@@ -1,6 +1,11 @@
 <div class="col-lg-1"></div>
 <div class="col-lg-10">
-<%= carousel_for(qiniu_carousel(@product.thumb)) %>
+<% if @product.thumb.count == 1 %>
+  <div class="carousel-single-img" style="background-image: url(<%= qiniu_image_url(@product.thumb.first, :carousel) %>) ">
+  </div>
+<% else %>
+  <%= carousel_for(qiniu_carousel(@product.thumb)) %>
+<% end %>
 
 <div class="d-title">
   <p><%= @product.name %></p>
