@@ -14,7 +14,7 @@
                 <%= scg.title %>
                 <span class="sb-caret"></span>
               </a>
-              <ul class="sb-submenu" style="display: none">
+              <ul class="sb-submenu second" style="display: none">
                 <% Product.where("category_id=#{scg.id}").each do |product| %>
                   <li><%= link_to "#{product.name}", product_path(product) %></li>
                 <% end %>

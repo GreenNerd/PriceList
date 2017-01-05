@@ -134,6 +134,30 @@ span.sb-caret { /* Caret Down */
 	border-bottom: 5px solid;
 }
 
+.sb-submenu .second {
+  background: #444359;
+  font-size: 14px;
+
+  li {
+    border-bottom: 1px solid #4b4a5e;
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #d9d9d9;
+    padding: 12px;
+    padding-left: 42px;
+    -webkit-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+  }
+
+  a:hover {
+    background: #b63b4d;
+    color: #FFF;
+  }
+}
 
 /* ----------------------
  * 005 - Slidebar Widgets
